@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name = "description" content="Create Quality, Interactive, Elegant web site for your business, or for yourself for the best price.">
+    <meta name="keywords" content="web design, web developing, make website, website for business, portfolio website, free website maker, freelancer web designer, web designer, best websites">
+    <meta name="author" content="Madusha Sandaruwan">
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MadushaS/2E7fq_1k7m/css/fontawesome.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MadushaS/2E7fq_1k7m/css/brands.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap" rel="stylesheet" />
@@ -71,26 +72,24 @@
   <body>
     <div class="navbar fixed top-0 left-0 right-0 bg-base-300 px-5 w-full z-50">
       <div class="navbar-start">
-        <a class="btn btn-ghost normal-case text-xl">madusha<span class="animate-bounce">_</span></a>
+        <span class="normal-case text-xl select-none"><span class="animate-bounce">_</span>madusha</span>
       </div>
       <div class="navbar-end">
-        <label class="swap swap-rotate mr-5">
+        <label id="swapper" class="swap swap-rotate mr-5 hidden">
           <label for="zz" class="hidden">.</label>
           <input id="zz" type="checkbox" class="hidden" />
           <a id="light" class="swap-on fill-current" data-set-theme="light" data-act-class="ACTIVECLASS">
             <svg class=" w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
-              <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+              <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
             </svg>
           </a>
           <a id="dark" class="swap-off fill-current" data-set-theme="dark" data-act-class="ACTIVECLASS">
             <svg class="w-10 h-10"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
-                <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
+              <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
               </svg>
           </a>
-          
         </label>
-
-        <a class="btn btn-primary">Hire Me</a>
+        <label for="my-modal-4" class="btn btn-primary modal-button">Hire Me</label>
       </div>
     </div>
 
@@ -112,7 +111,7 @@
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button class="btn glass shadow-xl ease-in duration-400 transition-all hover:scale-110">Hire Me</button>
+          <label for="my-modal-4" class="btn glass shadow-xl ease-in duration-400 transition-all hover:scale-110">Hire Me</label>
         </div>
       </div>
     </div>
@@ -268,6 +267,36 @@
       </div>
     </div>
 
+    
+<div class="bg-white dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
+  <div class="container mx-auto px-6 flex relative py-16">
+      <div class="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+          <span class="w-20 h-2 bg-gray-800 dark:bg-white mb-12">
+          </span>
+          <h1 class="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-gray-800">
+              Madusha
+              <span class="text-5xl sm:text-7xl">
+                  Sandaruwan
+              </span>
+          </h1>
+          <p class="text-sm sm:text-base text-gray-700 dark:text-white">
+            I am a student web developer and, software engineer at Insider Cloud Inc.,
+            currently living in Galle, Sri Lanka. My interests range from technology to coffee.
+            I am also interested in programming, web development, Coffee, LaTex, and movies.
+          </p>
+          <div class="flex mt-8">
+              <a href="https://www.buymeacoffee.com/madusha" class="uppercase py-2 px-4 rounded-lg bg-yellow-900 border-2 border-transparent text-white text-md mr-4 hover:bg-yellow-700">
+                  By me a coffee <i class="fa-solid fa-coffee-togo"></i>
+              </a>
+          </div>
+      </div>
+      <div class="hidden sm:block sm:w-1/3 lg:w-3/5 relative">
+          <img src="assets/img/profile.jpg" class="max-w-xs md:max-w-sm m-auto rounded-full opacity-40" alt="Developer"/>
+      </div>
+  </div>
+</div>
+
+
     <div class="flex items-center justify-center px-5 py-5">
       <div class="w-full mx-auto max-w-xl rounded-lg shadow-lg px-5 pt-5 pb-10" >
         <div class="w-full pt-1 text-center pb-5 -mt-16 mx-auto">
@@ -303,35 +332,48 @@
           <span class="font-normal capitalize text-4xl" >_madusha<span class="font-bold">Sandaruwan</span></span >
         </div>
         <div class="text-md grid-rows-1">
-          <div class="tooltip tooltip-bottom cursor-pointer" data-tip="Visit Developer" >
-            <a rel="author noopener" href="https:///about.me/madushasandaruwan" target="_blank" class="font-mono font-bold italic" >
-              https:///about.me/madushasandaruwan
+          <div class="tooltip tooltip-bottom cursor-pointer z-30" data-tip="Visit Developer" >
+            <a rel="author noopener" href="https://about.me/madushasandaruwan" target="_blank" class="font-mono font-bold italic" >
+              https://about.me/madushasandaruwan
               </a>
           </div>
         </div>
-        
+        <div class="text-md grid-rows-1">
+          <div class="tooltip tooltip-bottom cursor-pointer z-20" data-tip="Email Developer" >
+            <a rel="author noopener" href="mailto:madushakv@pm.me" target="_blank" class="font-mono font-bold italic" >
+              madushakv@pm.me
+              </a>
+          </div>
+        </div>
       </div>
       <div>
         <span class="text-inherit uppercase font-bold text-md">Social</span>
         <div class="grid grid-flow-col gap-4">
           <div class="tooltip tooltip-bottom cursor-pointer" data-tip="Visit me on LinkedIn" >
-            <a href="https://linkedin.com/in/madushasandaruwan/" target="_blank" rel="noopener author" aria-label="Visit me on LinkedIn" class="btn btn-circle hover:text-sky-400" >
-              <i class="fab fa-linkedin-in text-2xl"></i>
+            <a href="https://linkedin.com/in/madushasandaruwan/" target="_blank" rel="noopener author" aria-label="Visit me on LinkedIn" class="btn btn-circle hover:text-[#006192]" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <path class="fill-current" fill-rule="evenodd" d="M9.429 8.969h3.714v1.85c.535-1.064 1.907-2.02 3.968-2.02c3.951 0 4.889 2.118 4.889 6.004V22h-4v-6.312c0-2.213-.535-3.461-1.897-3.461c-1.889 0-2.674 1.345-2.674 3.46V22h-4V8.969ZM2.57 21.83h4V8.799h-4V21.83ZM7.143 4.55a2.53 2.53 0 0 1-.753 1.802a2.573 2.573 0 0 1-1.82.748a2.59 2.59 0 0 1-1.818-.747A2.548 2.548 0 0 1 2 4.55c0-.677.27-1.325.753-1.803A2.583 2.583 0 0 1 4.571 2c.682 0 1.336.269 1.819.747c.482.478.753 1.126.753 1.803Z" clip-rule="evenodd"/>
+              </svg>
             </a>
           </div>
           <div class="tooltip tooltip-bottom cursor-pointer" data-tip="Visit me on GitHub" >
-            <a href="https://github.com/MadushaS" target="_blank" rel="noopener author" aria-label="Visit me on LinkedIn" class="btn btn-circle hover:text-black" >
-              <i class="fab fa-github text-2xl"></i>
+            <a href="https://github.com/MadushaS" target="_blank" rel="noopener author" aria-label="Visit me on Github" class="btn btn-circle hover:text-black" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <path class="fill-current" fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z" clip-rule="evenodd"/>
+              </svg>
             </a>
           </div>
           <div class="tooltip tooltip-bottom cursor-pointer" data-tip="Visit me on Twitter" >
-            <a href="https://twitter.com/_MadushaS" target="_blank" rel="noopener author" aria-label="Visit me on LinkedIn" class="btn btn-circle hover:text-sky-400">
-              <i class="fab fa-twitter text-2xl"></i>
+            <a href="https://twitter.com/_MadushaS" target="_blank" rel="noopener author" aria-label="Visit me on Twitter" class="btn btn-circle hover:text-[#1DA1F2]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                <path class="fill-current" d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578a9.3 9.3 0 0 1-2.958 1.13a4.66 4.66 0 0 0-7.938 4.25a13.229 13.229 0 0 1-9.602-4.868c-.4.69-.63 1.49-.63 2.342A4.66 4.66 0 0 0 3.96 9.824a4.647 4.647 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568a4.692 4.692 0 0 1-2.104.08a4.661 4.661 0 0 0 4.352 3.234a9.348 9.348 0 0 1-5.786 1.995a9.5 9.5 0 0 1-1.112-.065a13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254c0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41l.002-.003Z"/>
+              </svg>
             </a>
           </div>
           <div class="tooltip tooltip-bottom cursor-pointer" data-tip="Visit me on Facebook" >
-            <a href="https://facebook.com/kv.madusha/" target="_blank" rel="noopener author" aria-label="Visit me on LinkedIn" class="btn btn-circle hover:text-sky-600" >
-              <i class="fab fa-facebook-f text-2xl"></i>
+            <a href="https://facebook.com/kv.madusha/" target="_blank" rel="noopener author" aria-label="Visit me on Facebook" class="btn btn-circle hover:text-[#4267B2]" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" class="fill-current">
+                <path d="M9.5 3H12V0H9.5C7.57 0 6 1.57 6 3.5V5H4v3h2v8h3V8h2.5l.5-3H9V3.5c0-.271.229-.5.5-.5z"/></svg>  
             </a>
           </div>
         </div>
@@ -340,9 +382,80 @@
         </div>
       </div>
     </footer>
+    
+    <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+    <label for="my-modal-4" class="modal cursor-pointer">
+      <label class="modal-box relative" for="">
+        <section class=" bg-opacity-50">
+          <form class="container max-w-2xl mx-auto shadow-md md:w-3/4">
+              <div class="p-4 border-indigo-400 rounded-lg bg-opacity-5">
+                  <div class="max-w-sm mx-auto md:w-full md:mx-0">
+                      <div class="inline-flex items-center space-x-4">
+                          <h1 class="text-3xl">
+                              Inquire
+                          </h1>
+                      </div>
+                  </div>
+              </div>
+              <div class="space-y-6">
+                  <div class="items-center w-full p-4 space-y-4 md:inline-flex md:space-y-0">
+                      <h2 class="max-w-sm mx-auto md:w-1/3">
+                          Account
+                      </h2>
+                      <div class="max-w-sm mx-auto md:w-2/3">
+                          <div class=" relative ">
+                              <input type="text" id="user-info-email" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Email"/>
+                              </div>
+                          </div>
+                      </div>
+                      <hr/>
+                      <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
+                          <h2 class="max-w-sm mx-auto md:w-1/3">
+                              Personal info
+                          </h2>
+                          <div class="max-w-sm mx-auto space-y-5 md:w-2/3">
+                              <div>
+                                  <div class=" relative ">
+                                      <input type="text" id="user-info-name" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Name"/>
+                                      </div>
+                                  </div>
+                                  <div>
+                                      <div class=" relative ">
+                                          <input type="text" id="user-info-phone" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Phone number"/>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <hr/>
+                              <div class="items-center w-full p-8 space-y-4 md:inline-flex md:space-y-0">
+                                  <h2 class="max-w-sm mx-auto md:w-4/12">
+                                      Change password
+                                  </h2>
+                                  <div class="w-full max-w-sm pl-2 mx-auto space-y-5 md:w-5/12 md:pl-9 md:inline-flex">
+                                      <div class=" relative ">
+                                          <input type="text" id="user-info-password" class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Password"/>
+                                          </div>
+                                      </div>
+                                      <div class="text-center md:w-3/12 md:pl-6">
+                                          <button type="button" class="py-2 px-4  bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                              Change
+                                          </button>
+                                      </div>
+                                  </div>
+                                  <hr/>
+                                  <div class="w-full px-4 pb-4 ml-auto md:w-1/3">
+                                      <button type="submit" class="py-2 px-4  bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                          Save
+                                      </button>
+                                  </div>
+                              </div>
+                          </form>
+                      </section>
+      </label>
+    </label>
     <script>
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>-->
     <script src="assets/js/app.js" defer></script>
   </body>
 </html>

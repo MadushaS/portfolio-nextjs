@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .bg-img {
-  background-image: url(../img/bg-hero2.jpg);
+  background-image: url(../img/bg-hero2.min.jpg);
 }
 .cursor::after {
     display: block;

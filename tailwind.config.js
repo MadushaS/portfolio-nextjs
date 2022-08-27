@@ -36,8 +36,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui"), require("@tailwindcss/forms")],
+  plugins: [require("daisyui"), require("@tailwindcss/forms"),require("cssnano")],
   daisyui: {
-    themes: ["light", "dark", "aqua", "dracula", "winter", "coffee"],
+    themes: ["light", "dark"],
   },
 };
