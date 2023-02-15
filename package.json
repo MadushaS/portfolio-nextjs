@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tailwind build -i src/style.css -o root/assets/css/main.css",
+    "build": "tailwind build -i src/style.css -o root/assets/css/main.css  --minify",
     "minify": "tailwind -o root/assets/css/main.css --minify",
     "watch": "tailwind build -i src/style.css -o root/assets/css/main.css --watch"
   },
@@ -20,13 +20,14 @@
   },
   "homepage": "https://MadushaS.github.io",
   "dependencies": {
-    "daisyui": "^2.24.0",
-    "tailwindcss": "^3.1.8"
+    "daisyui": "^2.24.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.2",
+    "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.13",
-    "postcss": "^8.4.16",
-    "postcss-cli": "^10.0.0"
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.2.6"
   }
 }
