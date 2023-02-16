@@ -1,32 +1,23 @@
 {
-  "name": "madushas.github.io",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@example/portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "build": "tailwind build -i src/style.css -o root/assets/css/main.css",
-    "minify": "tailwind -o root/assets/css/main.css --minify",
-    "watch": "tailwind build -i src/style.css -o root/assets/css/main.css --watch"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MadushaS/MadushaS.github.io.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MadushaS/MadushaS.github.io/issues"
-  },
-  "homepage": "https://MadushaS.github.io",
   "dependencies": {
-    "daisyui": "^2.24.0",
-    "tailwindcss": "^3.1.8"
+    "@astrojs/tailwind": "^3.0.1",
+    "astro": "^2.0.12",
+    "astro-seo": "^0.7.0"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.2",
-    "cssnano": "^5.1.13",
-    "postcss": "^8.4.16",
-    "postcss-cli": "^10.0.0"
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.6"
   }
 }
