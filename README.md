@@ -1,30 +1,29 @@
-# Astro Starter Kit: Portfolio
+# Portfolio
 
-```
-npm create astro@latest -- --template portfolio
-```
+This is a portfolio of my work. It is a work in progress.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/portfolio)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/portfolio)
+## Table of Contents
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Table of Contents](#table-of-contents)
+- [About](#about)
+- [Projects](#projects)
+  - [MyPlods Airline Reservation System](#myplods-airline-reservation-system)
+  - [MedusaNote](#medusanote)
+  - [Portfolio](#portfolio)
+- [Contact](#contact)
 
-![portfolio](https://user-images.githubusercontent.com/357379/210779178-a98f0fb7-6b1a-4068-894c-8e1403e26654.jpg)
+## About
 
+I am a software engineer with a passion for learning and creating. I am also an undergraduate at the [University of Kelaniya](https://www.kln.ac.lk/).
 
-## 🧞 Commands
+## Projects
 
-All commands are run from the root of the project, from a terminal:
+- [MyPlods Airline Reservation System](https://madushas.github.io/work/myplods)
+- [MedusaNote](https://madushas.github.io/work/medusanote)
+- [Portfolio](https://madushas.github.io/)
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+## Contact
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- [GitHub]()
+- [LinkedIn](https://www.linkedin.com/in/madushasandaruwan/)
+- [Twitter](https://twitter.com/_madushas)
