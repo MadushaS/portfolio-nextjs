@@ -4,7 +4,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import { format } from 'date-fns';
 import { PortableText, PortableTextReactComponents } from "next-sanity";
 
-
+export const runtime = 'edge';
 
 async function getPostFromSanity(slug: string) {
     const query = `*[_type == "post"]{ _id, title, publishedAt, author->{name}, slug, categories, mainImage, body }`;

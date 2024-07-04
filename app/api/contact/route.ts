@@ -7,6 +7,8 @@ const mailjet = new Client({
   apiSecret: process.env.NEXT_EMAIL_PASS,
 });
 
+export const runtime = 'edge';
+
 export async function POST(req: Request) {
   const request = await req.json();
   console.log(request);

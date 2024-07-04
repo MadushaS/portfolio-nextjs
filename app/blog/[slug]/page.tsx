@@ -1,6 +1,8 @@
 import NavBar from "@/components/Navbar";
 import BlogContent from "./BlogContent";
 
+export const runtime = 'edge';
+
 function BlogPage({ params }: { params: { slug: string } }) {
   return (
     <div className="container mx-auto px-4">
