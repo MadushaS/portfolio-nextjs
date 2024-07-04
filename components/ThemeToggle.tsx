@@ -5,8 +5,9 @@ import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "./ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import { cn } from "@/lib/utils"
 
-export function ThemeToggle() {
+export function ThemeToggle({ className, ...props }: React.ComponentProps<"div">) {
   const { theme, setTheme } = useTheme()
   const [isDarkMode, setIsDarkMode] = React.useState(false)
   const [mounted, setMounted] = React.useState(false)
@@ -28,8 +29,8 @@ export function ThemeToggle() {
   }
 
   return (
-    <div className="flex items-center space-x-2 rounded-full border border-slate-700 dark:border-slate-200 shadow-md ">
-      <Button variant="secondary" className="rounded-full p-2 hover:bg-slate-200 dark:hover:bg-slate-600 duration-200" onClick={toggleTheme}>
+    <div {...props} className={cn("flex items-center space-x-2 rounded-full border border-slate-700 dark:border-slate-200 shadow-md ", className)}>
+      <Button variant="secondary" className="rounded-full p-2 hover:bg-slate-300 dark:hover:bg-slate-600 duration-200" onClick={toggleTheme}>
         <AnimatePresence mode="wait" initial={false}>
           {isDarkMode ? (
             <motion.div

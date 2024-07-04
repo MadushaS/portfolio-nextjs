@@ -36,10 +36,10 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
     const { scrollY } = useScroll()
     const y1 = useTransform(scrollY, [0, 300], [0, 100])
     const y2 = useTransform(scrollY, [0, 300], [0, -60])
-    const y3 = useTransform(scrollY, [0, 300], [0, -200])
+    const y3 = useTransform(scrollY, [0, 300], [0, -300])
 
     return (
-        <section className="flex relative -top-24 h-[100vh] items-center justify-center px-4 text-3xl md:text-4xl lg:text-7xl z-10" {...props}>
+        <section className="flex mt-0 lg:-mt-24 relative h-[100vh] items-center justify-center px-4 text-3xl md:text-4xl lg:text-7xl z-10" {...props}>
             <motion.div
                 style={{ y: y1 }}
                 className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between"
@@ -75,7 +75,7 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
                     </div>
                 </div>
                 <motion.div style={{ y: y3 }}>
-                    <Image src= {HeroImage} width={400} height={400} alt="Madusha Sandaruwan" className="mt-4 md:mt-0 max-w-72 max-h-72 md:max-w-96 md:max-h-96 lg:max-w-[512px] lg:max-h-[512px] aspect-square" />
+                    <Image src= {HeroImage} width={400} height={400} alt="Madusha Sandaruwan" className="mt-16 md:mt-0 max-w-72 max-h-72 md:max-w-96 md:max-h-96 lg:max-w-[512px] lg:max-h-[512px] aspect-square" />
                 </motion.div>
             </motion.div>
             <motion.div style={{ y: y3 }} className="absolute animate-bounce bottom-8">

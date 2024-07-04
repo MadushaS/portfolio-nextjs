@@ -54,14 +54,15 @@ export default function NavBar() {
   }, []);
 
   return (
-    <div className="border border-slate-300 dark:border-slate-700 p-2 rounded-none md:rounded-full mb-8 sticky top-0 md:top-1 z-[100] bg-slate-200 dark:bg-slate-800 backdrop-blur-md w-full md:w-fit mx-auto">
-      <nav className="flex gap-2 relative justify-start z-[100] w-fit rounded-lg">
+    <div className="border flex border-slate-300 dark:border-slate-700 p-2 rounded-none md:rounded-full mb-8 sticky top-0 md:top-1 z-[100] bg-slate-200 dark:bg-slate-800 backdrop-blur-md w-full md:w-fit mx-auto max-w-full">
+      <nav className="flex justify-between md:justify-center gap-2 relative z-[100] w-full md:w-fit rounded-lg">
+        <h3 className="md:hidden block px-4 py-2 rounded-full text-xl text-slate-700 dark:text-slate-400 font-bold not-sr-only">mα∂υsнα.dev</h3>
         {navItems.map((item) => {
           const isActive = item.path === activePath;
           return (
             <Link
               key={item.path}
-              className={`px-4 py-2 rounded-full text-sm lg:text-base relative no-underline duration-300 ease-in ${isActive ? "text-slate-300 dark:text-slate-800 font-bold" : "text-slate-700 dark:text-slate-400 hover:text-slate-100 dark:hover:text-slate-200"
+              className={`hidden md:block px-4 py-2 rounded-full text-sm lg:text-base relative no-underline duration-300 ease-in ${isActive ? "text-slate-300 dark:text-slate-800 font-bold" : "text-slate-700 dark:text-slate-400 hover:text-slate-100 dark:hover:text-slate-200"
                 }`}
               href={item.path}
               onClick={scrollToView}
@@ -91,7 +92,7 @@ export default function NavBar() {
             </Link>
           );
         })}
-        <ThemeToggle />
+        <ThemeToggle className="flex-end justify-end justify-items-end" />
       </nav>
     </div>
   );

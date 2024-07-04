@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  --cursor-color-inner: #050c6e;
-  --cursor-color-outer: #ddd;
-}
-
-html.dark-mode {
-  --cursor-color-inner: #4750d1;
-  --cursor-color-outer: #333;
-}
-
 @layer base {
-  *,
-  *::before,
-  *::after,
-  *:focus,
-  *:hover {
-    @apply cursor-none;
-  }
+
 }

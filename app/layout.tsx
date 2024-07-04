@@ -22,7 +22,7 @@ const chivo = Chivo({
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <FollowerPointerBody title="Madusha" className={ibm_plex_sans.className + ' ' + chivo.variable + ' w-full bg-slate-100 dark:bg-slate-900 transition-colors overflow-x-hidden'} >
+      <FollowerPointerBody title="Madusha" className={ibm_plex_sans.className + ' ' + chivo.variable + ' cursor-none lg:cursor-auto w-full bg-slate-100 dark:bg-slate-900 transition-colors overflow-x-hidden'} >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
