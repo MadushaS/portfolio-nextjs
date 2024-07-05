@@ -1,23 +1,12 @@
 // ProjectCard.js
 
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import Button from '../ui/button';
 import { BadgeCheckIcon, CalendarIcon, CodeIcon, GithubIcon, RocketIcon } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
-
-export type ProjectType = {
-    title: string;
-    description: string;
-    license: string;
-    image: string | StaticImageData;
-    year: string;
-    technologies: string[];
-    tags: string[];
-    githubRepo?: string;
-    demoLink?: string;
-};
+import { ProjectType } from '@/data/projects';
 
 const ProjectCard = ({ project }: { project: ProjectType }) => {
 
