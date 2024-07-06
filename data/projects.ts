@@ -35,7 +35,7 @@ const ProjectsList: ProjectType[] = [
         "description": "This is is a REST API built using FastAPI, used to summarize the given audio clip. This uses Azure  The model is trained using the Samsum dataset and MeetingBank-transcript dataset, developed for the 2nd year project for the BSc Hons Computer Science degree at the University of Kelaniya.",
         "image": CognizerImage,
         "year": "2023",
-        "technologies": ["FastAPI", "Python", "T5-base", "Azure Text-to-Speech", "Docker"],
+        "technologies": ["FastAPI", "Python", "T5-base Transformer", "Azure Text-to-Speech", "Docker"],
         "tags": ["Speech to Text", "NLP", "AI", "REST API"],
         "githubRepo": "https://github.com/InsiderCloud/Cogniezer-Backend",
         "demoLink": "#",
