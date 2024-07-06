@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import GHAS from '@/public/images/ghas.png'
+import GHAS from '@/public/images/certifications/ghas.png'
 
 const certs = [
     { image: GHAS, alt: "GHAS", link: "https://www.credly.com/badges/c0a6736d-3b56-4b17-be20-ca2c2bf10927/public_url" }
