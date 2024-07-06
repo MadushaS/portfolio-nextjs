@@ -39,7 +39,7 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
     const y3 = useTransform(scrollY, [0, 300], [0, -300])
 
     return (
-        <section className="flex mt-0 lg:-mt-24 relative h-[100vh] items-center justify-center px-4 text-3xl md:text-4xl lg:text-7xl z-10" {...props}>
+        <section className="flex mt-0 md:-mt-16 lg:-mt-24 xl:-mt-16 relative h-[100vh] items-center justify-center px-4 text-3xl md:text-4xl lg:text-7xl z-10" {...props}>
             <motion.div
                 style={{ y: y1 }}
                 className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between"
@@ -50,7 +50,7 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}>
                         <span className="text-base md:text-lg">Hi, I&apos;m</span>
-                        <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight text-primary dark:text-secondary" >
+                        <h1 className="text-5xl md:text-5xl lg:text-7xl 2xl:text-9xl font-bold tracking-tight text-primary dark:text-secondary" >
                             Madusha Sandaruwan
                         </h1>
                     </motion.div>

@@ -10,7 +10,7 @@ export const AuroraBackground = ({ className, showRadialGradient = true, ...prop
   return (
     <motion.div
       className={cn(
-        "relative flex flex-col h-[100vh] items-center justify-center text-slate-950 transition-colors duration-500",
+        "relative flex flex-col h-[100vh] items-center justify-center text-slate-950",
         className
       )}
       {...props}
@@ -19,11 +19,11 @@ export const AuroraBackground = ({ className, showRadialGradient = true, ...prop
       transition={{ duration: 0.8 }}
     >
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div
+        <div
           className={cn(
             `
-            [--white-gradient:repeating-linear-gradient(100deg,var(--slate-100)_0%,var(--slate-100)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--slate-100)_16%)]
-            [--dark-gradient:repeating-linear-gradient(100deg,var(--slate-900)_0%,var(--slate-900)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--slate-900)_16%)]
+            [--white-gradient:repeating-linear-gradient(100deg,var(--slate-200)_0%,var(--slate-200)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--slate-200)_16%)]
+            [--dark-gradient:repeating-linear-gradient(100deg,var(--slate-800)_0%,var(--slate-800)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--slate-800)_16%)]
             [--aurora:repeating-linear-gradient(100deg,var(--slate-500)_10%,var(--slate-600)_15%,var(--slate-400)_20%,var(--slate-300)_25%,var(--slate-700)_30%)]
             [background-image:var(--white-gradient),var(--aurora)]
             dark:[background-image:var(--dark-gradient),var(--aurora)]
@@ -33,22 +33,13 @@ export const AuroraBackground = ({ className, showRadialGradient = true, ...prop
             after:content-[""] after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] 
             after:dark:[background-image:var(--dark-gradient),var(--aurora)]
             after:[background-size:200%,_100%] 
-            after:animate-aurora after:[background-attachment:fixed] after:mix-blend-difference
             pointer-events-none
-            absolute -inset-[10px] opacity-50 will-change-transform`,
+            absolute -inset-[10px] opacity-50`,
 
             showRadialGradient &&
             `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`
           )}
-          initial={{ backgroundPosition: "50% 50%" }}
-          animate={{ backgroundPosition: "0% 0%" }}
-          transition={{
-            duration: 10,
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        ></motion.div>
+        ></div>
       </div>
     </motion.div>
   );

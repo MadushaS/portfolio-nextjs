@@ -11,6 +11,7 @@ import { AuroraBackground } from "../ui/Aurora"
 import NavBar from "../Navbar"
 import ContactForm from "./ConatctMe"
 import React from "react"
+import Events from "./Events"
 
 export default function HomePage() {
   return (
@@ -23,6 +24,7 @@ export default function HomePage() {
       <About id="about" />
       <Projects id="projects" />
       {0 && <TopArticles id="toparticles" />}
+      <Events id="events" />
       <ContactForm id="contact" />
       <Footer id="footer" />
     </>

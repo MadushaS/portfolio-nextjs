@@ -44,6 +44,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.4)
+      bear-react-carousel:
+        specifier: ^5.0.1
+        version: 5.0.1(clsx@2.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -123,6 +126,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      '@types/react-slick':
+        specifier: ^0.23.13
+        version: 0.23.13
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -2153,6 +2159,9 @@ packages:
   '@types/react-is@18.3.0':
     resolution: {integrity: sha512-KZJpHUkAdzyKj/kUHJDc6N7KyidftICufJfOFpiG6haL/BDQNQt5i4n1XDUL/nDZAtGLHDSWRYpLzKTAKSvX6w==}
 
+  '@types/react-slick@0.23.13':
+    resolution: {integrity: sha512-bNZfDhe/L8t5OQzIyhrRhBr/61pfBcWaYJoq6UDqFtv5LMwfg4NsVDD2J8N01JqdAdxLjOt66OZEp6PX+dGs/A==}
+
   '@types/react@18.3.3':
     resolution: {integrity: sha512-hti/R0pS0q1/xx+TsI73XIqk26eBsISZ2R0wUijXIngRK9R/e7Xw/cXVxQK7R5JjW+SV4zGcn5hXjudkN/pLIw==}
 
@@ -2416,6 +2425,14 @@ packages:
 
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+
+  bear-react-carousel@5.0.1:
+    resolution: {integrity: sha512-kRua4czJnvKN9enpFLZdeBTawz/gRw3NXdvYkzaImOevw9RVvPyUn1lda6LjLRzGKB08x2ML73lZLxoqEhA2fg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      clsx: 2.x
+      react: 18.x
+      react-dom: 18.x
 
   bidi-js@1.0.3:
     resolution: {integrity: sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==}
@@ -7938,6 +7955,10 @@ snapshots:
     dependencies:
       '@types/react': 18.3.3
 
+  '@types/react-slick@0.23.13':
+    dependencies:
+      '@types/react': 18.3.3
+
   '@types/react@18.3.3':
     dependencies:
       '@types/prop-types': 15.7.12
@@ -8259,6 +8280,12 @@ snapshots:
     optional: true
 
   base64-js@1.5.1: {}
+
+  bear-react-carousel@5.0.1(clsx@2.1.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   bidi-js@1.0.3:
     dependencies:
