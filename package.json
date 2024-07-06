@@ -21,7 +21,6 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.49.0",
     "@tailwindcss/typography": "^0.5.13",
-    "bear-react-carousel": "^5.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
