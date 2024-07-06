@@ -49,7 +49,7 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}>
-                        <span className="text-base md:text-lg">Hi, I&apos;m</span>
+                        <p className="text-lg md:text-xl font-semibold ">👋 Hi, I&apos;m</p>
                         <h1 className="text-5xl md:text-5xl lg:text-7xl 2xl:text-9xl font-bold tracking-tight text-primary dark:text-secondary" >
                             Madusha Sandaruwan
                         </h1>
@@ -75,7 +75,7 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
                     </div>
                 </div>
                 <motion.div style={{ y: y3 }}>
-                    <Image src= {HeroImage} width={400} height={400} alt="Madusha Sandaruwan" className="mt-16 md:mt-0 max-w-72 max-h-72 md:max-w-96 md:max-h-96 lg:max-w-[512px] lg:max-h-[512px] aspect-square" />
+                    <Image src={HeroImage} width={400} height={400} alt="Madusha Sandaruwan" className="mt-16 md:mt-0 max-w-72 max-h-72 md:max-w-96 md:max-h-96 lg:max-w-[512px] lg:max-h-[512px] aspect-square" />
                 </motion.div>
             </motion.div>
             <motion.div style={{ y: y3 }} className="absolute animate-bounce bottom-8">
