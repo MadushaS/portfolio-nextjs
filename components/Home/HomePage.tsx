@@ -15,7 +15,7 @@ import React from "react"
 export default function HomePage() {
   return (
     <>
-      <AuroraBackground className="hidden lg:block absolute inset-0 overflow-hidden" />
+      <AuroraBackground className="absolute inset-0 overflow-hidden" />
       <NavBar />
       <Hero id="home" />
       <Services id="services" />
