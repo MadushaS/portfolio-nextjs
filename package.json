@@ -26,7 +26,7 @@
     "date-fns": "^3.6.0",
     "framer-motion": "^11.2.13",
     "locomotive-scroll": "5.0.0-beta.13",
-    "lucide-react": "^0.400.0",
+    "lucide-react": "^0.402.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.4",
     "next-sanity": "^9.4.2",
