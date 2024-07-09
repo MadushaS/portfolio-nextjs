@@ -52,6 +52,11 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
@@ -63,6 +68,7 @@ export default defineType({
       title: 'title',
       author: 'author.name',
       media: 'mainImage',
+      description: 'description',
     },
     prepare(selection) {
       const {author} = selection
