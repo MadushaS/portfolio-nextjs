@@ -47,7 +47,7 @@ export default function Services(props: React.HTMLProps<HTMLDivElement>) {
     return (
         <section className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8" {...props}>
             <div
-                className="w-full bg-slate-200 dark:bg-slate-800 rounded-2xl px-6 py-16 sm:p-16"
+                className="w-full bg-slate-200 dark:bg-slate-900 rounded-2xl px-6 py-16 sm:p-16"
             >
                 <div className="mx-auto">
                     <div className="text-center">

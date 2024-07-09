@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "../ui/alert-dialog";
 import Button from "../ui/button";
+import { Input } from "../ui/input";
 
 async function sendEmail(data: any) {
     //sample email sending function fake
@@ -61,7 +62,7 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
     return (
         <section className=" py-12" {...props}>
             <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5 rounded-lg shadow-lg overflow-hidden">
-                <div className="bg-slate-200 dark:bg-slate-700 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
+                <div className="bg-slate-200 dark:bg-slate-800 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
                     <div className="max-w-lg mx-auto">
                         <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl">Get in touch</h2>
                         <p className="mt-3 text-lg leading-6 text-slate-500 dark:text-slate-300">
@@ -69,14 +70,14 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                         </p>
                     </div>
                 </div>
-                <div className="bg-slate-100 dark:bg-slate-800 py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
+                <div className="bg-slate-100 dark:bg-slate-900 py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
                     <div className="max-w-lg mx-auto lg:max-w-none">
                         <form method="POST" className="grid grid-cols-1 gap-y-6" onSubmit={handleSubmit(onSubmit)}>
                             <div>
                                 <label htmlFor="name" className="sr-only">
                                     Full name
                                 </label>
-                                <input
+                                <Input
                                     {...register("name", { required: true })}
                                     type="text"
                                     name="name"
@@ -86,14 +87,14 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                                     placeholder="Your name"
                                 />
                                 {
-                                    errors["name"] && <p className="text-red-500">Full name is required</p>
+                                    errors["name"] && <p className="text-red-500 p-2 text-sm">Full name is required</p>
                                 }
                             </div>
                             <div>
                                 <label htmlFor="email" className="sr-only">
                                     Email
                                 </label>
-                                <input
+                                <Input
                                     {...register('email', {
                                         required: true,
                                         pattern: {
@@ -110,14 +111,14 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                                     placeholder="Email"
                                 />
                                 {
-                                    errors["email"] && <p className="text-red-500">Email is required</p>
+                                    errors["email"] && <p className="text-red-500 p-2 text-sm">Email is required</p>
                                 }
                             </div>
                             <div>
                                 <label htmlFor="phone" className="sr-only">
                                     Phone
                                 </label>
-                                <input
+                                <Input
                                     {...register("phone", { required: true })}
                                     type="text"
                                     name="phone"
@@ -127,7 +128,7 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                                     placeholder="Phone"
                                 />
                                 {
-                                    errors["phone"] && <p className="text-red-500">Phone is required</p>
+                                    errors["phone"] && <p className="text-red-500 p-2 text-sm">Phone is required</p>
                                 }
                             </div>
                             <div>
@@ -144,7 +145,7 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                                     defaultValue={''}
                                 />
                                 {
-                                    errors["message"] && <p className="text-red-500">Message is required</p>
+                                    errors["message"] && <p className="text-red-500 p-2 text-sm">Message is required</p>
                                 }
                             </div>
                             <div>

@@ -9,7 +9,6 @@
     "build": "next build"
   },
   "dependencies": {
-    "@phosphor-icons/react": "github:phosphor-icons/react",
     "@portabletext/react": "^3.1.0",
     "@preline/theme-switch": "^2.3.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -30,6 +29,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.4",
     "next-sanity": "^9.4.2",
+    "next-sanity-image": "^6.1.1",
     "next-themes": "^0.3.0",
     "node-mailjet": "^6.0.5",
     "nodemailer": "^6.9.14",

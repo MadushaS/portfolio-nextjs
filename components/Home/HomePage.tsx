@@ -17,7 +17,6 @@ export default function HomePage() {
   return (
     <>
       <AuroraBackground className="absolute inset-0 overflow-hidden" />
-      <NavBar />
       <Hero id="home" />
       <Services id="services" />
       <TechStack id="techstack" />
@@ -26,7 +25,6 @@ export default function HomePage() {
       {0 && <TopArticles id="toparticles" />}
       <Events id="events" />
       <ContactForm id="contact" />
-      <Footer id="footer" />
     </>
   )
 }

@@ -12,7 +12,7 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
 
     return (
 
-        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden bg-slate-100 dark:bg-slate-700">
+        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden bg-slate-100 dark:bg-slate-800">
             <CardHeader className="p-4 relative object-contain">
                 <Image
                     src={project.image}
@@ -36,20 +36,20 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
                 </p>
             </CardHeader>
             <CardContent className="p-4 space-y-4 flex flex-col flex-grow border-slate-200 dark:border-slate-700">
-                <div className="flex items-center text-sm text-slate-500 dark:text-slate-400 space-x-2">
+                <div className="flex items-center text-sm text-slate-500 dark:text-slate-300 space-x-2">
                     <CalendarIcon className="h-5 w-5" />
                     <span><strong>Date:</strong> {project.year}</span>
                 </div>
-                <div className="flex items-center text-sm text-slate-500 dark:text-slate-400 space-x-2">
+                <div className="flex items-center text-sm text-slate-500 dark:text-slate-300 space-x-2">
                     <BadgeCheckIcon className="h-5 w-5" />
                     <span><strong>License:</strong> {project.license}</span>
                 </div>
-                <div className="flex items-center text-sm text-slate-500 dark:text-slate-400 space-x-2">
+                <div className="flex items-center text-sm text-slate-500 dark:text-slate-300 space-x-2">
                     <CodeIcon className="h-5 w-5" />
                     <span><strong>Technologies:</strong> {project.technologies.join(', ')}</span>
                 </div>
             </CardContent>
-            <CardFooter className="p-4 flex justify-between items-center border-t border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-800">
+            <CardFooter className="p-4 flex justify-between items-center border-t border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-900">
                 {project.githubRepo ? (
                     <Button variant="primary" asChild>
                         <Link href={project.githubRepo} prefetch={false} className="flex items-center">

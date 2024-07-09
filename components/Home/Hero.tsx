@@ -39,7 +39,7 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
     const y3 = useTransform(scrollY, [0, 300], [0, -300])
 
     return (
-        <section className="flex mt-0 md:-mt-16 lg:-mt-24 xl:-mt-16 relative h-[100vh] items-center justify-center px-4 text-3xl md:text-4xl lg:text-7xl z-10" {...props}>
+        <section className="flex relative h-[100vh] items-center justify-center px-4 text-3xl md:text-4xl lg:text-7xl z-10" {...props}>
             <motion.div
                 style={{ y: y1 }}
                 className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between"

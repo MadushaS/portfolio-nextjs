@@ -1,7 +1,6 @@
 import { developerEvents, DeveloperEventType } from '@/data/events';
-import React, { HTMLProps } from 'react';
+import React, { useRef, HTMLProps } from 'react';
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
 import { Calendar, MapPin } from 'lucide-react';
 
 export default function Events(props: HTMLProps<HTMLDivElement>) {

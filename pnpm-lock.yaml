@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@phosphor-icons/react':
-        specifier: github:phosphor-icons/react
-        version: git+https://git@github.com:phosphor-icons/react.git#1c70b9291f44adac7dfed1f786c0aed52be386e1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@portabletext/react':
         specifier: ^3.1.0
         version: 3.1.0(react@18.3.1)
@@ -71,6 +68,9 @@ importers:
       next-sanity:
         specifier: ^9.4.2
         version: 9.4.2(@sanity/client@6.20.1)(@sanity/icons@3.2.0(react@18.3.1))(@sanity/types@3.49.0)(@sanity/ui@2.6.1(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.49.0(@types/node@20.14.10)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.31.1))(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      next-sanity-image:
+        specifier: ^6.1.1
+        version: 6.1.1(@sanity/client@6.20.1)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1443,14 +1443,6 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
-
-  '@phosphor-icons/react@git+https://git@github.com:phosphor-icons/react.git#1c70b9291f44adac7dfed1f786c0aed52be386e1':
-    resolution: {commit: 1c70b9291f44adac7dfed1f786c0aed52be386e1, repo: git@github.com:phosphor-icons/react.git, type: git}
-    version: 2.1.7
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>= 16.8'
-      react-dom: '>= 16.8'
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -4223,6 +4215,13 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  next-sanity-image@6.1.1:
+    resolution: {integrity: sha512-mLRiatJW3TZoD3VlUCci4lOxW9lKOl0bxDsYtk/JRqKZo25QJqPXNV7aoD+lmjEFf6RO2eW7uJ57QeI20mPhOA==}
+    peerDependencies:
+      '@sanity/client': ^5.0.0 || ^6.0.0
+      next: ^13.0.0 || ^14.0.0
+      react: ^18.0.0
 
   next-sanity@9.4.2:
     resolution: {integrity: sha512-v9OGJyV7/0hUukOzSzcRAvpJ0ZGNaUrRrAf7z6j9BoAF8GCoc0Onn/E/cmJZkXOiyoh3gZxPO1P/mysoJYClMw==}
@@ -7060,11 +7059,6 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
-
-  '@phosphor-icons/react@git+https://git@github.com:phosphor-icons/react.git#1c70b9291f44adac7dfed1f786c0aed52be386e1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -10419,6 +10413,13 @@ snapshots:
   nanoid@5.0.7: {}
 
   natural-compare@1.4.0: {}
+
+  next-sanity-image@6.1.1(@sanity/client@6.20.1)(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@sanity/client': 6.20.1(debug@4.3.5)
+      '@sanity/image-url': 1.0.2
+      next: 14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
 
   next-sanity@9.4.2(@sanity/client@6.20.1)(@sanity/icons@3.2.0(react@18.3.1))(@sanity/types@3.49.0)(@sanity/ui@2.6.1(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(next@14.2.4(@babel/core@7.24.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.49.0(@types/node@20.14.10)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.31.1))(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
