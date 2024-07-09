@@ -1,12 +1,9 @@
 "use client";
 
-import Footer from "@/components/Footer";
-import NavBar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import { format } from "date-fns";
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from "react";
 import { Image as SanityImage } from "sanity"
