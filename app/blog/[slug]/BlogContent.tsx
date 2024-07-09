@@ -2,7 +2,7 @@ import { SanityImage } from "@/components/SanityImage";
 import { cn } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
-import styles from './post.module.css';
+import styles from '../../../components/Blog/post.module.css';
 import { format } from 'date-fns';
 import { PortableText, PortableTextReactComponents } from "next-sanity";
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
