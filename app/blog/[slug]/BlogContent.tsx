@@ -1,5 +1,3 @@
-"use client"
-
 import { SanityImage } from "@/components/SanityImage";
 import { cn } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
@@ -8,6 +6,8 @@ import styles from './post.module.css';
 import { format } from 'date-fns';
 import { PortableText, PortableTextReactComponents } from "next-sanity";
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+
+export const runtime = 'edge';
 
 async function getPostFromSanity(slug: string) {
     const query = `*[_type == "post" && slug.current == $slug]{ _id, title, description, publishedAt, author->{name}, slug, categories[]->{title}, mainImage, body }`;

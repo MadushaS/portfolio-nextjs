@@ -1,4 +1,4 @@
-import BlogContent from "../../../components/Blog/BlogContent";
+import BlogContent from "./BlogContent";
 
 export const runtime = 'edge';
 
