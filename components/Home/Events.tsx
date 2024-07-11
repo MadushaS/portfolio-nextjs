@@ -6,7 +6,7 @@ import { Calendar, MapPin } from 'lucide-react';
 export default function Events(props: HTMLProps<HTMLDivElement>) {
     return (
         <section className="bg-slate-200 dark:bg-slate-800" {...props}>
-            <div className="pt-16 flex justify-center gap-4   md:px-8">
+            <div className="py-16 xl:pb-4 flex justify-center gap-4 md:px-8">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
                     Developer Community Events
                 </h2>
