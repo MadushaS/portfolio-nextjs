@@ -9,36 +9,34 @@ import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
 import { ProjectType } from '@/data/projects';
 
 const ProjectCard = ({ project }: { project: ProjectType }) => {
-
     return (
-
-        <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden bg-slate-100 dark:bg-slate-800">
-            <CardHeader className="p-4 relative object-contain">
+        < Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden bg-slate-100/70 dark:bg-slate-800/70" >
+            <CardHeader className="relative p-2 object-contain">
                 <Image
                     src={project.image}
                     alt={project.title}
                     width={350}
                     height={700}
-                    className="aspect-video w-full rounded-lg object-cover mb-4"
+                    className="aspect-video w-full rounded-lg object-cover p-2"
                 />
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 m-4">
                     {project.tags.map((tag) => (
                         <span key={tag} className="inline-block rounded-full bg-slate-200 px-3 py-1 text-sm text-slate-700 dark:bg-slate-800 dark:text-slate-200">
                             {tag}
                         </span>
                     ))}
                 </div>
+            </CardHeader>
+            <CardContent className="mx-4 mt-4 space-y-4 flex flex-col flex-grow border-slate-200 dark:border-slate-700">
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-200 mb-2">
                     {project.title}
                 </h3>
                 <p className="text-slate-700 dark:text-slate-400 mb-4">
                     {project.description}
                 </p>
-            </CardHeader>
-            <CardContent className="p-4 space-y-4 flex flex-col flex-grow border-slate-200 dark:border-slate-700">
                 <div className="flex items-center text-sm text-slate-500 dark:text-slate-300 space-x-2">
                     <CalendarIcon className="h-5 w-5" />
-                    <span><strong>Date:</strong> {project.year}</span>
+                    <span><strong>Year:</strong> {project.year}</span>
                 </div>
                 <div className="flex items-center text-sm text-slate-500 dark:text-slate-300 space-x-2">
                     <BadgeCheckIcon className="h-5 w-5" />
@@ -67,7 +65,7 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
                     </Button>
                 ) : <span />}
             </CardFooter>
-        </Card>
+        </Card >
     );
 };
 

@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import { FollowerPointerBody } from '@/components/ui/PointerBody'
 import NavBar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { cn } from '@/lib/utils'
 
 const ibm_plex_sans = IBM_Plex_Sans({
   subsets: ['latin'],
@@ -23,7 +24,7 @@ const chivo = Chivo({
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <FollowerPointerBody className={ibm_plex_sans.className + ' ' + chivo.variable + ' cursor-auto lg:cursor-none w-full bg-slate-100 dark:bg-slate-950 transition-colors overflow-x-hidden'} >
+      <body className={cn(ibm_plex_sans.className, chivo.variable, 'w-full bg-slate-100 dark:bg-slate-950 transition-colors overflow-x-hidden')} >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -34,7 +35,7 @@ export default function Layout({ children }: Readonly<{ children: React.ReactNod
           </div>
           <Footer />
         </ThemeProvider>
-      </FollowerPointerBody>
+      </body>
     </html >
   )
 }
