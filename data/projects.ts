@@ -22,7 +22,7 @@ export type ProjectType = {
 const ProjectsList: ProjectType[] = [
     {
         "title": "T5 Based Text Summarizer",
-        "description": "The t5_xsum_samsum_billsum_cnn_dailymail model is a text summarization model fine-tuned on the t5-base architecture, a versatile text-to-text transfer transformer. This powerful model excels at generating abstractive summaries from input text.",
+        "description": "The t5 xsum samsum billsum cnn_dailymail model is a text summarization model fine-tuned on the t5-base architecture, a versatile text-to-text transfer transformer. This powerful model excels at generating abstractive summaries from input text.",
         "image": SummarizerImage,
         "year": "2023",
         "technologies": ["T5-base", "TensorFlow", "PyTorch", "Python", "Hugging Face", "Kaggle"],
@@ -65,7 +65,7 @@ const ProjectsList: ProjectType[] = [
     },
     {
         "title": "Fuzzy Yt Downloader",
-        "description": "This is a web application that allows users to download videos from YouTube. It also allows users to convert the downloaded videos to different formats and resolutions.",
+        "description": "This is a web application that allows users to download videos from YouTube. It is built using Python and GTK and is designed to be simple and easy to use.",
         "image": FuzzyYtIcon,
         "year": "2023",
         "technologies": ["Python", "GTK", "Glade", "PyTube", "GNOME"],
@@ -75,7 +75,7 @@ const ProjectsList: ProjectType[] = [
     },
     {
         "title": "Petshop - Static Webiste",
-        "description": "This is a static website for a pet shop. It is a branding website for a pet shop.",
+        "description": "This is a static website for a pet shop. It is built using HTML, CSS, and JavaScript.",
         "image": LilPawsImage,
         "year": "2021",
         "technologies": ["HTML", "CSS", "JavaScript"],
