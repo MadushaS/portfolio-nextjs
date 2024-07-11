@@ -80,11 +80,11 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
                             <ul className="inline-block list-none mb-3">
                                 <li className="inline-block mr-3">
                                     <a href="https://github.blog/category/education/" className="text-lg font-bold text-gradient-purple-coral">
-                                        Education
+                                        Article
                                     </a>
                                 </li>
                             </ul>
-                            <h1 className="text-3xl font-semibold mb-3 text-slate-900 dark:text-slate-100">
+                            <h1 className="text-3xl lg:text-5xl font-semibold mb-3 text-slate-900 dark:text-slate-100">
                                 {title}
                             </h1>
                             <p className="text-lg">
@@ -125,7 +125,7 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
                 </div>
             </section>
 
-            <div className="container mx-auto p-6 mt-4 md:mt-7 mb-7 md:mb-9 md:px-12 lg:px-24 xl:px-32">
+            <div className="container mx-auto p-6 mt-4 md:mt-2 md:px-12 lg:px-24 xl:px-32">
                 <div className="flex">
                     <section className="col-span-12 lg:col-span-7 md:col-span-8 px-2">
                         <div className={cn('mt-4 container', styles.portableText)} >
