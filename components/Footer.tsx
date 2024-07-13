@@ -1,32 +1,34 @@
-import { Facebook, Github, Linkedin, LucideProps, Twitter } from "lucide-react"
+import { SiFacebook, SiGithub, SiLinkedin, SiX } from 'react-icons/si'
 import Link from "next/link"
+import { HTMLProps } from "react"
+import { IconBaseProps } from 'react-icons/lib'
 
 const navigation = [
     {
         name: 'Facebook',
         href: 'https://www.facebook.com/madusha.kv',
-        icon: (props: LucideProps) => <Facebook {...props} />,
+        icon: (props: IconBaseProps) => <SiFacebook {...props} />,
     },
     {
         name: 'Twitter',
         href: 'https://twitter.com/_MadushaS',
-        icon: (props: LucideProps) => <Twitter {...props} />,
+        icon: (props: IconBaseProps) => <SiX {...props} />,
     },
     {
         name: 'GitHub',
         href: 'https://github.com/MadushaS',
-        icon: (props: LucideProps) => <Github {...props} />,
+        icon: (props: IconBaseProps) => <SiGithub {...props} />,
     },
     {
         name: 'LinkedIn',
         href: 'https://www.linkedin.com/in/madushasandaruwan/',
-        icon: (props: LucideProps) => <Linkedin {...props} />,
+        icon: (props: IconBaseProps) => <SiLinkedin {...props} />,
     },
 ]
 
 const year = new Date().getFullYear().toString()
 
-export default function Footer(props: React.HTMLProps<HTMLDivElement>) {
+export default function Footer(props: Readonly<HTMLProps<HTMLDivElement>>) {
     return (
         <footer className="mt-8 bg-card" {...props}>
             <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
@@ -39,7 +41,7 @@ export default function Footer(props: React.HTMLProps<HTMLDivElement>) {
                     ))}
                 </div>
                 <div className="mt-8 md:mt-0 md:order-1">
-                    <p className="text-center text-base text-gray-400">&copy; {year} Madusha Sandaruwan. All rights reserved.</p>
+                    <p className="text-center text-base text-card-foreground">&copy; {year} Madusha Sandaruwan. All rights reserved.</p>
                 </div>
             </div>
         </footer>

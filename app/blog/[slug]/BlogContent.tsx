@@ -1,11 +1,10 @@
 import { SanityImage } from "@/components/SanityImage";
-import { cn } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import styles from '../../../components/Blog/post.module.css';
 import { format } from 'date-fns';
 import { PortableText, PortableTextReactComponents } from "next-sanity";
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import { SiFacebook, SiLinkedin, SiTwitter } from "react-icons/si";
 import Link from "next/link";
 
 export const runtime = 'edge';
@@ -56,8 +55,8 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
         return (
             <section className="min-h-[calc(100vh-256px)] flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100">Post not found</h1>
-                    <p className="text-lg text-slate-800 dark:text-slate-200">The post you&apos;re looking for doesn&apos;t exist.</p>
+                    <h1 className="text-4xl font-bold text-foreground">Post not found</h1>
+                    <p className="text-lg text-card-foreground">The post you&apos;re looking for doesn&apos;t exist.</p>
                 </div>
             </section>
         );
@@ -67,14 +66,14 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
         <article id="main-content">
             <section className="relative">
                 <div className="container mx-auto p-6 md:px-12 lg:px-24 xl:px-32">
-                    <div className="absolute top-0 left-0 right-0 z-0 bg-slate-50 dark:bg-slate-950 h-full"></div>
+                    <div className="absolute top-0 left-0 right-0 z-0 bg-popover h-full"></div>
                     <div className="relative top-8 z-[2]">
                         <div className="col-span-12 lg:col-start-2 lg:col-span-10 xl:col-start-2 xl:col-span-8 mt-5 lg:mt-10 mb-6 lg:mb-8  w-full lg:w-2/3 ">
                             <ul className="inline-block list-none mb-3">
                                 <li className="inline-block mr-3">
-                                    <a href="https://github.blog/category/education/" className="text-lg font-bold text-gradient-purple-coral">
-                                        Article
-                                    </a>
+                                    <Link href="/blog" className="text-popover-foreground">
+                                        Blog
+                                    </Link>
                                 </li>
                             </ul>
                             <h1 className="text-3xl lg:text-5xl font-semibold mb-3 text-slate-900 dark:text-slate-100">
@@ -139,7 +138,7 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
                                     className="flex justify-center items-center border border-border rounded-full bg-card hover:bg-secondary p-2"
                                     aria-label="Share on X"
                                 >
-                                    <TwitterIcon />
+                                    <SiTwitter />
                                 </Link>
                             </li>
                             <li className="mr-4 lg:mr-0 mb-4">
@@ -151,7 +150,7 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
                                     className="flex justify-center items-center border border-border rounded-full bg-card hover:bg-secondary p-2"
                                     aria-label="Share on LinkedIn"
                                 >
-                                    <FacebookIcon />
+                                    <SiFacebook />
                                 </Link>
                             </li>
                             <li className="mr-4 lg:mr-0 mb-4">
@@ -162,7 +161,7 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
                                     className="flex justify-center items-center border border-border rounded-full bg-card hover:bg-secondary p-2"
                                     aria-label="Share on LinkedIn"
                                 >
-                                    <LinkedinIcon />
+                                    <SiLinkedin />
                                 </Link>
                             </li>
                         </ul>
