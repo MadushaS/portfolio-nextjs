@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { HTMLProps } from "react";
 
 const languagesAndFrameworks = [
     <TechIcon name="html" key="html" />,
@@ -31,7 +31,7 @@ const toolsAndPlatforms = [
     <TechIcon name="docker" key="docker" />,
     <TechIcon name="k8s" key="k8s" />,
 ]
-export default function TechStack(props: React.HTMLProps<HTMLDivElement>) {
+export default function TechStack(props: Readonly<HTMLProps<HTMLDivElement>>) {
     return (
         <div className="mx-auto py-12 lg:py-16" {...props}>
             <IconPack />
@@ -76,7 +76,7 @@ export default function TechStack(props: React.HTMLProps<HTMLDivElement>) {
     )
 }
 
-function TechIcon({ name }: { name: string }) {
+function TechIcon({ name }: Readonly<{ name: string }>) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12" width="50" height="50">
             <use xlinkHref={`#${name}`} href={`#${name}`} />

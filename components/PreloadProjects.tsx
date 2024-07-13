@@ -1,7 +1,7 @@
 import { ProjectType } from '@/data/projects';
 import { useEffect } from 'react';
 
-export default function PreloadProjects({ projects }: { projects: ProjectType[] }) {
+export default function PreloadProjects({ projects }: Readonly<{ projects: ProjectType[] }>) {
     useEffect(() => {
         projects.forEach(({ demoLink }) => {
             if (demoLink) {

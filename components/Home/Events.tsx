@@ -3,7 +3,7 @@ import React, { useRef, HTMLProps } from 'react';
 import { motion, useTransform, useScroll } from "framer-motion";
 import { Calendar, MapPin } from 'lucide-react';
 
-export default function Events(props: HTMLProps<HTMLDivElement>) {
+export default function Events(props: Readonly<HTMLProps<HTMLDivElement>>) {
     return (
         <section className="" {...props}>
             <div className="py-16 xl:pb-4 flex justify-center gap-4 md:px-8">
@@ -43,12 +43,8 @@ const Card = ({ card }: { card: DeveloperEventType }) => {
             className="group relative h-[450px] w-[450px] overflow-hidden rounded-2xl group"
         >
             <div
-                style={{
-                    backgroundImage: `url(${card.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-                className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
+                style={{ backgroundImage: `url(${card.image})` }}
+                className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110 bg-cover bg-center"
             ></div>
             <div className="absolute hidden group-hover:grid inset-0 z-10 place-content-stretch w-full transition-transform duration-300">
                 <div className="bg-gradient-to-br from-card to-white/0 p-8 font-black uppercase text-accent backdrop-blur-lg flex flex-col">

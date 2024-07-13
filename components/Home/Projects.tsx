@@ -18,9 +18,9 @@ export default function Projects(props: Readonly<React.HTMLProps<HTMLDivElement>
                 </div>
                 <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
 
-                    {ProjectsList.map((project, index) => {
+                    {ProjectsList.map((project) => {
                         return (
-                            <ProjectCard key={index} project={project} />
+                            <ProjectCard key={project.title} project={project} />
                         )
                     })}
                 </div>

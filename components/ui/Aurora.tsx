@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import React, { ReactNode } from "react";
+import React from "react";
 
 export const AuroraBackground = ({ className, showRadialGradient = true, ...props }: {
   className?: string;

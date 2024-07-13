@@ -1,10 +1,9 @@
-import React from "react";
+import React, { HTMLProps } from "react";
 import { Button, ButtonProps } from "../ui/button";
 import Image from "next/image";
 import { FlipWords } from "../ui/flip-text";
 import { useScroll, useTransform, motion } from 'framer-motion'
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import HeroImage from "@/public/images/portrait.webp";
@@ -32,7 +31,7 @@ const socialMedia: {
         }
     ]
 
-export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
+export default function Hero(props: Readonly<HTMLProps<HTMLDivElement>>) {
     const { scrollY } = useScroll()
     const y1 = useTransform(scrollY, [0, 300], [0, 100])
     const y2 = useTransform(scrollY, [0, 300], [0, -60])
@@ -60,10 +59,10 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
                         I am a passionate developer who thrives on innovating solutions to real-world problems. With a strong foundation in computer science, I am honing my skills in software development, DevOps, and cloud native technologies with love for open source.
                     </p>
                     <div id="social-media" className="flex space-x-4">
-                        {socialMedia.map((item, index) => (
+                        {socialMedia.map((item) => (
                             <Button
                                 asChild
-                                key={index}
+                                key={item.text}
                                 variant={item.type}
                             >
                                 <Link href={item.url} className={cn("font-semibold rounded-lg", item.class)}>
