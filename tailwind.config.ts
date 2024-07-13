@@ -25,32 +25,32 @@ module.exports = {
     },
     extend: {
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        muted: 'hsl(var(--muted))',
-        'muted-foreground': 'hsl(var(--muted-foreground))',
-        popover: 'hsl(var(--popover))',
-        'popover-foreground': 'hsl(var(--popover-foreground))',
-        card: 'hsl(var(--card))',
-        'card-foreground': 'hsl(var(--card-foreground))',
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        primary: 'hsl(var(--primary))',
-        'primary-foreground': 'hsl(var(--primary-foreground))',
-        secondary: 'hsl(var(--secondary))',
-        'secondary-foreground': 'hsl(var(--secondary-foreground))',
-        accent: 'hsl(var(--accent))',
-        'accent-foreground': 'hsl(var(--accent-foreground))',
-        destructive: 'hsl(var(--destructive))',
-        'destructive-foreground': 'hsl(var(--destructive-foreground))',
-        ring: 'hsl(var(--ring))',
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        muted: "hsl(var(--muted))",
+        "muted-foreground": "hsl(var(--muted-foreground))",
+        popover: "hsl(var(--popover))",
+        "popover-foreground": "hsl(var(--popover-foreground))",
+        card: "hsl(var(--card))",
+        "card-foreground": "hsl(var(--card-foreground))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        primary: "hsl(var(--primary))",
+        "primary-foreground": "hsl(var(--primary-foreground))",
+        secondary: "hsl(var(--secondary))",
+        "secondary-foreground": "hsl(var(--secondary-foreground))",
+        accent: "hsl(var(--accent))",
+        "accent-foreground": "hsl(var(--accent-foreground))",
+        destructive: "hsl(var(--destructive))",
+        "destructive-foreground": "hsl(var(--destructive-foreground))",
+        ring: "hsl(var(--ring))",
       },
       borderRadius: {
-        DEFAULT: 'var(--radius)',
+        DEFAULT: "var(--radius)",
       },
       fontFamily: {
-        chivo: ['var(--font-chivo)', 'sans-serif'],
-        'ibm-plex-sans': ['var(--font-ibm_plex_sans)', 'sans-serif'],
+        chivo: ["var(--font-chivo)", "sans-serif"],
+        "ibm-plex-sans": ["var(--font-ibm_plex_sans)", "sans-serif"],
       },
       keyframes: {
         aurora: {
@@ -63,18 +63,18 @@ module.exports = {
         },
         marquee: {
           from: {
-            transform: 'translateX(0)',
+            transform: "translateX(0)",
           },
           to: {
-            transform: 'translateX(calc(-100% - 2.5rem))',
+            transform: "translateX(calc(-100% - 2.5rem))",
           },
         },
         marqueeReverse: {
           from: {
-            transform: 'translateX(0)',
+            transform: "translateX(0)",
           },
           to: {
-            transform: 'translateX(calc(100% + 2.5rem))',
+            transform: "translateX(calc(100% + 2.5rem))",
           },
         },
         "accordion-down": {
@@ -129,11 +129,15 @@ module.exports = {
         fifth: "moveInCircle 20s ease infinite",
         aurora: "aurora 60s linear infinite",
         marquee: "marquee 50s linear infinite",
-        "marquee-reverse": "marqueeReverse 50s linear infinite"
+        "marquee-reverse": "marqueeReverse 50s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/forms"),
+    addVariablesForColors,
+  ],
 };
 
 function addVariablesForColors({ addBase, theme }: any) {
