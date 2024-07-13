@@ -7,7 +7,7 @@ import Services from "./Services"
 import TechStack from "./TechStack"
 import TopArticles from "./TopArticles"
 import { AuroraBackground } from "../ui/Aurora"
-import ContactForm from "./ConatctMe"
+import ContactMe from "./ConatctMe"
 import React from "react"
 import Events from "./Events"
 
@@ -20,9 +20,9 @@ export default function HomePage() {
       <TechStack id="techstack" />
       <About id="about" />
       <Projects id="projects" />
-      {0 && <TopArticles id="toparticles" />}
+      <TopArticles id="toparticles" />
       <Events id="events" />
-      <ContactForm id="contact" />
+      <ContactMe id="contact" />
     </>
   )
 }
