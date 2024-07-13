@@ -30,7 +30,7 @@ export default function About(props: Readonly<React.HTMLProps<HTMLDivElement>>) 
                         className="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
                         style={{ y: y1, x: x1 }}
                     >
-                        <div className="absolute inset-y-0 right-1/2 w-full bg-slate-200 dark:bg-slate-900 rounded-r-3xl lg:right-72" />
+                        <div className="absolute inset-y-0 right-1/2 w-full bg-popover rounded-r-3xl lg:right-72" />
                         <motion.svg
                             className="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12"
                             width={404}
@@ -52,7 +52,7 @@ export default function About(props: Readonly<React.HTMLProps<HTMLDivElement>>) 
                                         y={0}
                                         width={4}
                                         height={4}
-                                        className="text-slate-200 dark:text-slate-700"
+                                        className="text-secondary"
                                         fill="currentColor"
                                     />
                                 </pattern>
@@ -70,8 +70,8 @@ export default function About(props: Readonly<React.HTMLProps<HTMLDivElement>>) 
                                 alt="Profile picture"
                                 width={400}
                             />
-                            <div className="absolute inset-0 bg-secondary mix-blend-multiply" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-600 via-slate-600 opacity-90 dark:from-slate-900 dark:via-slate-900" />
+                            <div className="absolute inset-0 bg-primary mix-blend-multiply" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-600 via-slate-600 opacity-70 dark:from-slate-800 dark:via-slate-800" />
                             <div className="relative pt-16 md:pt-0 px-8">
                                 <div className="flex items-center text-white">
                                     <MapPin className="h-8 w-8" />
@@ -79,7 +79,7 @@ export default function About(props: Readonly<React.HTMLProps<HTMLDivElement>>) 
                                 </div>
                                 <blockquote className="my-8">
                                     <div className="relative text-lg font-medium text-white md:flex-grow">
-                                        <p className="relative dark:text-slate-300 text-slate-100">
+                                        <p className="relative text-white">
                                             I am a research student based in Colombo, Sri Lanka. I have a strong background in computer science and a deep interest in artificial intelligence and cloud technologies. My career goal spans both academia and industry, where I aim to contribute to the development of cutting-edge technologies and solutions that address real-world problems.
                                         </p>
                                     </div>
@@ -93,10 +93,10 @@ export default function About(props: Readonly<React.HTMLProps<HTMLDivElement>>) 
                 </div>
                 <div className="relative mx-auto max-w-md px-4 py-4 sm:max-w-3xl sm:px-6 lg:px-0">
                     <div className="mt-12 md:mt-16 lg:mt-20">
-                        <h2 className="text-3xl text-slate-900 dark:text-slate-100 font-extrabold tracking-tight sm:text-4xl">
+                        <h2 className="text-3xl text-foreground font-extrabold tracking-tight sm:text-4xl">
                             About Me
                         </h2>
-                        <div className="mt-6 text-slate-500 dark:text-slate-300 space-y-6">
+                        <div className="mt-6 text-accent-foreground space-y-6">
                             <p className="text-base leading-7">
                                 My interests extend beyond the technical realm to include history, philosophy, literature, and personal development. I am dedicated to sustainability and fairness, and I am driven by a commitment to integrity, compassion, and innovation.
                             </p>
@@ -108,9 +108,9 @@ export default function About(props: Readonly<React.HTMLProps<HTMLDivElement>>) 
                     <div className="mt-10">
                         <dl className="grid grid-cols-2 gap-x-4 gap-y-8">
                             {stats.map((stat) => (
-                                <div key={stat.label} className="border-t-2 border-slate-600 dark:border-slate-400 pt-6">
-                                    <dt className="text-base font-medium text-slate-500 dark:text-slate-300">{stat.label}</dt>
-                                    <dd className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">{stat.value}</dd>
+                                <div key={stat.label} className="border-t-2 border-accent pt-6">
+                                    <dt className="text-base font-medium text-accent-foreground">{stat.label}</dt>
+                                    <dd className="text-3xl font-extrabold tracking-tight text-muted-foreground">{stat.value}</dd>
                                 </div>
                             ))}
                         </dl>

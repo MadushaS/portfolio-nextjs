@@ -4,7 +4,6 @@
 import { IBM_Plex_Sans, Chivo } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import { FollowerPointerBody } from '@/components/ui/PointerBody'
 import NavBar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { cn } from '@/lib/utils'
@@ -13,7 +12,7 @@ const ibm_plex_sans = IBM_Plex_Sans({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-ibm_plex_sans',
-  weight: ['400', '700'],
+  weight: ['400', '600', '700'],
 })
 const chivo = Chivo({
   subsets: ['latin'],
@@ -24,7 +23,7 @@ const chivo = Chivo({
 export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={cn(ibm_plex_sans.className, chivo.variable, 'w-full bg-slate-100 dark:bg-slate-950 transition-colors overflow-x-hidden')} >
+      <body className={cn(ibm_plex_sans.className, chivo.variable, 'w-full bg-background transition-colors duration-300 overflow-x-hidden')} >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

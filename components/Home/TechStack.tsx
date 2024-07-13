@@ -37,18 +37,18 @@ export default function TechStack(props: React.HTMLProps<HTMLDivElement>) {
             <IconPack />
             <div className="mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">My Tech Stack</h2>
-                <p className="text-slate-600 dark:text-slate-400 text-lg mt-2">
+                <p className="text-secondary-foreground text-lg mt-2">
                     Here are some of the technologies I have worked with.
                 </p>
             </div>
             <div className="pointer-events-none relative flex flex-col overflow-hidden my-4 min-h-fit w-[100vw]">
-                <div className="relative flex fill-slate-900 dark:fill-slate-200 bg-slate-300 dark:bg-slate-900 py-4 border-1 dark:border-slate-900 border-slate-100 z-[5]">
+                <div className="relative flex fill-accent-foreground bg-card py-4 border-1 border-border z-[5]">
                     {
                         // repeat the following div tag for 5 times <div>Hi</div> using javascript
                         Array.from({ length: 5 }).map((_, index) => (
                             <div key={index} className="flex w-fit animate-marquee items-center whitespace-nowrap">
                                 {languagesAndFrameworks.map((tech, index) => (
-                                    <div key={index} className="mx-4 text-x p-2 w-16 h-16 bg-slate-200 dark:bg-slate-900 border border-slate-800/40 dark:border-slate-200/40 rounded-md">
+                                    <div key={index} className="mx-4 text-x p-2 w-16 h-16 bg-popover border border-border/90 rounded-md">
                                         {tech}
                                     </div>
                                 ))}
@@ -57,12 +57,12 @@ export default function TechStack(props: React.HTMLProps<HTMLDivElement>) {
 
                     }
                 </div>
-                <div className="relative flex justify-end fill-slate-900 dark:fill-slate-200 bg-slate-300 dark:bg-slate-900  py-4 border-1 dark:border-slate-900 border-slate-100">
+                <div className="relative flex justify-end fill-card-foreground bg-card py-4 border-1 border-border">
                     {
                         Array.from({ length: 5 }).map((_, index) => (
                             <div key={index} className="flex w-fit animate-marquee-reverse items-center whitespace-nowrap">
                                 {toolsAndPlatforms.map((tech, index) => (
-                                    <div key={index} className="mx-4 text-x p-2 w-16 h-16 bg-slate-200 dark:bg-slate-900 border border-slate-800/40 dark:border-slate-200/40 rounded-md">
+                                    <div key={index} className="mx-4 text-x p-2 w-16 h-16 bg-popover border border-border/90 rounded-md">
                                         {tech}
                                     </div>
                                 ))}

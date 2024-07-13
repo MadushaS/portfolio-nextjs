@@ -12,7 +12,7 @@ export default function Certifications() {
         <div className="flex">
             {certs.map(({ image, alt, link }) => (
                 <Link key={alt} href={link}>
-                    <Image src={image} alt="GHAS" width={64} height={64} className="inline-block h-16 w-16 p-1 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-2xl" />
+                    <Image src={image} alt="GHAS" width={64} height={64} className="inline-block h-16 w-16 p-1 hover:bg-muted rounded-2xl" />
                 </Link>
             ))}
         </div>

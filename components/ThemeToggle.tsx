@@ -29,8 +29,8 @@ export function ThemeToggle({ className, ...props }: React.ComponentProps<"div">
   }
 
   return (
-    <div {...props} className={cn("flex items-center space-x-2 rounded-full border border-slate-700 dark:border-slate-200 shadow-md ", className)}>
-      <Button variant="secondary" className="rounded-full p-2 hover:bg-slate-300 dark:hover:bg-slate-600 duration-200" onClick={toggleTheme}>
+    <div {...props} className={cn("flex items-center space-x-2 ", className)}>
+      <Button variant="secondary" className="rounded-full p-2 border border-border bg-card hover:bg-accent duration-200" onClick={toggleTheme}>
         <AnimatePresence mode="wait" initial={false}>
           {isDarkMode ? (
             <motion.div

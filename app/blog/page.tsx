@@ -39,7 +39,7 @@ interface PostThumbnailProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEle
 const PostThumbnail: React.FC<PostThumbnailProps> = ({ post, type, ...props }) => (
     <div {...props}>
         <Link className="block" href={`/blog/${post.slug.current}`}>
-            <div className="flex bg-black/5 dark:bg-white/5">
+            <div className="flex">
                 <img
                     alt="Post thumbnail"
                     src={post.imageURL}
@@ -65,8 +65,7 @@ const PostThumbnail: React.FC<PostThumbnailProps> = ({ post, type, ...props }) =
             <h2 className="font-bold leading-snug mt-3 text-2xl">
                 <Link href={`/blog/${post.slug.current}`}>{post.title}</Link>
             </h2>
-            <p className="mt-3">{post.description}</p>
-            <p className="mt-3 text-primary">{post.description}</p>
+            <p className="mt-3 text-card-foreground">{post.description}</p>
             <AuthorAvatar name={post.author} />
         </div>
     </div>
@@ -79,7 +78,7 @@ const AuthorAvatar = ({ name }: { name: string }) => (
 );
 
 const Loading = () => (
-    <div className="flex flex-grow justify-center items-center bg-slate-300/70 dark:bg-slate-700/70 px-4 py-16 rounded-lg animate-pulse">
+    <div className="flex flex-grow justify-center items-center bg-card/70 px-4 py-16 rounded-lg animate-pulse">
         <h2 className="text-xl font-semibold">Loading...</h2>
     </div>
 );
@@ -90,7 +89,7 @@ const BlogPage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const query = `*[_type == "post"]{_id, title, publishedAt, author -> { name }, slug, categories[]->{title}, mainImage}`;
+            const query = `*[_type == "post"]{_id, title, description , publishedAt, author -> { name }, slug, categories[]->{title}, mainImage}`;
             return (await client.fetch(query)).map((post: SanityPostType) => {
                 return {
                     ...post,
@@ -118,11 +117,11 @@ const BlogPage = () => {
                     <div className="flex flex-wrap xl:flex-nowrap gap-10">
                         {loading && <Loading />}
                         {
-                            blogs.length > 0 ? [blogs[0]].map((blog, i) => (
-                                <PostThumbnail type="featured" key={blog.slug.current} post={blog} className="bg-slate-200 dark:bg-slate-800 rounded-lg" />
+                            (!loading && blogs.length > 0) ? [blogs[0]].map((blog, i) => (
+                                <PostThumbnail type="featured" key={blog.slug.current} post={blog} className="bg-card rounded-lg" />
 
                             )) : (
-                                <div className="flex flex-grow justify-center items-center bg-slate-300/70 dark:bg-slate-700/70 px-4 py-16 rounded-lg animate-pulse">
+                                <div className="flex flex-grow justify-center items-center bg-card/70 px-4 py-16 rounded-lg animate-pulse">
                                     <h2 className="text-xl font-semibold">Containt Retrieval Failed</h2>
                                 </div>
                             )
@@ -130,10 +129,10 @@ const BlogPage = () => {
                         <div className="flex flex-col md:flex-row xl:flex-col gap-10">
                             {loading && <Loading />}
                             {
-                                blogs.length > 0 ? blogs.slice(1, 3).map((blog, i) => (
-                                    <PostThumbnail type="highlighted" key={blog.slug.current} post={blog} className="bg-slate-200 dark:bg-slate-800 rounded-lg" />
+                                (!loading && blogs.length > 0) ? blogs.slice(1, 3).map((blog, i) => (
+                                    <PostThumbnail type="highlighted" key={blog.slug.current} post={blog} className="bg-card rounded-lg" />
                                 )) : (
-                                    <div className="flex flex-grow justify-center items-center bg-slate-300/70 dark:bg-slate-700/70 px-4 py-16 rounded-lg animate-pulse">
+                                    <div className="flex flex-grow justify-center items-center bg-card/70 px-4 py-16 rounded-lg animate-pulse">
                                         <h2 className="text-xl font-semibold">Containt Retrieval Failed</h2>
                                     </div>
                                 )
@@ -147,9 +146,9 @@ const BlogPage = () => {
                     {loading && <Loading />}
                     {
                         blogs.length > 0 ? blogs.slice(3).map((blog, i) => (
-                            <PostThumbnail type="normal" key={blog.slug.current} post={blog} className="bg-slate-200 dark:bg-slate-800 rounded-lg aspect-video" />
+                            <PostThumbnail type="normal" key={blog.slug.current} post={blog} className="bg-card rounded-lg aspect-video" />
                         )) : (
-                            <div className="flex flex-grow justify-center items-center bg-slate-300/70 dark:bg-slate-700/70 px-4 py-16 rounded-lg animate-pulse">
+                            <div className="flex flex-grow justify-center items-center bg-card/70 px-4 py-16 rounded-lg animate-pulse">
                                 <h2 className="text-xl font-semibold">Containt Retrieval Failed</h2>
                             </div>
                         )

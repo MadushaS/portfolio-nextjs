@@ -54,45 +54,49 @@ export default function NavBar() {
   }, []);
 
   return (
-    <div className="border flex border-slate-300 dark:border-slate-700 p-2 rounded-none mb-8 sticky top-0 z-[100] bg-slate-200 dark:bg-slate-800 backdrop-blur-md w-full mx-auto max-w-full">
+    <div className="border-b border-border flex p-2 rounded-none mb-8 sticky top-0 z-[100] bg-card text-accent-foreground backdrop-blur-md w-full mx-auto max-w-full">
       <nav className="flex justify-between gap-2 relative z-[100] w-full rounded-lg">
-        <h3 className="block justify-start px-4 py-2 rounded-full text-xl text-slate-900 dark:text-slate-200 font-black font-mono not-sr-only">://madusha</h3>
+        <h3 className="block justify-start px-4 py-2 rounded-full text-xl text-primary font-black font-mono not-sr-only">
+          <Link href="/">
+            ://madusha
+          </Link>
+        </h3>
         <div className="flex justify-between gap-2">
-        {navItems.map((item) => {
-          const isActive = item.path === activePath;
-          return (
-            <Link
-              key={item.path}
-              className={`hidden md:block px-4 py-2 rounded-full text-sm lg:text-lg font-semibold relative no-underline duration-300 ease-in ${isActive ? "text-primary dark:text-secondary" : "text-slate-700 dark:text-slate-400 hover:text-slate-100 dark:hover:text-slate-200"
-                }`}
-              href={item.path}
-              onClick={scrollToView}
-              onMouseOver={() => {
-                setActivePath(item.path);
-              }}
-              onMouseLeave={handleScroll}
-            >
-              <span>{item.name}</span>
-              {isActive && (
-                <motion.div
-                  className="absolute bottom-0 left-0 h-1 bg-primary dark:bg-secondary rounded-full -z-10"
-                  layoutId="navbar"
-                  aria-hidden="true"
-                  style={{
-                    width: "100%",
-                  }}
-                  transition={{
-                    type: "spring",
-                    bounce: 0.15,
-                    stiffness: 80,
-                    damping: 12,
-                    duration: 0.3,
-                  }}
-                />
-              )}
-            </Link>
-          );
-        })}
+          {navItems.map((item) => {
+            const isActive = item.path === activePath;
+            return (
+              <Link
+                key={item.path}
+                className={`hidden md:block px-4 py-2 rounded-full text-sm lg:text-base font-semibold relative no-underline duration-300 ease-in ${isActive ? "text-primary" : "hover:text-primary-foreground"
+                  }`}
+                href={item.path}
+                onClick={scrollToView}
+                onMouseOver={() => {
+                  setActivePath(item.path);
+                }}
+                onMouseLeave={handleScroll}
+              >
+                <span>{item.name}</span>
+                {isActive && (
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-1 bg-primary rounded-full -z-10"
+                    layoutId="navbar"
+                    aria-hidden="true"
+                    style={{
+                      width: "100%",
+                    }}
+                    transition={{
+                      type: "spring",
+                      bounce: 0.15,
+                      stiffness: 80,
+                      damping: 12,
+                      duration: 0.3,
+                    }}
+                  />
+                )}
+              </Link>
+            );
+          })}
         </div>
         <ThemeToggle className="flex-end justify-end justify-items-end" />
       </nav>

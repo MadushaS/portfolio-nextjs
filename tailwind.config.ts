@@ -25,8 +25,32 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#073b4c",
-        secondary: "#118ab2",
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        muted: 'hsl(var(--muted))',
+        'muted-foreground': 'hsl(var(--muted-foreground))',
+        popover: 'hsl(var(--popover))',
+        'popover-foreground': 'hsl(var(--popover-foreground))',
+        card: 'hsl(var(--card))',
+        'card-foreground': 'hsl(var(--card-foreground))',
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        primary: 'hsl(var(--primary))',
+        'primary-foreground': 'hsl(var(--primary-foreground))',
+        secondary: 'hsl(var(--secondary))',
+        'secondary-foreground': 'hsl(var(--secondary-foreground))',
+        accent: 'hsl(var(--accent))',
+        'accent-foreground': 'hsl(var(--accent-foreground))',
+        destructive: 'hsl(var(--destructive))',
+        'destructive-foreground': 'hsl(var(--destructive-foreground))',
+        ring: 'hsl(var(--ring))',
+      },
+      borderRadius: {
+        DEFAULT: 'var(--radius)',
+      },
+      fontFamily: {
+        chivo: ['var(--font-chivo)', 'sans-serif'],
+        'ibm-plex-sans': ['var(--font-ibm_plex_sans)', 'sans-serif'],
       },
       keyframes: {
         aurora: {
@@ -109,7 +133,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors, newFunction],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
 
 function addVariablesForColors({ addBase, theme }: any) {
@@ -121,27 +145,4 @@ function addVariablesForColors({ addBase, theme }: any) {
   addBase({
     ":root": newVars,
   });
-}
-
-function newFunction({ matchUtilities, theme }: any) {
-  matchUtilities(
-    {
-      "bg-grid": (value: any) => ({
-        backgroundImage: `url("${svgToDataUri(
-          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-        )}")`,
-      }),
-      "bg-grid-small": (value: any) => ({
-        backgroundImage: `url("${svgToDataUri(
-          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-        )}")`,
-      }),
-      "bg-dot": (value: any) => ({
-        backgroundImage: `url("${svgToDataUri(
-          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
-        )}")`,
-      }),
-    },
-    { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-  );
 }

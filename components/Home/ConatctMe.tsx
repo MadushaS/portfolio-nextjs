@@ -4,25 +4,10 @@ import { LoaderCircle, MailCheck, MailX } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "../ui/alert-dialog";
-import Button from "../ui/button";
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
-async function sendEmail(data: any) {
-    //sample email sending function fake
-
-    const response = await fetch("https://api.example.com/send-email", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    });
-
-    return response.json();
-
-}
-
-export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
+export default function ContactForm(props: Readonly<React.HTMLProps<HTMLDivElement>>) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const contactStatuses = {
@@ -62,15 +47,15 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
     return (
         <section className=" py-12" {...props}>
             <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5 rounded-lg shadow-lg overflow-hidden">
-                <div className="bg-slate-200 dark:bg-slate-800 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
+                <div className="bg-card py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
                     <div className="max-w-lg mx-auto">
-                        <h2 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl">Get in touch</h2>
-                        <p className="mt-3 text-lg leading-6 text-slate-500 dark:text-slate-300">
+                        <h2 className="text-2xl font-extrabold tracking-tight text-card-foreground sm:text-3xl">Get in touch</h2>
+                        <p className="mt-3 text-lg leading-6 text-card-foreground/60">
                             Feel free to reach out to me using the contact information below. I would love to hear from you!
                         </p>
                     </div>
                 </div>
-                <div className="bg-slate-100 dark:bg-slate-900 py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
+                <div className="bg-accent py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
                     <div className="max-w-lg mx-auto lg:max-w-none">
                         <form method="POST" className="grid grid-cols-1 gap-y-6" onSubmit={handleSubmit(onSubmit)}>
                             <div>
@@ -83,7 +68,7 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                                     name="name"
                                     id="name"
                                     autoComplete="name"
-                                    className="block w-full shadow-sm py-3 px-4 placeholder-slate-500 dark:placeholder-slate-400 focus:ring-slate-500 focus:border-slate-500 border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100"
+                                    className="block w-full shadow-sm py-3 px-4 placeholder-foreground/60 focus:ring-ring focus:border-accent border-border rounded-lg bg-input text-card-foreground"
                                     placeholder="Your name"
                                 />
                                 {
@@ -107,7 +92,7 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                                     name="email"
                                     type="email"
                                     autoComplete="email"
-                                    className="block w-full shadow-sm py-3 px-4 placeholder-slate-500 dark:placeholder-slate-400 focus:ring-slate-500 focus:border-slate-500 border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100"
+                                    className="block w-full shadow-sm py-3 px-4 placeholder-foreground/60 focus:ring-ring focus:border-accent border-border rounded-lg bg-input text-card-foreground"
                                     placeholder="Email"
                                 />
                                 {
@@ -124,7 +109,7 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                                     name="phone"
                                     id="phone"
                                     autoComplete="tel"
-                                    className="block w-full shadow-sm py-3 px-4 placeholder-slate-500 dark:placeholder-slate-400 focus:ring-slate-500 focus:border-slate-500 border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100"
+                                    className="block w-full shadow-sm py-3 px-4 placeholder-foreground/60 focus:ring-ring focus:border-accent border-border rounded-lg bg-input text-card-foreground"
                                     placeholder="Phone"
                                 />
                                 {
@@ -140,7 +125,7 @@ export default function ContactForm(props: React.HTMLProps<HTMLDivElement>) {
                                     id="message"
                                     name="message"
                                     rows={4}
-                                    className="block w-full shadow-sm py-3 px-4 placeholder-slate-500 dark:placeholder-slate-400 focus:ring-slate-500 focus:border-slate-500 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100"
+                                    className="block w-full shadow-sm py-3 px-4 placeholder-foreground/60 focus:ring-ring focus:border-accent border-border rounded-lg bg-input text-card-foreground"
                                     placeholder="Message"
                                     defaultValue={''}
                                 />

@@ -5,7 +5,7 @@ import { Calendar, MapPin } from 'lucide-react';
 
 export default function Events(props: HTMLProps<HTMLDivElement>) {
     return (
-        <section className="bg-slate-200 dark:bg-slate-800" {...props}>
+        <section className="" {...props}>
             <div className="py-16 xl:pb-4 flex justify-center gap-4 md:px-8">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
                     Developer Community Events
@@ -51,7 +51,7 @@ const Card = ({ card }: { card: DeveloperEventType }) => {
                 className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
             ></div>
             <div className="absolute hidden group-hover:grid inset-0 z-10 place-content-stretch w-full transition-transform duration-300">
-                <div className="bg-gradient-to-br from-slate-900 to-white/0 p-8 font-black uppercase text-white backdrop-blur-lg flex flex-col">
+                <div className="bg-gradient-to-br from-card to-white/0 p-8 font-black uppercase text-accent backdrop-blur-lg flex flex-col">
                     <h3 className="text-3xl flex-grow font-semibold text-white">{card.title}</h3>
                     <div className="flex items-center text-lg font-medium text-white mt-4">
                         <Calendar className="mr-2" />{card.date}

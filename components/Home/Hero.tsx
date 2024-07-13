@@ -21,14 +21,14 @@ const socialMedia: {
         {
             text: "Connect on LinkedIn",
             url: "https://linkedin.com/in/madushasandaruwan",
-            type: "primary",
-            class: "text-primay dark:text-secondary"
+            type: "default",
+            class: ""
         },
         {
             text: "Follow on X",
             url: "https://x.com/_MadushaS",
             type: "secondary",
-            class: "text-primay dark:text-secondary"
+            class: ""
         }
     ]
 
@@ -36,7 +36,6 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
     const { scrollY } = useScroll()
     const y1 = useTransform(scrollY, [0, 300], [0, 100])
     const y2 = useTransform(scrollY, [0, 300], [0, -60])
-    const y3 = useTransform(scrollY, [0, 300], [0, -300])
 
     return (
         <section className="flex relative h-[100vh] items-center justify-center px-4 text-3xl md:text-4xl lg:text-7xl z-10" {...props}>
@@ -50,7 +49,7 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}>
                         <p className="text-lg md:text-xl font-semibold ">👋 Hi, I&apos;m</p>
-                        <h1 className="text-5xl md:text-5xl lg:text-7xl 2xl:text-9xl font-bold tracking-tight text-primary dark:text-secondary" >
+                        <h1 className="text-5xl md:text-5xl lg:text-7xl 2xl:text-9xl font-bold tracking-tight text-primary" >
                             Madusha Sandaruwan
                         </h1>
                     </motion.div>
@@ -74,14 +73,9 @@ export default function Hero(props: React.HTMLProps<HTMLDivElement>) {
                         ))}
                     </div>
                 </div>
-                <motion.div style={{ y: y3 }}>
+                <div >
                     <Image src={HeroImage} width={400} height={400} alt="Madusha Sandaruwan" className="mt-16 md:mt-0 max-w-72 max-h-72 md:max-w-96 md:max-h-96 lg:max-w-[512px] lg:max-h-[512px] aspect-square" />
-                </motion.div>
-            </motion.div>
-            <motion.div style={{ y: y3 }} className="absolute animate-bounce bottom-8">
-                <span className="rounded-full p-2">
-                    <ChevronDown className="text-slate-700 dark:text-slate-200" />
-                </span>
+                </div>
             </motion.div>
         </section>
     );

@@ -6,6 +6,7 @@ import styles from '../../../components/Blog/post.module.css';
 import { format } from 'date-fns';
 import { PortableText, PortableTextReactComponents } from "next-sanity";
 import { FacebookIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import Link from "next/link";
 
 export const runtime = 'edge';
 
@@ -53,18 +54,10 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
     const post = await getPostFromSanity(slug);
     if (!post) {
         return (
-            <section className="relative">
-                <div className="container mx-auto p-6 md:px-12 lg:px-24 xl:px-32">
-                    <div className="relative top-8 z-[2]">
-                        <div className="col-span-12 lg:col-start-2 lg:col-span-10 xl:col-start-2 xl:col-span-8 mt-5 lg:mt-10 mb-6 lg:mb-8  w-full lg:w-2/3 ">
-                            <h1 className="text-3xl font-semibold mb-3 text-slate-900 dark:text-slate-100">
-                                Post not found
-                            </h1>
-                            <p className="text-lg">
-                                The requested post was not found.
-                            </p>
-                        </div>
-                    </div>
+            <section className="min-h-[calc(100vh-256px)] flex items-center justify-center">
+                <div className="text-center">
+                    <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100">Post not found</h1>
+                    <p className="text-lg text-slate-800 dark:text-slate-200">The post you&apos;re looking for doesn&apos;t exist.</p>
                 </div>
             </section>
         );
@@ -125,10 +118,10 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
                 </div>
             </section>
 
-            <div className="container mx-auto p-6 mt-4 md:mt-2 md:px-12 lg:px-24 xl:px-32">
-                <div className="flex">
-                    <section className="col-span-12 lg:col-span-7 md:col-span-8 px-2">
-                        <div className={cn('mt-4 container', styles.portableText)} >
+            <div className="container mx-auto p-4 md:px-12 lg:px-24 xl:px-32">
+                <div className="flex flex-col md:flex-row">
+                    <section className="col-span-12 lg:col-span-7 md:col-span-8 px-2 order-2 md:order-1">
+                        <div className={styles.portableText} >
                             <PortableText
                                 value={content}
                                 components={conversions}
@@ -136,41 +129,41 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
                         </div>
                     </section>
 
-                    <div className="col-span-12 md:col-span-4 lg:col-span-3 p-6">
-                        <ul className="list-none flex lg:flex-col">
-                            <li className="mr-4 lg:mr-0 mb-4">
-                                <a
+                    <div className="col-span-12 md:col-span-4 lg:col-span-3 px-6 order-1 md:order-2">
+                        <ul className="list-none flex lg:flex-col mt-4">
+                            <li className="mr-4 lg:mr-0 mb-2">
+                                <Link
                                     href={`https://x.com/share?text=${post.title}&amp;url=${'https://madusha.dev/blog/' + post.slug}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex justify-center items-center border rounded-full p-2"
+                                    className="flex justify-center items-center border border-border rounded-full bg-card hover:bg-secondary p-2"
                                     aria-label="Share on X"
                                 >
                                     <TwitterIcon />
-                                </a>
+                                </Link>
                             </li>
                             <li className="mr-4 lg:mr-0 mb-4">
-                                <a
+                                <Link
                                     href={`https://www.facebook.com/sharer/sharer.php?u=${'https://madusha.dev/blog/' + post.slug}&amp;t=${post.title}`}
 
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex justify-center items-center border rounded-full p-2"
+                                    className="flex justify-center items-center border border-border rounded-full bg-card hover:bg-secondary p-2"
                                     aria-label="Share on LinkedIn"
                                 >
                                     <FacebookIcon />
-                                </a>
+                                </Link>
                             </li>
                             <li className="mr-4 lg:mr-0 mb-4">
-                                <a
+                                <Link
                                     href={encodeURI(`https://www.linkedin.com/shareArticle?url=${'https://madusha.dev/blog/' + post.slug}%2F&amp;title=${post.title}`)}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex justify-center items-center border rounded-full p-2"
+                                    className="flex justify-center items-center border border-border rounded-full bg-card hover:bg-secondary p-2"
                                     aria-label="Share on LinkedIn"
                                 >
                                     <LinkedinIcon />
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
