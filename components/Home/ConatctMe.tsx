@@ -6,44 +6,13 @@ import { useForm } from "react-hook-form";
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "../ui/alert-dialog";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Textarea } from "../ui/textarea";
+import { WEB3FORM_ACCESS_KEY } from "@/lib/env";
 
 export default function ContactForm(props: Readonly<React.HTMLProps<HTMLDivElement>>) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    const contactStatuses = {
-        loading: 'loading',
-        submitted: 'submitted',
-        error: 'error'
-    };
-    const [status, setStatus] = useState('');
-
-    const abortLongFetch = new AbortController();
-    const abortTimeoutId = setTimeout(() => abortLongFetch.abort(), 1000);
-
-    const { register, reset, handleSubmit, formState: { errors } } = useForm({
-        mode: 'onBlur',
-        reValidateMode: 'onBlur'
-    });
-
-    const onSubmit = async (data: any) => {
-        setStatus(contactStatuses.loading);
-        fetch("/api/contact", {
-            body: JSON.stringify(data),
-            method: "POST",
-        }).then((res) => {
-            if (res.ok) {
-                clearTimeout(abortTimeoutId);
-                return res.json();
-            }
-            throw new Error('Whoops! Error sending email.');
-        }).then((res) => {
-            setStatus(contactStatuses.submitted);
-            reset();
-        }).catch((err) => {
-            setStatus(contactStatuses.error);
-        });
-    };
-
     return (
         <section className=" py-12" {...props}>
             <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5 rounded-lg shadow-lg overflow-hidden">
@@ -57,124 +26,166 @@ export default function ContactForm(props: Readonly<React.HTMLProps<HTMLDivEleme
                 </div>
                 <div className="bg-accent py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
                     <div className="max-w-lg mx-auto lg:max-w-none">
-                        <form method="POST" className="grid grid-cols-1 gap-y-6" onSubmit={handleSubmit(onSubmit)}>
-                            <div>
-                                <label htmlFor="name" className="sr-only">
-                                    Full name
-                                </label>
-                                <Input
-                                    {...register("name", { required: true })}
-                                    type="text"
-                                    name="name"
-                                    id="name"
-                                    autoComplete="name"
-                                    className="block w-full shadow-sm py-3 px-4 placeholder-foreground/60 focus:ring-ring focus:border-accent border-border rounded-lg bg-input text-card-foreground"
-                                    placeholder="Your name"
-                                />
-                                {
-                                    errors["name"] && <p className="text-red-500 p-2 text-sm">Full name is required</p>
-                                }
-                            </div>
-                            <div>
-                                <label htmlFor="email" className="sr-only">
-                                    Email
-                                </label>
-                                <Input
-                                    {...register('email', {
-                                        required: true,
-                                        pattern: {
-                                            value: emailRegex,
-                                            message:
-                                                'A valid email address id required. Example: name@domain.com.'
-                                        }
-                                    })}
-                                    id="email"
-                                    name="email"
-                                    type="email"
-                                    autoComplete="email"
-                                    className="block w-full shadow-sm py-3 px-4 placeholder-foreground/60 focus:ring-ring focus:border-accent border-border rounded-lg bg-input text-card-foreground"
-                                    placeholder="Email"
-                                />
-                                {
-                                    errors["email"] && <p className="text-red-500 p-2 text-sm">Email is required</p>
-                                }
-                            </div>
-                            <div>
-                                <label htmlFor="phone" className="sr-only">
-                                    Phone
-                                </label>
-                                <Input
-                                    {...register("phone", { required: true })}
-                                    type="text"
-                                    name="phone"
-                                    id="phone"
-                                    autoComplete="tel"
-                                    className="block w-full shadow-sm py-3 px-4 placeholder-foreground/60 focus:ring-ring focus:border-accent border-border rounded-lg bg-input text-card-foreground"
-                                    placeholder="Phone"
-                                />
-                                {
-                                    errors["phone"] && <p className="text-red-500 p-2 text-sm">Phone is required</p>
-                                }
-                            </div>
-                            <div>
-                                <label htmlFor="message" className="sr-only">
-                                    Message
-                                </label>
-                                <textarea
-                                    {...register("message", { required: true })}
-                                    id="message"
-                                    name="message"
-                                    rows={4}
-                                    className="block w-full shadow-sm py-3 px-4 placeholder-foreground/60 focus:ring-ring focus:border-accent border-border rounded-lg bg-input text-card-foreground"
-                                    placeholder="Message"
-                                    defaultValue={''}
-                                />
-                                {
-                                    errors["message"] && <p className="text-red-500 p-2 text-sm">Message is required</p>
-                                }
-                            </div>
-                            <div>
-                                <Button
-                                    type="submit"
-                                    disabled={status === contactStatuses.loading}
-                                >
-                                    {status === contactStatuses.loading ? (
-                                        <>
-                                            <LoaderCircle size={24} className="animate-spin" /> Sending...
-                                        </>
-                                    ) : (
-                                        <>Send Message</>
-                                    )}
-                                </Button>
-                            </div>
-                        </form>
+                        <FormComponent />
                     </div>
                 </div>
             </div>
-            <AlertDialog open={status == 'submitted' || status == 'error'} onOpenChange={() => {
-                setStatus('');
-
-            }}>
-                <AlertDialogContent>
-                    <AlertDialogHeader>
-                        <AlertDialogTitle>
-                            {status === 'submitted' ? 'Email Sent Successfully' : 'Email Failed'}
-                        </AlertDialogTitle>
-                        <AlertDialogDescription>
-                            <div className="flex items-center space-x-2">
-                                {status === 'submitted' ? <MailCheck size={32} /> : <MailX size={32} />}
-                                <span>
-                                    {status === 'submitted' ? 'Your email has been sent successfully.' : 'There was an error sending your email. Please try again later.'}
-                                </span>
-                            </div>
-
-                        </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                        <AlertDialogCancel onClick={() => setStatus('')}>Close</AlertDialogCancel>
-                    </AlertDialogFooter>
-                </AlertDialogContent>
-            </AlertDialog>
         </section>
+    );
+}
+
+function FormComponent() {
+    const [status, setStatus] = useState('');
+
+    const FormSchema = z.object({
+        name: z.string().min(1),
+        email: z.string().email().min(1),
+        phone: z.string().min(1),
+        message: z.string().min(1)
+    });
+
+    const form = useForm<z.infer<typeof FormSchema>>({
+        resolver: zodResolver(FormSchema),
+        defaultValues: {
+            name: '',
+            email: '',
+            phone: '',
+            message: ''
+        },
+        mode: 'onBlur',
+        reValidateMode: 'onBlur'
+    })
+
+    const contactStatuses = {
+        loading: 'loading',
+        submitted: 'submitted',
+        error: 'error'
+    };
+
+    const onSubmit = async () => {
+        setStatus(contactStatuses.loading);
+        try {
+            const formData = new FormData();
+            formData.append("name", form.getValues('name'));
+            formData.append("email", form.getValues('email'));
+            formData.append("phone", form.getValues('phone'));
+            formData.append("message", form.getValues('message'));
+            formData.append("access_key", WEB3FORM_ACCESS_KEY);
+
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                setStatus(contactStatuses.submitted);
+                form.reset();
+            } else {
+                setStatus(contactStatuses.error);
+            }
+        } catch (e) {
+            setStatus(contactStatuses.error);
+        }
+    };
+
+    return (
+        <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Name</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                                <Input placeholder="yourname@gmail.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Phone</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Phone" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Message</FormLabel>
+                            <FormControl>
+                                <Textarea placeholder="Message" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <Button type="submit" disabled={status === contactStatuses.loading}>
+                    {status === contactStatuses.loading ? (
+                        <span className="flex gap-2">
+                            <LoaderCircle size={24} className="animate-spin" /> Sending...
+                        </span>
+                    ) : (
+                        <span>Send Message</span>
+                    )}
+                </Button>
+            </form>
+            <FormSumbitAlertDialog status={status} setStatus={setStatus} />
+        </Form>
+    );
+}
+
+function FormSumbitAlertDialog({
+    status,
+    setStatus
+}: Readonly<{
+    status: string,
+    setStatus: React.Dispatch<React.SetStateAction<string>>
+}>) {
+    return (
+        <AlertDialog open={status == 'submitted' || status == 'error'} onOpenChange={() => {
+            setStatus('');
+        }}            >
+            <AlertDialogContent>
+                <AlertDialogHeader>
+                    <AlertDialogTitle>
+                        {status === 'submitted' ? 'Email Sent Successfully' : 'Email Failed'}
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                        <div className="flex items-center gap-2">
+                            {status === 'submitted' ? <MailCheck /> : <MailX />}
+                            {status === 'submitted' ? 'Your email has been sent successfully.' : 'There was an error sending your email.'}
+                        </div>
+                    </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                    <AlertDialogCancel onClick={() => setStatus('')}>Close</AlertDialogCancel>
+                </AlertDialogFooter>
+            </AlertDialogContent>
+        </AlertDialog>
     );
 }

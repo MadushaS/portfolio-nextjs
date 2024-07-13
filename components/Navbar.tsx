@@ -67,7 +67,7 @@ export default function NavBar() {
             return (
               <Link
                 key={item.path}
-                className={`hidden md:block px-4 py-2 rounded-full text-sm lg:text-base font-semibold relative no-underline duration-300 ease-in ${isActive ? "text-primary" : "hover:text-primary-foreground"
+                className={`hidden md:block px-4 py-2 rounded-full text-sm lg:text-base font-semibold relative no-underline duration-300 ease-in ${isActive ? "text-primary font-bold" : "hover:text-accent-foreground"
                   }`}
                 href={item.path}
                 onClick={scrollToView}
