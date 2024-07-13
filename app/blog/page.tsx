@@ -89,17 +89,18 @@ const BlogPage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const query = `*[_type == "post"]{_id, title, description , publishedAt, author -> { name }, slug, categories[]->{title}, mainImage}`;
-            return (await client.fetch(query)).map((post: SanityPostType) => {
-                return {
-                    ...post,
-                    publishedAt: format(new Date(post.publishedAt), 'MMMM dd, yyyy'),
-                    imageURL: urlForImage(post.mainImage),
-                    author: post.author.name,
-                    slug: post.slug,
-                    categories: post.categories,
-                };
-            });
+            const GetAllPostsSortByDate = `*[_type == "post"]{_id, title, description , publishedAt, author -> { name }, slug, categories[]->{title}, mainImage}| order(publishedAt desc)`;
+            return (await client.fetch(GetAllPostsSortByDate))
+                .map((post: SanityPostType) => {
+                    return {
+                        ...post,
+                        publishedAt: format(new Date(post.publishedAt), 'MMMM dd, yyyy'),
+                        imageURL: urlForImage(post.mainImage),
+                        author: post.author.name,
+                        slug: post.slug,
+                        categories: post.categories,
+                    };
+                });
         };
         fetchData()
             .then((data) => setBlogs(data))
