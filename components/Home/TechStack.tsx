@@ -43,33 +43,26 @@ export default function TechStack(props: Readonly<HTMLProps<HTMLDivElement>>) {
             </div>
             <div className="pointer-events-none relative flex flex-col overflow-hidden my-4 min-h-fit w-[100vw]">
                 <div className="relative flex fill-accent-foreground bg-card py-4 border-1 border-border z-[5]">
-                    {
-                        // repeat the following div tag for 5 times <div>Hi</div> using javascript
-                        Array.from({ length: 5 }).map((_, index) => (
-                            <div key={index} className="flex w-fit animate-marquee items-center whitespace-nowrap">
-                                {languagesAndFrameworks.map((tech, index) => (
-                                    <div key={index} className="mx-4 text-x p-2 w-16 h-16 bg-popover border border-border/90 rounded-md">
-                                        {tech}
-                                    </div>
-                                ))}
-                            </div>
-                        ))
-
-                    }
+                    {Array.from({ length: 5 }).map((_, index) => (
+                        <div key={index} className="flex w-fit animate-marquee items-center whitespace-nowrap">
+                            {languagesAndFrameworks.map((tech, index) => (
+                                <div key={index} className="mx-4 text-x p-2 w-16 h-16 bg-popover border border-border/90 rounded-md">
+                                    {tech}
+                                </div>
+                            ))}
+                        </div>
+                    ))}
                 </div>
-                <div className="relative flex justify-end fill-card-foreground bg-card py-4 border-1 border-border">
-                    {
-                        Array.from({ length: 5 }).map((_, index) => (
-                            <div key={index} className="flex w-fit animate-marquee-reverse items-center whitespace-nowrap">
-                                {toolsAndPlatforms.map((tech, index) => (
-                                    <div key={index} className="mx-4 text-x p-2 w-16 h-16 bg-popover border border-border/90 rounded-md">
-                                        {tech}
-                                    </div>
-                                ))}
-                            </div>
-                        ))
-                    }
-
+                <div className="relative flex justify-end fill-accent-foreground bg-card py-4 border-1 border-border">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                        <div key={index} className="flex w-fit animate-marquee-reverse items-center whitespace-nowrap">
+                            {toolsAndPlatforms.map((tech, index) => (
+                                <div key={index} className="mx-4 text-x p-2 w-16 h-16 bg-popover border border-border/90 rounded-md">
+                                    {tech}
+                                </div>
+                            ))}
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
