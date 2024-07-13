@@ -1,14 +1,12 @@
 'use client'
 
 import About from "./About"
-import Footer from "../Footer"
 import Hero from "./Hero"
 import Projects from "./Projects"
 import Services from "./Services"
 import TechStack from "./TechStack"
 import TopArticles from "./TopArticles"
 import { AuroraBackground } from "../ui/Aurora"
-import NavBar from "../Navbar"
 import ContactForm from "./ConatctMe"
 import React from "react"
 import Events from "./Events"
