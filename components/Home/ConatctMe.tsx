@@ -15,7 +15,7 @@ import { WEB3FORM_ACCESS_KEY } from "@/lib/env";
 export default function ContactMe(props: Readonly<React.HTMLProps<HTMLDivElement>>) {
     return (
         <section className="px-2 py-12" {...props}>
-            <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5 rounded-lg shadow-lg overflow-hidden">
+            <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5 rounded-3xl shadow-lg overflow-hidden">
                 <div className="bg-card py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
                     <div className="max-w-lg mx-auto">
                         <h2 className="text-2xl font-extrabold tracking-tight text-card-foreground sm:text-3xl">Get in touch</h2>
