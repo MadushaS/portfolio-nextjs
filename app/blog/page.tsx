@@ -1,77 +1,13 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import PostThumbnail from "@/components/Blog/BlogThumbnail";
+import FeaturedBlog from "@/components/Blog/FeaturedBlog";
+import Fallback from "@/components/Blog/PostFallBack";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
-import { SanityPost } from "@/sanity/schema";
+import { Post, SanityPost } from "@/sanity/schema";
 import { format } from "date-fns";
-import Link from "next/link";
-import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from "react";
-import { Image as SanityImage } from "sanity"
-
-interface Post {
-    title: string,
-    description: string,
-    publishedAt: string,
-    imageURL: string,
-    author: string,
-    slug: { current: string, _type: string }
-    categories: [{ title: string }],
-    _id: string,
-    mainImage: SanityImage,
-}
-
-interface PostThumbnailProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    post: Post;
-    type: 'featured' | 'highlighted' | 'normal'
-}
-
-const PostThumbnail: React.FC<PostThumbnailProps> = ({ post, type, ...props }) => (
-    <div {...props}>
-        <Link className="block" href={`/blog/${post.slug.current}`}>
-            <div className="flex">
-                <img
-                    alt="Post thumbnail"
-                    src={post.imageURL}
-                    decoding="async"
-                    loading="lazy"
-                    className={cn("w-full object-cover transition-opacity hover:opacity-90", type === 'featured' && 'aspect-square', type === 'highlighted' && 'aspect-video', type === 'normal' && 'aspect-video')}
-                />
-            </div>
-        </Link>
-        <div className="p-6">
-            <div className="flex flex-wrap gap-3 items-center mt-6">
-                {post.categories.map((category, i) => (
-                    <span
-                        key={category.title} className="text-xs font-medium uppercase rounded-full py-1.5 px-2.5 border border-primary tracking-wide whitespace-nowrap"
-                    >
-                        {category.title}
-                    </span>
-                ))}
-                <div className="text-sm flex items-center">
-                    <span className="whitespace-nowrap">{post.publishedAt}</span>
-                </div>
-            </div>
-            <h2 className="font-bold leading-snug mt-3 text-2xl">
-                <Link href={`/blog/${post.slug.current}`}>{post.title}</Link>
-            </h2>
-            <p className="mt-3 text-card-foreground">{post.description}</p>
-            <AuthorAvatar name={post.author} />
-        </div>
-    </div>
-);
-
-const AuthorAvatar = ({ name }: { name: string }) => (
-    <div className="flex gap-2 items-center mt-6">
-        <div className="text-sm">By {name}</div>
-    </div>
-);
-
-const Loading = () => (
-    <div className="flex flex-grow justify-center items-center bg-card/70 px-4 py-16 rounded-lg animate-pulse">
-        <h2 className="text-xl font-semibold">Loading...</h2>
-    </div>
-);
+import { useEffect, useState } from "react";
 
 const BlogPage = () => {
     const [blogs, setBlogs] = useState<Post[]>([]);
@@ -98,49 +34,20 @@ const BlogPage = () => {
         setLoading(false);
     }, []);
     return (
-        <main className="container mx-auto px-6 py-8">
+        <main className="container mx-auto px-6 py-2">
             <div className="max-w-[1480px] mx-auto px-5 sm:px-8">
-                <h1 className="text-3xl sm:text-6xl sm:leading-tight font-normal pt-16">
+                <h1 className="text-3xl sm:text-6xl sm:leading-tight font-normal py-8 md:py-8 lg:py-16">
                     Blog Posts
                 </h1>
-                <div className="p-4 rounded-lg">
-                    <h2 className="mb-4 font-medium text-base uppercase tracking-wider mt-20">Featured Posts</h2>
-                    <div className="flex flex-wrap xl:flex-nowrap gap-10">
-                        {loading && <Loading />}
-                        {
-                            (!loading && blogs.length > 0) ? [blogs[0]].map((blog, i) => (
-                                <PostThumbnail type="featured" key={blog.slug.current} post={blog} className="bg-card rounded-lg" />
-
-                            )) : (
-                                <div className="flex flex-grow justify-center items-center bg-card/70 px-4 py-16 rounded-lg animate-pulse">
-                                    <h2 className="text-xl font-semibold">Containt Retrieval Failed</h2>
-                                </div>
-                            )
-                        }
-                        <div className="flex flex-col md:flex-row xl:flex-col gap-10">
-                            {loading && <Loading />}
-                            {
-                                (!loading && blogs.length > 0) ? blogs.slice(1, 3).map((blog, i) => (
-                                    <PostThumbnail type="highlighted" key={blog.slug.current} post={blog} className="bg-card rounded-lg" />
-                                )) : (
-                                    <div className="flex flex-grow justify-center items-center bg-card/70 px-4 py-16 rounded-lg animate-pulse">
-                                        <h2 className="text-xl font-semibold">Containt Retrieval Failed</h2>
-                                    </div>
-                                )
-                            }
-                        </div>
-                    </div>
-
-                </div>
+                <FeaturedBlog blogs={blogs.slice(0, 3)} loading={loading} />
                 <h2 className="mb-4 font-medium text-base uppercase tracking-wider mt-20">Recent Posts</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-16 mt-16">
-                    {loading && <Loading />}
                     {
                         blogs.length > 0 ? blogs.slice(3).map((blog, i) => (
-                            <PostThumbnail type="normal" key={blog.slug.current} post={blog} className="bg-card rounded-lg aspect-video" />
+                            <PostThumbnail type="normal" key={blog.slug.current} post={blog} className="rounded-lg aspect-video" />
                         )) : (
                             <div className="flex flex-grow justify-center items-center bg-card/70 px-4 py-16 rounded-lg animate-pulse">
-                                <h2 className="text-xl font-semibold">Containt Retrieval Failed</h2>
+                                <Fallback isLoading={loading} />
                             </div>
                         )
                     }
