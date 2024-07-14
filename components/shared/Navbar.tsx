@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { act, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 
