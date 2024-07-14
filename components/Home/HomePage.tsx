@@ -9,7 +9,6 @@ import TopArticles from "./TopArticles"
 import { AuroraBackground } from "../ui/Aurora"
 import ContactMe from "./ConatctMe"
 import React from "react"
-import Events from "./Events"
 
 export default function HomePage() {
   return (
@@ -21,7 +20,6 @@ export default function HomePage() {
       <About id="about" />
       <Projects id="projects" />
       <TopArticles id="toparticles" />
-      <Events id="events" />
       <ContactMe id="contact" />
     </>
   )
