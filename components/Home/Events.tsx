@@ -2,17 +2,13 @@ import { developerEvents, DeveloperEventType } from '@/data/events';
 import React, { useRef, HTMLProps } from 'react';
 import { motion, useTransform, useScroll } from "framer-motion";
 import { Calendar, MapPin } from 'lucide-react';
+import SectionContainer from '../shared/SectionContainer';
 
 export default function Events(props: Readonly<HTMLProps<HTMLDivElement>>) {
     return (
-        <section className="" {...props}>
-            <div className="py-16 xl:pb-4 flex justify-center gap-4 md:px-8">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-                    Developer Community Events
-                </h2>
-            </div>
+        <SectionContainer id="events" title="Developer Community Events" {...props}>
             <HorizontalScrollCarousel />
-        </section>
+        </SectionContainer>
     );
 };
 const HorizontalScrollCarousel = () => {
@@ -24,7 +20,7 @@ const HorizontalScrollCarousel = () => {
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
 
     return (
-        <section ref={targetRef} className="relative h-[200vh] -top-16">
+        <section ref={targetRef} className="relative h-[200vh]">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
                 <motion.div style={{ x }} className="flex gap-4">
                     {developerEvents.map((card) => {
