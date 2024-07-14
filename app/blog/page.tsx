@@ -3,21 +3,11 @@
 import { cn } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
+import { SanityPost } from "@/sanity/schema";
 import { format } from "date-fns";
 import Link from "next/link";
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from "react";
 import { Image as SanityImage } from "sanity"
-
-type SanityPostType = {
-    author: { name: string, },
-    slug: { current: string, _type: string },
-    categories: [{ title: string }],
-    mainImage: { _type: string, asset: { _ref: string, _type: string } },
-    _id: string,
-    title: string,
-    description: string,
-    publishedAt: string
-}
 
 interface Post {
     title: string,
@@ -91,7 +81,7 @@ const BlogPage = () => {
         const fetchData = async () => {
             const GetAllPostsSortByDate = `*[_type == "post"]{_id, title, description , publishedAt, author -> { name }, slug, categories[]->{title}, mainImage}| order(publishedAt desc)`;
             return (await client.fetch(GetAllPostsSortByDate))
-                .map((post: SanityPostType) => {
+                .map((post: SanityPost) => {
                     return {
                         ...post,
                         publishedAt: format(new Date(post.publishedAt), 'MMMM dd, yyyy'),
