@@ -1,4 +1,4 @@
-import SmoothLoader from "@/components/SmoothLoader"
+import SmoothLoader from "@/components/shared/SmoothLoader"
 import HomePageContainer from "@/components/Home/HomePage"
 
 export const metadata = {

@@ -3,9 +3,9 @@
 
 import { IBM_Plex_Sans, Chivo } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/ThemeProvider'
-import NavBar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import { ThemeProvider } from '@/components/shared/ThemeProvider'
+import NavBar from '@/components/shared/Navbar'
+import Footer from '@/components/shared/Footer'
 import { cn } from '@/lib/utils'
 import { CSPostHogProvider } from './providers'
 

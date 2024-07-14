@@ -1,4 +1,4 @@
-import { SanityImage } from "@/components/SanityImage";
+import { SanityImage } from "@/components/shared/SanityImage";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import styles from '../../../components/Blog/post.module.css';

@@ -1,6 +1,6 @@
 'use client'
 
-import PreloadProjects from "../PreloadProjects";
+import PreloadProjects from "../shared/PreloadProjects";
 import { ProjectsList } from "@/data/projects";
 import ProjectCard from "./Project-card";
 import SectionContainer from "../shared/SectionContainer";
