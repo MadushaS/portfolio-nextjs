@@ -1,33 +1,31 @@
 import React, { HTMLProps } from "react";
 import { Button, ButtonProps } from "../ui/button";
 import Image from "next/image";
-import { FlipWords } from "../ui/flip-text";
 import { useScroll, useTransform, motion } from 'framer-motion'
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import HeroImage from "@/public/images/portrait.webp";
-
-const wordList = ["Computer Science Undergraduate", "Developer who loves coding", "Cloud-Native Enthusiast", "Life-long Learner"];
+import { SiLinkedin, SiX } from "react-icons/si";
 
 const socialMedia: {
     text: string;
     url: string;
     type: ButtonProps["variant"],
-    class: string;
+    icon: JSX.Element;
 }[]
     = [
         {
-            text: "Connect on LinkedIn",
+            text: "Connect on",
             url: "https://linkedin.com/in/madushasandaruwan",
             type: "default",
-            class: ""
+            icon: <SiLinkedin />
         },
         {
-            text: "Follow on X",
+            text: "Follow on",
             url: "https://x.com/_MadushaS",
             type: "secondary",
-            class: ""
+            icon: <SiX />
         }
     ]
 
@@ -52,11 +50,8 @@ export default function Hero(props: Readonly<HTMLProps<HTMLDivElement>>) {
                             Madusha Sandaruwan
                         </h1>
                     </motion.div>
-                    <div className="text-lg">
-                        &#123; <FlipWords words={wordList} /> &#125;
-                    </div>
-                    <p className=" text-lg hidden md:flex">
-                        I am a passionate developer who thrives on innovating solutions to real-world problems. With a strong foundation in computer science, I am honing my skills in software development, DevOps, and cloud native technologies with love for open source.
+                    <p className="text-lg">
+                        A <span className="font-bold">GitHub Certified Full-Stack Developer</span> who loves to build modern, responsive, scalable, and performant applications. Let&apos;s build something amazing together!
                     </p>
                     <div id="social-media" className="flex space-x-4">
                         {socialMedia.map((item) => (
@@ -65,8 +60,9 @@ export default function Hero(props: Readonly<HTMLProps<HTMLDivElement>>) {
                                 key={item.text}
                                 variant={item.type}
                             >
-                                <Link href={item.url} className={cn("font-semibold rounded-lg", item.class)}>
+                                <Link href={item.url} className={cn("font-semibold rounded-lg")}>
                                     {item.text}
+                                    <span className="ml-2">{item.icon}</span>
                                 </Link>
                             </Button>
                         ))}
