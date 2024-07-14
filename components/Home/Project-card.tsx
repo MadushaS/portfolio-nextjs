@@ -22,7 +22,7 @@ export default function ProjectCard({
     return (
         <div
             className={cn(
-                "flex flex-col lg:border-r pt-10 relative group/project border-border bg-card hover:bg-accent/30 transition-colors duration-200",
+                "flex flex-col lg:border-r pt-10 relative group/project border-border bg-card hover:bg-accent/30 transition-colors duration-600 ease-in-out",
                 (index === 0 || index === 3) && "lg:border-l border-border",
                 index < 3 && "lg:border-b border-border"
             )}
@@ -37,7 +37,7 @@ export default function ProjectCard({
                 />
                 <div className="flex flex-wrap gap-2 m-4">
                     {tags.map((tag) => (
-                        <span key={tag} className="inline-block rounded-full bg-secondary text-secondary-foreground px-3 py-1 text-sm">
+                        <span key={tag} className="inline-block rounded-full bg-secondary/70 text-secondary-foreground border border-border px-3 py-1 text-sm">
                             {tag}
                         </span>
                     ))}
@@ -66,18 +66,18 @@ export default function ProjectCard({
                     <span><strong>Technologies:</strong> {technologies.join(', ')}</span>
                 </div>
             </div>
-            <div className="p-4 flex justify-between items-center">
+            <div className="p-4 mt-4 flex justify-between items-center">
                 {githubRepo ? (
-                    <Button variant="default" asChild>
-                        <Link href={githubRepo} prefetch={false} className="flex items-center">
+                    <Button variant="outline" asChild>
+                        <Link href={githubRepo} prefetch={false} target="_blank" className="flex items-center">
                             <SiGithub className="h-5 w-5 mr-2" />
                             View Project
                         </Link>
                     </Button>
                 ) : <span />}
                 {demoLink ? (
-                    <Button variant="secondary" asChild>
-                        <Link href={demoLink} prefetch={true} className="flex items-center">
+                    <Button variant="outline" asChild>
+                        <Link href={demoLink} prefetch={true} target="_blank" className="flex items-center">
                             <RocketIcon className="h-5 w-5 mr-2" />
                             Live Demo
                         </Link>
