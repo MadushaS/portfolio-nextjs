@@ -1,7 +1,7 @@
 import { SanityImage } from "@/components/shared/SanityImage";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
-import styles from '../../../components/Blog/post.module.css';
+import styles from '../../../../components/Blog/post.module.css';
 import { format } from 'date-fns';
 import { PortableText, PortableTextReactComponents } from "next-sanity";
 import { SiFacebook, SiLinkedin, SiTwitter } from "react-icons/si";
