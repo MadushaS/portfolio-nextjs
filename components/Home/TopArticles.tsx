@@ -26,7 +26,7 @@ export default function TopArticles(props: Readonly<HTMLProps<HTMLDivElement>>) 
   if (!posts) return null;
   return (
     <SectionContainer id="toparticles" title="Top Articles" subtitle="Check out some of my top articles">
-      <div className="container">
+      <div className="container px-4">
         <FeaturedBlog blogs={posts} loading={loading} />
       </div>
     </SectionContainer>
