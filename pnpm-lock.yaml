@@ -48,8 +48,8 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
       framer-motion:
-        specifier: ^11.3.2
-        version: 11.3.2(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^11.3.3
+        version: 11.3.3(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       locomotive-scroll:
         specifier: 5.0.0-beta.13
         version: 5.0.0-beta.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3224,8 +3224,8 @@ packages:
       react-dom:
         optional: true
 
-  framer-motion@11.3.2:
-    resolution: {integrity: sha512-RgjSzrNFZmedWcvmW4MMc84A7UcoY37jocadE3Mbg3o+UMofodfyeNnYD/HR15UhP22/bb5KOebNhYOj4mYkpQ==}
+  framer-motion@11.3.3:
+    resolution: {integrity: sha512-Z+fwgwKveyjDXPpnNP0invAt0W8y2kYk7FHH3Vk2DxLtNVzBg8qhEvGapVeWZgcuvVnKvTKhJLX091mYdMzQBg==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0
@@ -9292,7 +9292,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  framer-motion@11.3.2(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  framer-motion@11.3.3(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       tslib: 2.6.3
     optionalDependencies:
