@@ -15,8 +15,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(react@18.3.1)
       '@preline/theme-switch':
-        specifier: ^2.3.0
-        version: 2.3.0
+        specifier: ^2.4.0
+        version: 2.4.0
       '@radix-ui/react-alert-dialog':
         specifier: ^1.1.1
         version: 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1471,8 +1471,8 @@ packages:
     resolution: {integrity: sha512-5xk5MSyQU9CrDho3Rsguj38jhijhD36Mk8S6mZo3huv6PM+t4M/5kJN2KFIxgvt4ONpvOEs1pVIZAV0cL0Vi+Q==}
     engines: {node: ^14.13.1 || >=16.0.0 || >=18.0.0}
 
-  '@preline/theme-switch@2.3.0':
-    resolution: {integrity: sha512-F0BNjlqnpF8ZkpSX8phNq5hk1E9u4UeQFPgFUbtSO1O9iPHN8AGcaIK/Mp2a3xa1/7fjvlnCZbaMdGuMMf/+TQ==}
+  '@preline/theme-switch@2.4.0':
+    resolution: {integrity: sha512-M/JECS+Dh+CwKyFXcBYlyZRRDVCKBmeyAPoCaQptodlJ5c+NTMN2LwvmvninJEHtJdKCH7lAjjOusrYXAXfzyw==}
 
   '@radix-ui/primitive@1.1.0':
     resolution: {integrity: sha512-4Z8dn6Upk0qk4P74xBhZ6Hd/w0mPEzOOLxy4xiPXOXqjF7jZS0VAKk7/x/H6FyY2zCkYJqePf1G5KmkmNJ4RBA==}
@@ -7085,7 +7085,7 @@ snapshots:
 
   '@portabletext/types@2.0.13': {}
 
-  '@preline/theme-switch@2.3.0': {}
+  '@preline/theme-switch@2.4.0': {}
 
   '@radix-ui/primitive@1.1.0': {}
 
