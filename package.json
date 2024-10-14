@@ -39,7 +39,7 @@
     "react-markdown": "^9.0.1",
     "sanity": "^3.59.1",
     "styled-components": "^6.1.13",
-    "tailwind-merge": "^2.5.3",
+    "tailwind-merge": "^2.5.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
