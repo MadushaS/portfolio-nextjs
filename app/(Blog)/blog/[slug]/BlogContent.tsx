@@ -4,7 +4,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import styles from '../../../../components/Blog/post.module.css';
 import { format } from 'date-fns';
 import { PortableText, PortableTextReactComponents } from "next-sanity";
-import { SiFacebook, SiLinkedin, SiTwitter } from "react-icons/si";
+import { SiFacebook, SiLinkedin, SiX } from "react-icons/si";
 import Link from "next/link";
 
 export const runtime = 'edge';
@@ -138,7 +138,7 @@ export default async function BlogContent({ slug }: Readonly<{ slug: string }>) 
                                     className="flex justify-center items-center border border-border rounded-full bg-card hover:bg-secondary p-2"
                                     aria-label="Share on X"
                                 >
-                                    <SiTwitter />
+                                    <SiX />
                                 </Link>
                             </li>
                             <li className="mr-4 lg:mr-0 mb-4">
