@@ -1,11 +1,17 @@
 import BlogContent from "./BlogContent";
-
 export const runtime = 'edge';
 
-function BlogPage({ params }: Readonly<{ params: { slug: string } }>) {
+type PageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+async function BlogPage({ params }: PageProps) {
+  const resolvedParams = await params;
   return (
     <div className="">
-      <BlogContent slug={params.slug} />
+      <BlogContent slug={resolvedParams.slug} />
     </div>
   );
 }
