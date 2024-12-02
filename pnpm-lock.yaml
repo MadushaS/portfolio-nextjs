@@ -40,7 +40,7 @@ importers:
         version: 3.64.2(@babel/runtime@7.26.0)(@codemirror/lint@6.8.2)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.3)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@tailwindcss/typography':
         specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3)))
+        version: 0.5.15(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3)))
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -67,7 +67,7 @@ importers:
         version: 15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-sanity:
         specifier: ^9.8.16
-        version: 9.8.16(@sanity/client@6.22.5)(@sanity/icons@3.4.0(react@18.3.1))(@sanity/types@3.64.2)(@sanity/ui@2.8.24(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.64.2(@types/node@22.9.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 9.8.16(@sanity/client@6.22.5)(@sanity/icons@3.4.0(react@18.3.1))(@sanity/types@3.64.2)(@sanity/ui@2.8.24(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.64.2(@types/node@22.10.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       next-sanity-image:
         specifier: ^6.1.1
         version: 6.1.1(@sanity/client@6.22.5)(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -97,7 +97,7 @@ importers:
         version: 9.0.1(@types/react@18.3.12)(react@18.3.1)
       sanity:
         specifier: ^3.64.2
-        version: 3.64.2(@types/node@22.9.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 3.64.2(@types/node@22.10.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       styled-components:
         specifier: ^6.1.13
         version: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -110,13 +110,13 @@ importers:
     devDependencies:
       '@tailwindcss/forms':
         specifier: ^0.5.9
-        version: 0.5.9(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3)))
+        version: 0.5.9(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3)))
       '@types/locomotive-scroll':
         specifier: ^4.1.3
         version: 4.1.3
       '@types/node':
-        specifier: ^22.9.1
-        version: 22.9.1
+        specifier: ^22.10.1
+        version: 22.10.1
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
@@ -137,10 +137,10 @@ importers:
         version: 0.33.5
       tailwindcss:
         specifier: ^3.4.15
-        version: 3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3))
+        version: 3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3))
       tailwindcss-animate:
         specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3)))
+        version: 1.0.7(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3)))
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
@@ -2330,6 +2330,9 @@ packages:
 
   '@types/node@16.18.11':
     resolution: {integrity: sha512-3oJbGBUWuS6ahSnEq1eN2XrCyf4YsWI8OyCvo7c64zQJNplk3mO84t53o8lfTk+2ji59g5ycfc6qQ3fdHliHuA==}
+
+  '@types/node@22.10.1':
+    resolution: {integrity: sha512-qKgsUwfHZV2WCWLAnVP1JqnpE6Im6h3Y0+fYgMTasNQ7V++CBX5OT1as0g0f+OyubbFqhf6XVNIsmN4IIhEgGQ==}
 
   '@types/node@22.9.1':
     resolution: {integrity: sha512-p8Yy/8sw1caA8CdRIQBG5tiLHmxtQKObCijiAa9Ez+d4+PRffM4054xbju0msf+cvhJpnFEeNjxmVT/0ipktrg==}
@@ -6462,6 +6465,9 @@ packages:
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+
   undici@5.28.4:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
     engines: {node: '>=14.0'}
@@ -9097,18 +9103,18 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@tailwindcss/forms@0.5.9(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3)))':
+  '@tailwindcss/forms@0.5.9(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3)))':
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3))
+      tailwindcss: 3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3))
 
-  '@tailwindcss/typography@0.5.15(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3)))':
+  '@tailwindcss/typography@0.5.15(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3)))':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3))
+      tailwindcss: 3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3))
 
   '@tanstack/react-table@8.20.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -9179,12 +9185,12 @@ snapshots:
 
   '@types/follow-redirects@1.14.4':
     dependencies:
-      '@types/node': 22.9.1
+      '@types/node': 22.10.1
 
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.9.1
+      '@types/node': 22.10.1
 
   '@types/hast@2.3.10':
     dependencies:
@@ -9222,6 +9228,10 @@ snapshots:
 
   '@types/node@16.18.11': {}
 
+  '@types/node@22.10.1':
+    dependencies:
+      undici-types: 6.20.0
+
   '@types/node@22.9.1':
     dependencies:
       undici-types: 6.19.8
@@ -9230,7 +9240,7 @@ snapshots:
 
   '@types/progress-stream@2.0.5':
     dependencies:
-      '@types/node': 22.9.1
+      '@types/node': 22.10.1
 
   '@types/prop-types@15.7.13': {}
 
@@ -9259,7 +9269,7 @@ snapshots:
 
   '@types/tar-stream@3.1.3':
     dependencies:
-      '@types/node': 22.9.1
+      '@types/node': 22.10.1
 
   '@types/unist@2.0.11': {}
 
@@ -9529,14 +9539,14 @@ snapshots:
 
   '@vercel/stega@0.1.2': {}
 
-  '@vitejs/plugin-react@4.3.3(vite@4.5.5(@types/node@22.9.1))':
+  '@vitejs/plugin-react@4.3.3(vite@4.5.5(@types/node@22.10.1))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 4.5.5(@types/node@22.9.1)
+      vite: 4.5.5(@types/node@22.10.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -10234,7 +10244,7 @@ snapshots:
 
   debug@4.1.1:
     dependencies:
-      ms: 2.1.1
+      ms: 2.1.3
 
   debug@4.3.7:
     dependencies:
@@ -12361,7 +12371,7 @@ snapshots:
       next: 15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
 
-  next-sanity@9.8.16(@sanity/client@6.22.5)(@sanity/icons@3.4.0(react@18.3.1))(@sanity/types@3.64.2)(@sanity/ui@2.8.24(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.64.2(@types/node@22.9.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  next-sanity@9.8.16(@sanity/client@6.22.5)(@sanity/icons@3.4.0(react@18.3.1))(@sanity/types@3.64.2)(@sanity/ui@2.8.24(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(next@15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sanity@3.64.2(@types/node@22.10.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       '@portabletext/react': 3.1.0(react@18.3.1)
       '@sanity/client': 6.22.5(debug@4.3.7)
@@ -12377,7 +12387,7 @@ snapshots:
       next: 15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      sanity: 3.64.2(@types/node@22.9.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      sanity: 3.64.2(@types/node@22.10.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       styled-components: 6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - '@remix-run/react'
@@ -12756,13 +12766,13 @@ snapshots:
       camelcase-css: 2.0.1
       postcss: 8.4.49
 
-  postcss-load-config@4.0.2(postcss@8.4.49)(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3)):
+  postcss-load-config@4.0.2(postcss@8.4.49)(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3)):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.6.1
     optionalDependencies:
       postcss: 8.4.49
-      ts-node: 10.9.1(@types/node@22.9.1)(typescript@5.6.3)
+      ts-node: 10.9.1(@types/node@22.10.1)(typescript@5.6.3)
 
   postcss-nested@6.2.0(postcss@8.4.49):
     dependencies:
@@ -13246,7 +13256,7 @@ snapshots:
     dependencies:
       '@sanity/diff-match-patch': 3.1.1
 
-  sanity@3.64.2(@types/node@22.9.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  sanity@3.64.2(@types/node@22.10.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       '@dnd-kit/core': 6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@dnd-kit/modifiers': 6.0.1(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -13289,7 +13299,7 @@ snapshots:
       '@types/speakingurl': 13.0.6
       '@types/tar-stream': 3.1.3
       '@types/use-sync-external-store': 0.0.6
-      '@vitejs/plugin-react': 4.3.3(vite@4.5.5(@types/node@22.9.1))
+      '@vitejs/plugin-react': 4.3.3(vite@4.5.5(@types/node@22.10.1))
       archiver: 7.0.1
       arrify: 1.0.1
       async-mutex: 0.4.1
@@ -13365,7 +13375,7 @@ snapshots:
       use-device-pixel-ratio: 1.1.2(react@18.3.1)
       use-hot-module-reload: 2.0.0(react@18.3.1)
       use-sync-external-store: 1.2.2(react@18.3.1)
-      vite: 4.5.5(@types/node@22.9.1)
+      vite: 4.5.5(@types/node@22.10.1)
       yargs: 17.7.2
     transitivePeerDependencies:
       - '@types/node'
@@ -13755,11 +13765,11 @@ snapshots:
 
   tailwind-merge@2.5.4: {}
 
-  tailwindcss-animate@1.0.7(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3))):
+  tailwindcss-animate@1.0.7(tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3))):
     dependencies:
-      tailwindcss: 3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3))
+      tailwindcss: 3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3))
 
-  tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3)):
+  tailwindcss@3.4.15(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -13778,7 +13788,7 @@ snapshots:
       postcss: 8.4.49
       postcss-import: 15.1.0(postcss@8.4.49)
       postcss-js: 4.0.1(postcss@8.4.49)
-      postcss-load-config: 4.0.2(postcss@8.4.49)(ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3))
+      postcss-load-config: 4.0.2(postcss@8.4.49)(ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3))
       postcss-nested: 6.2.0(postcss@8.4.49)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
@@ -13942,14 +13952,14 @@ snapshots:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  ts-node@10.9.1(@types/node@22.9.1)(typescript@5.6.3):
+  ts-node@10.9.1(@types/node@22.10.1)(typescript@5.6.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.9.1
+      '@types/node': 22.10.1
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -14057,6 +14067,8 @@ snapshots:
       through: 2.3.8
 
   undici-types@6.19.8: {}
+
+  undici-types@6.20.0: {}
 
   undici@5.28.4:
     dependencies:
@@ -14243,13 +14255,13 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@4.5.5(@types/node@22.9.1):
+  vite@4.5.5(@types/node@22.10.1):
     dependencies:
       esbuild: 0.18.20
       postcss: 8.4.49
       rollup: 3.29.5
     optionalDependencies:
-      '@types/node': 22.9.1
+      '@types/node': 22.10.1
       fsevents: 2.3.3
 
   void-elements@3.1.0: {}
