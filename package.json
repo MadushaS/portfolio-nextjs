@@ -32,7 +32,7 @@
     "next-sanity-image": "^6.1.1",
     "next-themes": "^0.4.3",
     "node-mailjet": "^6.0.6",
-    "posthog-js": "^1.187.2",
+    "posthog-js": "^1.200.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.2",
