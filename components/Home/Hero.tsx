@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react";
+import React, { HTMLProps, JSX } from "react";
 import { Button, ButtonProps } from "../ui/button";
 import Image from "next/image";
 import { useScroll, useTransform, motion } from 'framer-motion'
