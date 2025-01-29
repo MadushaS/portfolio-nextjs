@@ -18,7 +18,7 @@ const ExperienceSection = (props: Readonly<HTMLProps<HTMLDivElement>>) => {
                     Work Experience
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    A journey through my professional experience and the impact I've made along the way.
+                    A journey through my professional experience and the impact I&apos;ve made along the way.
                 </p>
             </motion.div>
 
