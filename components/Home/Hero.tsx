@@ -51,7 +51,7 @@ export default function Hero(props: Readonly<HTMLProps<HTMLDivElement>>) {
                         </h1>
                     </motion.div>
                     <p className="text-lg">
-                        A <span className="font-bold">GitHub Certified Full-Stack Developer</span> who loves to build modern, responsive, scalable, and performant applications. Let&apos;s build something amazing together!
+                        A <span className="font-bold">GitHub Certified Full-Stack Developer</span>with expertise in building modern, responsive, scalable, and performant applications. Let&apos;s create something extraordinary!
                     </p>
                     <div id="social-media" className="flex space-x-4">
                         {socialMedia.map((item) => (
