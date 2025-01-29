@@ -24,7 +24,7 @@ export default function Layout({ children }: Readonly<{ children: React.ReactNod
   return (
     <html lang="en">
       <CSPostHogProvider>
-        <body className={cn(ibm_plex_sans.className, chivo.variable, 'w-full bg-background transition-colors duration-300 overflow-x-hidden')} >
+        <body className={cn(ibm_plex_sans.className, chivo.variable, 'w-full transition-colors duration-700 overflow-x-hidden')} >
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
