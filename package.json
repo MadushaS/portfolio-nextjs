@@ -28,7 +28,7 @@
     "lucide-react": "^0.474.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "^15.1.6",
-    "next-sanity": "^9.8.46",
+    "next-sanity": "^9.8.47",
     "next-sanity-image": "^6.1.1",
     "next-themes": "^0.4.4",
     "node-mailjet": "^6.0.6",
