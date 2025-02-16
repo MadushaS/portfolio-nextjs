@@ -1,36 +1,43 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
-import { Button } from "../ui/button"
-import { motion, AnimatePresence } from "framer-motion"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "../ui/button";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-export function ThemeToggle({ className, ...props }: React.ComponentProps<"div">) {
-  const { theme, setTheme } = useTheme()
-  const [isDarkMode, setIsDarkMode] = React.useState(false)
-  const [mounted, setMounted] = React.useState(false)
+export function ThemeToggle({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
+  const { theme, setTheme } = useTheme();
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
 
   const toggleTheme = () => {
-    const newTheme = isDarkMode ? "light" : "dark"
-    setTheme(newTheme)
-    setIsDarkMode(!isDarkMode)
-  }
+    const newTheme = isDarkMode ? "light" : "dark";
+    setTheme(newTheme);
+    setIsDarkMode(!isDarkMode);
+  };
 
   React.useEffect(() => {
-    setMounted(true)
-    setIsDarkMode(theme === "dark")
-  }, [theme])
+    setMounted(true);
+    setIsDarkMode(theme === "dark");
+  }, [theme]);
 
   // Render nothing on the server, and the full UI only on the client
   if (!mounted) {
-    return null
+    return null;
   }
 
   return (
-    <div {...props} className={cn("flex items-center space-x-2 ", className)}>
-      <Button variant="secondary" className="rounded-full p-2 border border-border bg-card hover:bg-accent duration-200" onClick={toggleTheme}>
+    <div {...props} className={cn("flex items-center space-x-2", className)}>
+      <Button
+        variant="secondary"
+        className="border-border bg-card hover:bg-accent rounded-full border p-2 duration-200"
+        onClick={toggleTheme}
+      >
         <AnimatePresence mode="wait" initial={false}>
           {isDarkMode ? (
             <motion.div
@@ -56,5 +63,5 @@ export function ThemeToggle({ className, ...props }: React.ComponentProps<"div">
         </AnimatePresence>
       </Button>
     </div>
-  )
+  );
 }

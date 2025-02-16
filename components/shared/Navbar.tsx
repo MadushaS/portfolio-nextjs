@@ -16,25 +16,26 @@ const navItems = [
 
 const pages = [
   { name: "Home", path: "/" },
-  { name: "Blog", path: "/blog", active: true},
+  { name: "Blog", path: "/blog", active: true },
 ];
 
 export default function NavBar() {
-  const [activePath, setActivePath] = useState('home');
+  const [activePath, setActivePath] = useState("home");
 
   const scrollToView = (e: React.MouseEvent<HTMLAnchorElement>): void => {
     e.preventDefault();
     const href = e.currentTarget.getAttribute("href");
     if (!href) return;
     const element = document.querySelector(href);
-    if (element instanceof HTMLElement) { // Type assertion here
+    if (element instanceof HTMLElement) {
+      // Type assertion here
       const offsetTop = element.offsetTop;
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth",
       });
     }
-  }
+  };
 
   const handleScroll = () => {
     const sections = document.querySelectorAll("section");
@@ -59,12 +60,10 @@ export default function NavBar() {
   }, []);
 
   return (
-    <div className="border-b border-border flex p-2 rounded-none mb-8 sticky top-0 z-[100] bg-card text-accent-foreground backdrop-blur-md w-full mx-auto max-w-full">
-      <nav className="flex justify-between gap-2 relative z-[100] w-full rounded-lg">
-        <h3 className="block justify-start px-4 py-2 rounded-full text-xl text-primary font-black font-mono not-sr-only">
-          <Link href="/">
-            ://madusha
-          </Link>
+    <div className="border-border bg-card text-accent-foreground sticky top-0 z-100 mx-auto mb-8 flex w-full max-w-full rounded-none border-b p-2 backdrop-blur-md">
+      <nav className="relative z-100 flex w-full justify-between gap-2 rounded-lg">
+        <h3 className="text-primary not-sr-only block justify-start rounded-full px-4 py-2 font-mono text-xl font-black">
+          <Link href="/">://madusha</Link>
         </h3>
         <div className="flex justify-between gap-2">
           {navItems.map((item) => {
@@ -72,8 +71,11 @@ export default function NavBar() {
             return (
               <Link
                 key={item.path}
-                className={`hidden md:block px-4 py-2 rounded-full text-sm lg:text-base font-semibold relative no-underline duration-300 ease-in ${isActive ? "text-primary font-bold" : "hover:text-accent-foreground"
-                  }`}
+                className={`relative hidden rounded-full px-4 py-2 text-sm font-semibold no-underline duration-300 ease-in md:block lg:text-base ${
+                  isActive
+                    ? "text-primary font-bold"
+                    : "hover:text-accent-foreground"
+                }`}
                 href={item.path}
                 onClick={scrollToView}
                 onMouseOver={() => {
@@ -84,7 +86,7 @@ export default function NavBar() {
                 <span>{item.name}</span>
                 {isActive && (
                   <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-primary rounded-full -z-10"
+                    className="bg-primary absolute bottom-0 left-0 -z-10 h-1 rounded-full"
                     layoutId="navbar"
                     aria-hidden="true"
                     style={{
@@ -101,8 +103,7 @@ export default function NavBar() {
                 )}
               </Link>
             );
-          })
-          }
+          })}
         </div>
         <ThemeToggle className="flex-end justify-end justify-items-end" />
       </nav>
@@ -112,26 +113,27 @@ export default function NavBar() {
 
 export function BlogNavBar() {
   return (
-    <div className="border-b border-border flex p-2 rounded-none mb-8 sticky top-0 z-[100] bg-card text-accent-foreground backdrop-blur-md w-full mx-auto max-w-full">
-      <nav className="flex justify-between gap-2 relative z-[100] w-full rounded-lg">
-        <h3 className="block justify-start px-4 py-2 rounded-full text-xl text-primary font-black font-mono not-sr-only">
-          <Link href="/blog">
-            ://madusha
-          </Link>
+    <div className="border-border bg-card text-accent-foreground sticky top-0 z-100 mx-auto mb-8 flex w-full max-w-full rounded-none border-b p-2 backdrop-blur-md">
+      <nav className="relative z-100 flex w-full justify-between gap-2 rounded-lg">
+        <h3 className="text-primary not-sr-only block justify-start rounded-full px-4 py-2 font-mono text-xl font-black">
+          <Link href="/blog">://madusha</Link>
         </h3>
         <div className="flex justify-between gap-2">
           {pages.map((item) => {
             return (
               <Link
                 key={item.path}
-                className={`hidden md:block px-4 py-2 rounded-full text-sm lg:text-base font-semibold relative no-underline duration-300 ease-in ${item.active ? "text-primary font-bold" : "hover:text-accent-foreground"
-                  }`}
+                className={`relative hidden rounded-full px-4 py-2 text-sm font-semibold no-underline duration-300 ease-in md:block lg:text-base ${
+                  item.active
+                    ? "text-primary font-bold"
+                    : "hover:text-accent-foreground"
+                }`}
                 href={item.path}
               >
                 <span>{item.name}</span>
                 {item.active && (
                   <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-primary rounded-full -z-10"
+                    className="bg-primary absolute bottom-0 left-0 -z-10 h-1 rounded-full"
                     layoutId="navbar"
                     aria-hidden="true"
                     style={{
@@ -148,11 +150,10 @@ export function BlogNavBar() {
                 )}
               </Link>
             );
-          })
-          }
+          })}
         </div>
         <ThemeToggle className="flex-end justify-end justify-items-end" />
       </nav>
     </div>
-  )
+  );
 }

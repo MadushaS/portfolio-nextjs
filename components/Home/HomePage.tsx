@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import About from "./About"
-import Hero from "./Hero"
-import Projects from "./Projects"
-import Services from "./Services"
-import TechStack from "./TechStack"
-import TopArticles from "./TopArticles"
-import { AuroraBackground } from "../ui/Aurora"
-import ContactMe from "./ConatctMe"
-import React from "react"
-import ExperienceSection from "./Experince"
+import About from "./About";
+import Hero from "./Hero";
+import Projects from "./Projects";
+import Services from "./Services";
+import TechStack from "./TechStack";
+import TopArticles from "./TopArticles";
+import { AuroraBackground } from "../ui/Aurora";
+import ContactMe from "./ConatctMe";
+import React from "react";
+import ExperienceSection from "./Experince";
 
 export default function HomePage() {
   return (
@@ -24,5 +24,5 @@ export default function HomePage() {
       <TopArticles id="toparticles" />
       <ContactMe id="contact" />
     </>
-  )
+  );
 }

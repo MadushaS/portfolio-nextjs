@@ -1,89 +1,114 @@
 import { ProjectType } from "@/data/projects";
 import { cn } from "@/lib/utils";
-import { BadgeCheckIcon, CalendarIcon, CodeIcon, RocketIcon } from "lucide-react";
+import {
+  BadgeCheckIcon,
+  CalendarIcon,
+  CodeIcon,
+  RocketIcon,
+} from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { SiGithub } from "react-icons/si";
 
 export default function ProjectCard({
-    title,
-    description,
-    license,
-    image,
-    year,
-    technologies,
-    tags,
-    githubRepo,
-    demoLink,
-    index,
-}: ProjectType & { index: number }
-) {
-    return (
-        <div
-            className={cn(
-                "flex flex-col lg:border-r pt-10 relative group/project border-border bg-card hover:bg-accent/30 transition-colors duration-600 ease-in-out",
-                (index === 0 || index === 3) && "lg:border-l border-border",
-                index < 3 && "lg:border-b border-border"
-            )}
-        >
-            <div className="p-4">
-                <Image
-                    src={image}
-                    alt={title}
-                    width={350}
-                    height={700}
-                    className="aspect-video w-full rounded-lg object-cover"
-                />
-                <div className="flex flex-wrap gap-2 m-4">
-                    {tags.map((tag) => (
-                        <span key={tag} className="inline-block rounded-full bg-secondary/70 text-secondary-foreground border border-border px-3 py-1 text-sm">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-            </div>
-            <div className="text-xl font-bold mb-2 relative z-10 px-10">
-                <div className="absolute left-0 inset-y-0 h-6 group-hover/project:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-neutral-700 group-hover/project:bg-blue-500 transition-all duration-200 origin-center" />
-                <span className="group-hover/project:translate-x-2 transition duration-200 inline-block text-card-foreground">
-                    {title}
-                </span>
-            </div>
-            <div className="mx-4 mt-4 space-y-4 flex flex-col flex-grow border-border">
-                <p className="text-muted-foreground mb-4">
-                    {description}
-                </p>
-                <div className="flex items-center text-sm text-accent-foreground space-x-2">
-                    <CalendarIcon className="h-5 w-5" />
-                    <span><strong>Year:</strong> {year}</span>
-                </div>
-                <div className="flex items-center text-sm text-accent-foreground space-x-2">
-                    <BadgeCheckIcon className="h-5 w-5" />
-                    <span><strong>License:</strong> {license}</span>
-                </div>
-                <div className="flex items-center text-sm text-accent-foreground space-x-2">
-                    <CodeIcon className="h-5 w-5" />
-                    <span><strong>Technologies:</strong> {technologies.join(', ')}</span>
-                </div>
-            </div>
-            <div className="p-4 mt-4 flex justify-between items-center">
-                {githubRepo ? (
-                    <Button variant="outline" asChild>
-                        <Link href={githubRepo} prefetch={false} target="_blank" className="flex items-center">
-                            <SiGithub className="h-5 w-5 mr-2" />
-                            View Project
-                        </Link>
-                    </Button>
-                ) : <span />}
-                {demoLink ? (
-                    <Button variant="outline" asChild>
-                        <Link href={demoLink} prefetch={true} target="_blank" className="flex items-center">
-                            <RocketIcon className="h-5 w-5 mr-2" />
-                            Live Demo
-                        </Link>
-                    </Button>
-                ) : <span />}
-            </div>
+  title,
+  description,
+  license,
+  image,
+  year,
+  technologies,
+  tags,
+  githubRepo,
+  demoLink,
+  index,
+}: ProjectType & { index: number }) {
+  return (
+    <div
+      className={cn(
+        "group/project border-border bg-card hover:bg-accent/30 relative flex flex-col pt-10 transition-colors duration-600 ease-in-out lg:border-r",
+        (index === 0 || index === 3) && "border-border lg:border-l",
+        index < 3 && "border-border lg:border-b",
+      )}
+    >
+      <div className="p-4">
+        <Image
+          src={image}
+          alt={title}
+          width={350}
+          height={700}
+          className="aspect-video w-full rounded-lg object-cover"
+        />
+        <div className="m-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="bg-secondary/70 text-secondary-foreground border-border inline-block rounded-full border px-3 py-1 text-sm"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
-    );
-};
+      </div>
+      <div className="relative z-10 mb-2 px-10 text-xl font-bold">
+        <div className="absolute inset-y-0 left-0 h-6 w-1 origin-center rounded-tr-full rounded-br-full bg-neutral-300 transition-all duration-200 group-hover/project:h-8 group-hover/project:bg-blue-500 dark:bg-neutral-700" />
+        <span className="text-card-foreground inline-block transition duration-200 group-hover/project:translate-x-2">
+          {title}
+        </span>
+      </div>
+      <div className="border-border mx-4 mt-4 flex grow flex-col space-y-4">
+        <p className="text-muted-foreground mb-4">{description}</p>
+        <div className="text-accent-foreground flex items-center space-x-2 text-sm">
+          <CalendarIcon className="h-5 w-5" />
+          <span>
+            <strong>Year:</strong> {year}
+          </span>
+        </div>
+        <div className="text-accent-foreground flex items-center space-x-2 text-sm">
+          <BadgeCheckIcon className="h-5 w-5" />
+          <span>
+            <strong>License:</strong> {license}
+          </span>
+        </div>
+        <div className="text-accent-foreground flex items-center space-x-2 text-sm">
+          <CodeIcon className="h-5 w-5" />
+          <span>
+            <strong>Technologies:</strong> {technologies.join(", ")}
+          </span>
+        </div>
+      </div>
+      <div className="mt-4 flex items-center justify-between p-4">
+        {githubRepo ? (
+          <Button variant="outline" asChild>
+            <Link
+              href={githubRepo}
+              prefetch={false}
+              target="_blank"
+              className="flex items-center"
+            >
+              <SiGithub className="mr-2 h-5 w-5" />
+              View Project
+            </Link>
+          </Button>
+        ) : (
+          <span />
+        )}
+        {demoLink ? (
+          <Button variant="outline" asChild>
+            <Link
+              href={demoLink}
+              prefetch={true}
+              target="_blank"
+              className="flex items-center"
+            >
+              <RocketIcon className="mr-2 h-5 w-5" />
+              Live Demo
+            </Link>
+          </Button>
+        ) : (
+          <span />
+        )}
+      </div>
+    </div>
+  );
+}

@@ -1,5 +1,5 @@
 import BlogContent from "./BlogContent";
-export const runtime = 'edge';
+export const runtime = "edge";
 
 type PageProps = {
   params: Promise<{

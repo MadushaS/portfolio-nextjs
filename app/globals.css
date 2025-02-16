@@ -1,6 +1,25 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../tailwind.config.ts';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   :root {
@@ -8,9 +27,10 @@
     --foreground: 210 12% 16%;
     --popover: 0 0% 97%;
     --popover-foreground: 210 12% 6%;
-    --card: 0 0% 98%;
+    --card: 0 0% 93%;
     --card-foreground: 210 12% 11%;
-    --primary: 194.91 82.56% 16.27; /*220.9 39.3% 11%; */
+    --primary: 194.91 82.56% 16.27;
+    /*220.9 39.3% 11%; */
     --primary-foreground: 210 20% 98%;
     --secondary: 210 3% 75%;
     --secondary-foreground: 210 3% 15%;
@@ -33,7 +53,8 @@
     --card-foreground: 214 13% 95%;
     --popover: 210 12% 13%;
     --popover-foreground: 214 13% 100%;
-    --primary: 194.91 82.56% 38.24%; /*210 20% 98%; */
+    --primary: 194.91 82.56% 38.24%;
+    /*210 20% 98%; */
     --primary-foreground: 220.9 39.3% 11%;
     --secondary: 214 3% 25%;
     --secondary-foreground: 214 3% 85%;
@@ -49,57 +70,56 @@
   }
 }
 
-@layer base2 {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 210 12% 16%;
-    --muted: 0 12% 90%;
-    --muted-foreground: 0 12% 30%;
-    --popover: 0 0% 97%;
-    --popover-foreground: 210 12% 6%;
-    --card: 240, 90%, 96%;
-    --card-foreground: 210 12% 11%;
-    --border: 0 0% 95%;
-    --input: 0 0% 92%;
-    --primary: 210 13% 21%;
-    --primary-foreground: 210 13% 81%;
-    --secondary: 210 3% 75%;
-    --secondary-foreground: 210 3% 15%;
-    --accent: 0 0% 85%;
-    --accent-foreground: 0 0% 25%;
-    --destructive: 9 92% 38%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 210 13% 21%;
-    --radius: 0.5rem;
-  }
 
-  .dark {
-    --background: 210 12% 16%;
-    --foreground: 214 13% 90%;
-    --muted: 210 12% 20%;
-    --muted-foreground: 210 12% 70%;
-    --popover: 210 12% 13%;
-    --popover-foreground: 214 13% 100%;
-    --card: 210 12% 14%;
-    --card-foreground: 214 13% 95%;
-    --border: 210 2% 21%;
-    --input: 210 2% 24%;
-    --primary: 214 13% 90%;
-    --primary-foreground: 214 13% 30%;
-    --secondary: 214 3% 25%;
-    --secondary-foreground: 214 3% 85%;
-    --accent: 210 12% 31%;
-    --accent-foreground: 210 12% 91%;
-    --destructive: 1 94% 54%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 214 13% 90%;
-  }
-}
 
 body {
   font-family: var(--font-chivo);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-ibm_plex_sans);
+}
+
+.portableText {
+  @apply text-lg leading-relaxed;
+}
+
+.portableText p,
+.portableText ul,
+.portableText ol,
+.portableText blockquote {
+  @apply my-6;
+}
+
+.portableText h1 {
+  @apply mb-4 mt-12 text-4xl leading-snug font-bold;
+}
+
+.portableText h2 {
+  @apply mb-4 mt-12 text-3xl leading-snug font-bold;
+}
+
+.portableText h3 {
+  @apply mb-4 mt-8 text-2xl leading-snug font-bold;
+}
+
+.portableText h4 {
+  @apply mb-4 mt-8 text-xl leading-snug font-bold;
+}
+
+.portableText h5 {
+  @apply mb-4 mt-8 text-lg leading-snug font-bold;
+}
+
+.portableText a {
+  @apply text-blue-500 underline;
+}
+
+.portableText a:hover {
+  @apply text-blue-800;
 }
