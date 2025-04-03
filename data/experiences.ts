@@ -2,7 +2,7 @@ export const experiences = [
     {
       company: "Perituza Lanka (Pvt) Ltd.",
       position: "Information Technology Intern",
-      duration: "2024 - Present",
+      duration: "2024 Aug - 2025 Feb (6 months)",
       location: "Colombo, Sri Lanka",
       description: [
         "Implemented a database benchmarking tools to analyze MySQL, PostgreSQL, and SQL Server",
