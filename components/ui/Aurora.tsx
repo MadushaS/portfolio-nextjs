@@ -1,37 +1,50 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import React from "react";
+import React, { ReactNode } from "react";
+
+interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
+  children?: ReactNode;
+  showRadialGradient?: boolean;
+}
 
 export const AuroraBackground = ({
   className,
+  children,
   showRadialGradient = true,
   ...props
-}: {
-  className?: string;
-  showRadialGradient?: boolean;
-}) => {
+}: AuroraBackgroundProps) => {
   return (
-    <motion.div
-      className={cn(
-        "relative flex h-[100vh] flex-col items-center justify-center text-slate-950",
-        className,
-      )}
-      {...props}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className="absolute inset-0 overflow-hidden">
+    <main>
+      <div
+        className={cn(
+          "transition-bg relative flex h-[100vh] flex-col items-center justify-center bg-zinc-50 text-slate-950 dark:bg-zinc-900",
+          className,
+        )}
+        {...props}
+      >
         <div
-          className={cn(
-            `pointer-events-none absolute -inset-[10px] [background-image:var(--white-gradient),var(--aurora)] [background-size:300%,_200%] [background-position:50%_50%,50%_50%] opacity-50 blur-[10px] invert filter [--aurora:repeating-linear-gradient(100deg,var(--slate-500)_10%,var(--slate-600)_15%,var(--slate-400)_20%,var(--slate-300)_25%,var(--slate-700)_30%)] [--dark-gradient:repeating-linear-gradient(100deg,var(--slate-800)_0%,var(--slate-800)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--slate-800)_16%)] [--white-gradient:repeating-linear-gradient(100deg,var(--slate-200)_0%,var(--slate-200)_7%,var(--transparent)_10%,var(--transparent)_12%,var(--slate-200)_16%)] after:absolute after:inset-0 after:[background-image:var(--white-gradient),var(--aurora)] after:[background-size:200%,_100%] after:content-[""] dark:[background-image:var(--dark-gradient),var(--aurora)] dark:invert-0 dark:after:[background-image:var(--dark-gradient),var(--aurora)]`,
-
-            showRadialGradient &&
-              `[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,var(--transparent)_70%)]`,
-          )}
-        ></div>
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            "--aurora": "repeating-linear-gradient(100deg,#3b82f6 10%,#a5b4fc 15%,#93c5fd 20%,#ddd6fe 25%,#60a5fa 30%)",
+            "--dark-gradient": "repeating-linear-gradient(100deg,#000 0%,#000 7%,transparent 10%,transparent 12%,#000 16%)",
+            "--white-gradient": "repeating-linear-gradient(100deg,#f1f1f1 0%,#fff 7%,transparent 10%,transparent 12%,#fff 16%)",
+          } as React.CSSProperties}
+        >
+          <div
+            className={cn(
+              "pointer-events-none absolute -inset-[10px]",
+              "opacity-50 blur-[10px]",
+              "[background-image:var(--white-gradient),var(--aurora)]",
+              "[background-size:300%,200%]",
+              "animate-aurora",
+              "dark:[background-image:var(--dark-gradient),var(--aurora)]",
+              showRadialGradient &&
+                "[mask-image:radial-gradient(ellipse_at_100%_0%,black_10%,transparent_70%)]"
+            )}
+          />
+        </div>
+        {children}
       </div>
-    </motion.div>
+    </main>
   );
 };
