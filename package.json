@@ -60,7 +60,30 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.8.2"
   },
+  "overrides": {
+    "semver": "^7.7.1",
+    "path-to-regexp": "^8.2.0",
+    "prismjs": "^1.30.0",
+    "esbuild": "^0.25.2",
+    "undici": "^7.7.0",
+    "tar": "^7.4.3",
+    "cookie": "^1.0.2",
+    "debug": "^4.4.0",
+    "glob": "^11.0.0"
+  },
   "pnpm": {
+    "overrides": {
+      "semver": "^7.7.1",
+      "path-to-regexp": "^8.2.0",
+      "prismjs": "^1.30.0",
+      "esbuild": "^0.25.2",
+      "undici": "^7.7.0",
+      "tar": "^7.4.3",
+      "cookie": "^1.0.2",
+      "debug": "^4.4.0",
+      "glob": "^11.0.0",
+      "@darkroom.engineering/tempus": "npm:tempus@latest"
+    },
     "ignoredBuiltDependencies": [
       "core-js",
       "esbuild",
