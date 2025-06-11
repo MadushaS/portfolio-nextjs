@@ -69,7 +69,7 @@ export default function TechStack(props: Readonly<HTMLProps<HTMLDivElement>>) {
               {languagesAndFrameworks.map((tech, index) => (
                 <div
                   key={index}
-                  className="text-x bg-popover border-border/90 mx-4 h-16 w-16 rounded-md border p-2"
+                  className="text-x bg-popover border-border/90 group relative mx-4 flex h-16 w-16 items-center justify-center rounded-xl border p-2 shadow-sm transition-shadow duration-300 hover:shadow-lg"
                 >
                   <TechIcon name={tech.name} />
                 </div>
@@ -85,8 +85,8 @@ export default function TechStack(props: Readonly<HTMLProps<HTMLDivElement>>) {
             >
               {toolsAndPlatforms.map((tech, index) => (
                 <div
-                  key={index}
-                  className="text-x bg-popover border-border/90 mx-4 h-16 w-16 rounded-md border p-2"
+                  key={index} 
+                  className="text-x bg-popover border-border/90 group relative mx-4 flex h-16 w-16 items-center justify-center rounded-xl border p-2 shadow-sm transition-shadow duration-300 hover:shadow-lg"
                 >
                   <TechIcon name={tech.name} />
                 </div>
@@ -101,15 +101,14 @@ export default function TechStack(props: Readonly<HTMLProps<HTMLDivElement>>) {
 
 function TechIcon({ name }: Readonly<{ name: string }>) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-12 w-12"
-      width="50"
-      height="50"
-      aria-label={`${name} icon`}
-    >
-      <use xlinkHref={`#${name}`} href={`#${name}`} />
-    </svg>
+    <div className="group relative flex flex-col items-center">
+      <svg className="mx-auto h-10 w-10" aria-hidden="true">
+        <use href={`#${name}`} />
+      </svg>
+      <span className="bg-card text-muted-foreground pointer-events-none absolute -bottom-8 left-1/2 z-10 -translate-x-1/2 rounded px-2 py-1 text-xs font-medium opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+        {name.charAt(0).toUpperCase() + name.slice(1)}
+      </span>
+    </div>
   );
 }
 

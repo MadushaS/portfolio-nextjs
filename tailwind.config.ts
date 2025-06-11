@@ -53,6 +53,14 @@ module.exports = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "float-delayed": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-30px)" },
+        },
         marquee: {
           from: {
             transform: "translateX(0)",
@@ -122,6 +130,8 @@ module.exports = {
         aurora: "aurora 60s linear infinite",
         marquee: "marquee 50s linear infinite",
         "marquee-reverse": "marqueeReverse 50s linear infinite",
+        float: "float 6s ease-in-out infinite",
+        "float-delayed": "float 8s ease-in-out infinite 2s",
       },
     },
   },

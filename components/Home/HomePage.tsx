@@ -14,7 +14,7 @@ import ExperienceSection from "./Experince";
 export default function HomePage() {
   return (
     <>
-      <AuroraBackground className="absolute inset-0 overflow-hidden" />
+      <AuroraBackground variant="classic" className="absolute inset-0 overflow-hidden" />
       <Hero id="home" />
       <Services id="services" />
       <TechStack id="techstack" />

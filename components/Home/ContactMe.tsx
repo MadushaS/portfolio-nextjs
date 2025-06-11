@@ -1,6 +1,6 @@
 "use client";
 
-import { LoaderCircle, MailCheck, MailX } from "lucide-react";
+import { LoaderCircle, MailCheck, MailX, User } from "lucide-react";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -26,29 +26,24 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "../ui/textarea";
 import { WEB3FORM_ACCESS_KEY } from "@/lib/env";
+import SectionContainer from "../shared/SectionContainer";
+
 
 export default function ContactMe(
   props: Readonly<React.HTMLProps<HTMLDivElement>>,
 ) {
   return (
-    <section className="container my-8 px-4" {...props}>
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl shadow-lg lg:grid lg:grid-cols-5">
-        <div className="bg-card px-4 py-16 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
-          <div className="mx-auto max-w-lg">
-            <h2 className="text-card-foreground text-2xl font-extrabold tracking-tight sm:text-3xl">
-              Get in touch
-            </h2>
-            <p className="text-card-foreground/60 mt-3 text-lg leading-6">
-              Feel free to reach out to me using the contact information below.
-              I would love to hear from you!
-            </p>
-          </div>
-        </div>
-        <div className="bg-accent px-4 py-16 sm:px-6 lg:col-span-3 lg:px-8 lg:py-24 xl:pl-12">
+    <SectionContainer
+      {...props}
+      title="Let's Work Together"
+      subtitle="Ready to bring your next project to life? Let's connect!"
+    >
+      <div className="mx-auto max-w-2xl">
+        <div className="glass-effect rounded-2xl p-8">
           <FormComponent />
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }
 
@@ -115,45 +110,62 @@ function FormComponent() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="yourname@gmail.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Phone</FormLabel>
-              <FormControl>
-                <Input placeholder="Phone" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  Name
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Your name"
+                    className="transition-all focus:ring-2 focus:ring-primary/20"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="yourname@gmail.com"
+                    className="transition-all focus:ring-2 focus:ring-primary/20"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Phone</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Phone"
+                    className="transition-all focus:ring-2 focus:ring-primary/20"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
         <FormField
           control={form.control}
           name="message"
@@ -161,13 +173,21 @@ function FormComponent() {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea placeholder="Message" {...field} />
+                <Textarea
+                  placeholder="Message"
+                  className="transition-all focus:ring-2 focus:ring-primary/20"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={status === contactStatuses.loading}>
+        <Button
+          type="submit"
+          disabled={status === contactStatuses.loading}
+          className="w-full transition-all hover:scale-105"
+        >
           {status === contactStatuses.loading ? (
             <span className="flex gap-2">
               <LoaderCircle size={24} className="animate-spin" /> Sending...

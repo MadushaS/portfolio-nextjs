@@ -1,29 +1,56 @@
+import { cn } from "@/lib/utils";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+interface SectionContainerProps {
+  id?: string;
+  title: string;
+  subtitle?: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
 export default function SectionContainer({
   id,
   title,
   subtitle,
   children,
-}: Readonly<{
-  id: string;
-  title: string;
-  subtitle?: string;
-  children: React.ReactNode;
-}>) {
+  className,
+}: SectionContainerProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id={id} className="w-full">
-      <div className="container rounded-lg p-2 px-4 py-4 md:px-6 md:py-8 lg:py-16">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              {title}
-            </h2>
-            <p className="text-card-foreground max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+    <section
+      id={id}
+      ref={ref}
+      className={cn("py-24 px-4 sm:px-6 lg:px-8", className)}
+    >
+      <div className="mx-auto max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16 text-center"
+        >
+          <h2 className="text-gradient mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
+            {title}
+          </h2>
+          {subtitle && (
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               {subtitle}
             </p>
-          </div>
-        </div>
+          )}
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {children}
+        </motion.div>
       </div>
-      <div className="mx-auto">{children}</div>
     </section>
   );
 }

@@ -1,12 +1,12 @@
-import NavBar from "@/components/shared/Navbar";
+import FloatingNav from "@/components/shared/FlotingNav";
 
 export default function Layout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <NavBar />
-      <div className="mt-4 sm:-mt-8 md:-mt-12 lg:-mt-16 xl:-mt-16">
+      <FloatingNav />
+      <div className="flex min-h-screen flex-col">
         {children}
       </div>
     </>

@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { SiGithub } from "react-icons/si";
+import { motion } from "framer-motion";
 
 export default function ProjectCard({
   title,
@@ -24,7 +25,10 @@ export default function ProjectCard({
   index,
 }: ProjectType & { index: number }) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
       className={cn(
         "group/project border-border bg-card hover:bg-accent/30 relative flex flex-col pt-10 transition-colors duration-600 ease-in-out lg:border-r",
         (index === 0 || index === 3) && "border-border lg:border-l",
@@ -84,7 +88,8 @@ export default function ProjectCard({
               href={githubRepo}
               prefetch={false}
               target="_blank"
-              className="flex items-center"
+              className="flex items-center cursor-pointer"
+              rel="noopener noreferrer"
             >
               <SiGithub className="mr-2 h-5 w-5" />
               View Project
@@ -99,7 +104,8 @@ export default function ProjectCard({
               href={demoLink}
               prefetch={true}
               target="_blank"
-              className="flex items-center"
+              className="flex items-center cursor-pointer"
+              rel="noopener noreferrer"
             >
               <RocketIcon className="mr-2 h-5 w-5" />
               Live Demo
@@ -109,6 +115,6 @@ export default function ProjectCard({
           <span />
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
