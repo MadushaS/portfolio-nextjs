@@ -72,6 +72,8 @@ export default function About(
                 src={MyImage}
                 alt="Profile picture"
                 width={400}
+                height={400}
+                priority
               />
               <div className="bg-primary absolute inset-0 mix-blend-multiply" />
               <div className="absolute inset-0 bg-linear-to-t from-slate-600 via-slate-600 opacity-70 dark:from-slate-800 dark:via-slate-800" />

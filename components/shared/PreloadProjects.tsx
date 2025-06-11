@@ -12,7 +12,7 @@ export default function PreloadProjects({
         });
       }
     });
-  }); // Add projects as a dependency
+  }, [projects]);
 
   return <></>;
 }

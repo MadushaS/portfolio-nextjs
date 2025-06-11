@@ -7,7 +7,7 @@ import Services from "./Services";
 import TechStack from "./TechStack";
 import TopArticles from "./TopArticles";
 import { AuroraBackground } from "../ui/Aurora";
-import ContactMe from "./ConatctMe";
+import ContactMe from "./ContactMe";
 import React from "react";
 import ExperienceSection from "./Experince";
 

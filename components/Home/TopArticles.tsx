@@ -8,6 +8,8 @@ import { HTMLProps, useEffect, useState } from "react";
 import FeaturedBlog from "../Blog/FeaturedBlog";
 import SectionContainer from "../shared/SectionContainer";
 
+const TOP_ARTICLES_COUNT = 3;
+
 export default function TopArticles(
   props: Readonly<HTMLProps<HTMLDivElement>>,
 ) {
@@ -15,9 +17,15 @@ export default function TopArticles(
   const [loading, setLoading] = useState(true);
 
   const fetchPosts = async () => {
-    const posts = await getTopArticles();
-    setPosts(posts);
-    setLoading(false);
+    try {
+      const posts = await getTopArticles();
+      setPosts(posts);
+    } catch (error) {
+      console.error("Failed to fetch posts:", error);
+      setPosts([]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -42,7 +50,7 @@ async function getTopArticles() {
   const GetTopPostsSortByDate = `*[_type == "post"]{_id, title, description, publishedAt, author -> { name }, slug, categories[] -> { title }, mainImage}| order(publishedAt desc)`;
   const posts = await client.fetch(GetTopPostsSortByDate);
   if (!posts) return [];
-  return posts.slice(0, 3).map((post: SanityPost) => {
+  return posts.slice(0, TOP_ARTICLES_COUNT).map((post: SanityPost) => {
     return {
       ...post,
       publishedAt: format(new Date(post.publishedAt), "MMMM dd, yyyy"),

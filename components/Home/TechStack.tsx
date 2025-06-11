@@ -106,6 +106,7 @@ function TechIcon({ name }: Readonly<{ name: string }>) {
       className="h-12 w-12"
       width="50"
       height="50"
+      aria-label={`${name} icon`}
     >
       <use xlinkHref={`#${name}`} href={`#${name}`} />
     </svg>

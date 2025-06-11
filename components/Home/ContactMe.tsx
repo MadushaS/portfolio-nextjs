@@ -94,15 +94,20 @@ function FormComponent() {
         method: "POST",
         body: formData,
       });
-      const data = await response.json();
 
-      if (data.success) {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      if (result.success) {
         setStatus(contactStatuses.submitted);
         form.reset();
       } else {
-        setStatus(contactStatuses.error);
+        throw new Error(result.message || "Form submission failed");
       }
-    } catch (e) {
+    } catch (error) {
+      console.error("Form submission error:", error);
       setStatus(contactStatuses.error);
     }
   };
