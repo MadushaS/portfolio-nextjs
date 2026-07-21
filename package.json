@@ -22,7 +22,7 @@
 		"@fontsource/ibm-plex-sans": "^5.2.8",
 		"@sanity/client": "^7.23.0",
 		"@sanity/image-url": "^2.1.1",
-		"astro": "^6.4.8",
+		"astro": "^7.1.0",
 		"astro-portabletext": "^0.13.0",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
