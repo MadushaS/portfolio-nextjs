@@ -198,8 +198,15 @@
 		box-sizing: border-box;
 		border-color: hsl(var(--border));
 	}
-	html {
-		scroll-behavior: smooth;
+	html.lenis,
+	html.lenis body {
+		height: auto;
+	}
+	.lenis.lenis-smooth {
+		scroll-behavior: auto !important;
+	}
+	.lenis.lenis-stopped {
+		overflow: hidden;
 	}
 	body {
 		margin: 0;
@@ -418,12 +425,6 @@
 	}
 
 	/* Smooth scroll behavior with reduced motion support */
-	@media (prefers-reduced-motion: no-preference) {
-		html {
-			scroll-behavior: smooth;
-		}
-	}
-
 	@media (prefers-reduced-motion: reduce) {
 		*,
 		*::before,

@@ -1,10 +1,79 @@
 ---
 import { techCategories } from "../../data/techstack";
 import SectionContainer from "../shared/SectionContainer.astro";
+
+// CSS-only tabs for mobile: hidden radios + labels, no JS needed.
+// One rule per category generated below; desktop keeps the full grid.
+const tabCss = techCategories
+	.map(
+		(_, i) => `
+#tech-tab-${i}:checked ~ .tech-panels #tech-panel-${i} { display: block; }
+#tech-tab-${i}:checked ~ .tech-tab-nav label[for="tech-tab-${i}"] {
+	background: hsl(var(--primary));
+	color: hsl(var(--primary-foreground));
+	border-color: hsl(var(--primary));
+	box-shadow: inset 0 -3px 0 0 hsl(var(--foreground));
+}`,
+	)
+	.join("\n");
 ---
 
 <SectionContainer id="techstack" title="Tech Stack" subtitle="The tools I use to build reliable, scalable systems.">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-2 border-border bg-card">
+  {/* Mobile: compact tabs */}
+  <div class="md:hidden border-2 border-border bg-card">
+    {techCategories.map((_, i) => (
+      <input
+        type="radio"
+        name="techstack-tab"
+        id={`tech-tab-${i}`}
+        class="sr-only tech-tab-input"
+        checked={i === 0}
+      />
+    ))}
+
+    <div class="tech-tab-nav flex flex-wrap border-b-2 border-border" role="tablist" aria-label="Tech stack categories">
+      {techCategories.map((category, i) => (
+        <label
+          for={`tech-tab-${i}`}
+          role="tab"
+          class="grow px-3 py-2.5 text-center text-[11px] font-bold uppercase tracking-widest text-muted-foreground border-r-2 border-b-2 border-border cursor-pointer select-none transition-colors"
+        >
+          {category.category}
+        </label>
+      ))}
+    </div>
+
+    <div class="tech-panels">
+      {techCategories.map((category, i) => (
+        <div id={`tech-panel-${i}`} role="tabpanel" class="hidden p-4 space-y-3">
+          {category.techs.map((tech) => (
+            <div class="flex items-center justify-between group/item">
+              <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 flex items-center justify-center bg-background border-2 border-border">
+                  <img
+                    src={tech.logo}
+                    alt={`${tech.name} logo`}
+                    class="w-6 h-6 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <span class="text-sm font-bold text-foreground">
+                  {tech.name}
+                </span>
+              </div>
+              <div class="h-1.5 w-1.5 rounded-full bg-primary"></div>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <style is:inline set:html={tabCss}></style>
+  </div>
+
+  {/* Desktop: full grid */}
+  <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-0 border-2 border-border bg-card">
     {techCategories.map((category) => (
       <div
         class="group border-b-2 border-border last:border-b-0 md:border-b-2 md:last:border-b-0 md:nth-2:border-b-0 lg:border-b-0 lg:border-r-2 lg:last:border-r-0"
@@ -27,6 +96,7 @@ import SectionContainer from "../shared/SectionContainer.astro";
                     alt={`${tech.name} logo`}
                     class="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 object-contain opacity-70 grayscale group-hover/item:grayscale-0 group-hover/item:opacity-100 group-hover/item:scale-110 transition-all"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <span class="text-sm md:text-base font-bold text-foreground group-hover/item:text-primary transition-colors">

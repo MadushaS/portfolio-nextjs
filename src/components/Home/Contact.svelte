@@ -1,27 +1,29 @@
 <script lang="ts">
-import { WEB3FORM_ACCESS_KEY } from "../../lib/env";
-
 let status = $state("");
+let errorMessage = $state("");
 
 async function handleSubmit(e: SubmitEvent) {
 	e.preventDefault();
 	status = "loading";
+	errorMessage = "";
 
 	const form = e.target as HTMLFormElement;
 	const formData = new FormData(form);
-	formData.append("access_key", WEB3FORM_ACCESS_KEY);
+	const payload = Object.fromEntries(formData.entries());
 
 	try {
-		const response = await fetch("https://api.web3forms.com/submit", {
+		const response = await fetch("/api/contact", {
 			method: "POST",
-			body: formData,
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(payload),
 		});
 		const result = await response.json();
-		if (result.success) {
+		if (response.ok && result.success) {
 			status = "submitted";
 			form.reset();
 			setTimeout(() => (status = ""), 5000);
 		} else {
+			errorMessage = result.error || "";
 			status = "error";
 		}
 	} catch (err) {
@@ -58,7 +60,7 @@ async function handleSubmit(e: SubmitEvent) {
           required
           placeholder="John Doe"
           autocomplete="name"
-          class="flex h-12 w-full border-2 border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-3 text-sm font-medium placeholder:text-[hsl(var(--muted-foreground))]/60 placeholder:font-normal focus-visible:outline-none focus-visible:border-[hsl(var(--primary))] focus-visible:ring-3 focus-visible:ring-[hsl(var(--primary))]/20 transition-all hover:border-[hsl(var(--border))]/60 invalid:border-red-500/50"
+          class="flex h-12 w-full border-2 border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-3 text-sm font-medium placeholder:text-[hsl(var(--muted-foreground))]/60 placeholder:font-normal focus-visible:outline-none focus-visible:border-[hsl(var(--primary))] focus-visible:ring-3 focus-visible:ring-[hsl(var(--primary))]/20 transition-all hover:border-[hsl(var(--border))]/60 user-invalid:border-red-500/60 user-invalid:ring-3 user-invalid:ring-red-500/10"
         />
       </div>
       <div class="space-y-2">
@@ -75,7 +77,7 @@ async function handleSubmit(e: SubmitEvent) {
           required
           placeholder="john@example.com"
           autocomplete="email"
-          class="flex h-12 w-full border-2 border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-3 text-sm font-medium placeholder:text-[hsl(var(--muted-foreground))]/60 placeholder:font-normal focus-visible:outline-none focus-visible:border-[hsl(var(--primary))] focus-visible:ring-3 focus-visible:ring-[hsl(var(--primary))]/20 transition-all hover:border-[hsl(var(--border))]/60 invalid:border-red-500/50"
+          class="flex h-12 w-full border-2 border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-3 text-sm font-medium placeholder:text-[hsl(var(--muted-foreground))]/60 placeholder:font-normal focus-visible:outline-none focus-visible:border-[hsl(var(--primary))] focus-visible:ring-3 focus-visible:ring-[hsl(var(--primary))]/20 transition-all hover:border-[hsl(var(--border))]/60 user-invalid:border-red-500/60 user-invalid:ring-3 user-invalid:ring-red-500/10"
         />
       </div>
     </div>
@@ -97,6 +99,12 @@ async function handleSubmit(e: SubmitEvent) {
       />
     </div>
 
+    <!-- Honeypot: hidden from humans, bots fill it and get silently dropped -->
+    <div class="hidden" aria-hidden="true">
+      <label for="company">Company</label>
+      <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
     <div class="space-y-2">
       <label
         for="message"
@@ -110,7 +118,7 @@ async function handleSubmit(e: SubmitEvent) {
         required
         placeholder="Tell me about your project, timeline, and what you're looking to build..."
         rows="6"
-        class="flex w-full border-2 border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-3 text-sm font-medium placeholder:text-[hsl(var(--muted-foreground))]/60 placeholder:font-normal focus-visible:outline-none focus-visible:border-[hsl(var(--primary))] focus-visible:ring-3 focus-visible:ring-[hsl(var(--primary))]/20 resize-none transition-all hover:border-[hsl(var(--border))]/60 invalid:border-red-500/50"
+        class="flex w-full border-2 border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-3 text-sm font-medium placeholder:text-[hsl(var(--muted-foreground))]/60 placeholder:font-normal focus-visible:outline-none focus-visible:border-[hsl(var(--primary))] focus-visible:ring-3 focus-visible:ring-[hsl(var(--primary))]/20 resize-none transition-all hover:border-[hsl(var(--border))]/60 user-invalid:border-red-500/60 user-invalid:ring-3 user-invalid:ring-red-500/10"
       ></textarea>
       <div class="text-xs text-[hsl(var(--muted-foreground))] font-mono">
         Minimum 20 characters
@@ -228,8 +236,8 @@ async function handleSubmit(e: SubmitEvent) {
             Sending Failed
           </div>
           <div class="text-sm text-[hsl(var(--muted-foreground))]">
-            There was an error sending your message. Please try again or email
-            me directly.
+            {errorMessage ||
+              "There was an error sending your message. Please try again or email me directly."}
           </div>
         </div>
       </div>

@@ -24,3 +24,7 @@ pnpm-debug.log*
 .idea/
 
 .wrangler
+
+
+.env*
+!.env.example

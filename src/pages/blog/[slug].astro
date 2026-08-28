@@ -47,65 +47,125 @@ interface Props {
 }
 
 const { post } = Astro.props as Props;
+
+// Compute reading time from Portable Text blocks (~200 wpm).
+function readingTime(body: any): number {
+	if (!Array.isArray(body)) return 1;
+	const words = body
+		.filter((b: any) => b?._type === "block" && Array.isArray(b.children))
+		.flatMap((b: any) => b.children.map((c: any) => c?.text ?? ""))
+		.join(" ")
+		.split(/\s+/)
+		.filter(Boolean).length;
+	return Math.max(1, Math.round(words / 200));
+}
+
+const readMinutes = post ? readingTime(post.body) : 0;
+const publishedDate = post?.publishedAt
+	? new Date(post.publishedAt).toLocaleDateString("en-US", {
+			month: "long",
+			day: "numeric",
+			year: "numeric",
+		})
+	: "";
+const heroImage = post?.mainImage
+	? urlFor(post.mainImage).width(1600).height(760).auto("format").url()
+	: undefined;
 ---
 
-<Layout title={post?.title ? `${post.title} - Madusha Sandaruwan` : 'Blog Post'} description={post?.excerpt || 'Blog post'}>
+<Layout
+	title={post?.title ? `${post.title} - Madusha Sandaruwan` : "Blog Post"}
+	description={post?.excerpt || "Blog post"}
+	image={heroImage}
+	type="article"
+	publishedAt={post?.publishedAt}
+>
   <Navbar client:load />
 
+  {/* Reading progress bar */}
+  <div
+    id="reading-progress"
+    class="fixed top-0 left-0 h-1 bg-primary z-50 w-0 transition-[width] duration-100 ease-out"
+    aria-hidden="true"
+  ></div>
+
   {post ? (
-    <main class="pt-32 pb-24 min-h-screen">
-      <article class="container-custom max-w-5xl mx-auto">
-        <header class="mb-16 border-b-2 border-border pb-12">
-          <div class="flex flex-wrap items-center gap-6 mb-8 text-sm font-mono uppercase tracking-wider text-muted-foreground">
-            <div class="flex items-center gap-2">
-              <span class="text-primary font-bold">/</span>
-              <span>{post.categories?.[0] || 'Tech'}</span>
-            </div>
-            <span class="w-px h-3 bg-border"></span>
-            <time datetime={post.publishedAt}>
-              {new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-            </time>
-            <span class="w-px h-3 bg-border"></span>
-            <span>5 min read</span>
+    <main id="main-content" class="pt-24 md:pt-32 pb-24 min-h-screen">
+      <article class="container-custom">
+        {/* Back link */}
+        <nav class="max-w-3xl mx-auto mb-10">
+          <a
+            href="/blog"
+            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-1"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+            All articles
+          </a>
+        </nav>
+
+        {/* Header */}
+        <header class="max-w-3xl mx-auto mb-12">
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            {(post.categories ?? ["Tech"]).map((cat) => (
+              <span class="px-3 py-1 text-[11px] font-bold uppercase tracking-widest border-2 border-border text-muted-foreground">
+                {cat}
+              </span>
+            ))}
           </div>
 
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-12 leading-[0.9] tracking-tighter uppercase text-balance">
+          <h1 class="text-3xl md:text-5xl font-bold leading-[1.08] tracking-tight text-balance mb-8">
             {post.title}
           </h1>
 
-          {post.mainImage && (
-            <div class="w-full aspect-21/9 bg-secondary/20 border-2 border-border overflow-hidden mb-12">
-              <img
-                src={urlFor(post.mainImage).width(1200).height(600).auto('format').url()}
-                srcset={`
-                  ${urlFor(post.mainImage).width(640).height(320).auto('format').url()} 640w,
-                  ${urlFor(post.mainImage).width(1200).height(600).auto('format').url()} 1200w,
-                  ${urlFor(post.mainImage).width(2000).height(1000).auto('format').url()} 2000w
-                `}
-                sizes="(max-width: 768px) 100vw, 80vw"
-                alt={post.title}
-                class="w-full h-full object-cover"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
+          {post.excerpt && (
+            <p class="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty mb-8">
+              {post.excerpt}
+            </p>
           )}
 
-          <div class="flex items-center justify-between">
+          {/* Meta row */}
+          <div class="flex flex-wrap items-center justify-between gap-4 py-5 border-y-2 border-border">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-lg">
-                {post.author ? post.author.charAt(0) : 'M'}
+              <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
+                {(post.author || "Madusha Sandaruwan").charAt(0)}
               </div>
               <div class="flex flex-col">
-                <span class="text-sm font-bold uppercase tracking-wider">{post.author || 'Madusha Sandaruwan'}</span>
-                <span class="text-xs text-muted-foreground font-mono">Author</span>
+                <span class="text-sm font-bold">{post.author || "Madusha Sandaruwan"}</span>
+                <span class="text-xs text-muted-foreground">Author</span>
               </div>
+            </div>
+            <div class="flex items-center gap-4 text-xs font-mono uppercase tracking-wider text-muted-foreground">
+              <time datetime={post.publishedAt}>{publishedDate}</time>
+              <span class="w-px h-3 bg-border"></span>
+              <span>{readMinutes} min read</span>
             </div>
           </div>
         </header>
 
-        <!-- Blog Content -->
-        <div class="max-w-4xl mx-auto mb-24">
+        {/* Hero image */}
+        {post.mainImage && (
+          <figure class="max-w-5xl mx-auto mb-16">
+            <div class="aspect-21/9 bg-secondary/20 border-2 border-border overflow-hidden">
+              <img
+                src={heroImage}
+                srcset={`
+                  ${urlFor(post.mainImage).width(640).height(320).auto("format").url()} 640w,
+                  ${urlFor(post.mainImage).width(1200).height(570).auto("format").url()} 1200w,
+                  ${urlFor(post.mainImage).width(1600).height(760).auto("format").url()} 1600w
+                `}
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                alt={post.title}
+                class="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </div>
+          </figure>
+        )}
+
+        {/* Body */}
+        <div class="max-w-3xl mx-auto">
           <div class="blog-content text-foreground/90">
             <PortableText
               value={post.body}
@@ -116,27 +176,54 @@ const { post } = Astro.props as Props;
               }}
             />
           </div>
-        </div>
 
-        <div class="pt-12 border-t-2 border-border max-w-3xl mx-auto">
-          <a
-            href="/blog"
-            class="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-foreground hover:text-primary transition-colors group"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-1"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-            Back to Engineering Log
-          </a>
+          {/* Footer / author card */}
+          <footer class="mt-16 pt-10 border-t-2 border-border">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-5 p-6 border-2 border-border bg-card">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-2xl shrink-0">
+                {(post.author || "Madusha Sandaruwan").charAt(0)}
+              </div>
+              <div class="flex-1">
+                <p class="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">Written by</p>
+                <p class="font-bold text-lg">{post.author || "Madusha Sandaruwan"}</p>
+                <p class="text-sm text-muted-foreground">Software engineer building resilient systems and cloud architecture.</p>
+              </div>
+              <a
+                href="/blog"
+                class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors shrink-0"
+              >
+                More articles
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </footer>
         </div>
       </article>
     </main>
   ) : (
-    <main class="pt-32 pb-24 min-h-screen">
-      <article class="container-custom max-w-5xl mx-auto">
+    <main id="main-content" class="pt-32 pb-24 min-h-screen">
+      <article class="container-custom max-w-3xl mx-auto">
         <header class="mb-16 border-b-2 border-border pb-12">
           <h1 class="text-3xl font-bold">Post not found</h1>
-          <p class="text-muted-foreground">The requested post could not be found. Try visiting the <a href="/blog">blog index</a>.</p>
+          <p class="text-muted-foreground">The requested post could not be found. Try visiting the <a href="/blog" class="text-primary underline underline-offset-4">blog index</a>.</p>
         </header>
       </article>
     </main>
   )}
+
+  <script is:inline>
+    (function () {
+      const bar = document.getElementById("reading-progress");
+      if (!bar) return;
+      function update() {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
+        bar.style.width = pct + "%";
+      }
+      window.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    })();
+  </script>
 </Layout>

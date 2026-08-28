@@ -4,23 +4,30 @@ import "@fontsource/ibm-plex-sans/600.css";
 import "@fontsource/ibm-plex-sans/700.css";
 import "@fontsource-variable/chivo";
 import "../styles/global.css";
+import CookieConsent from "../components/CookieConsent.astro";
+import PostHog from "../components/PostHog.astro";
 import Footer from "../components/shared/Footer.astro";
 import SEO from "../components/shared/SEO.astro";
 
 interface Props {
 	title: string;
 	description?: string;
+	image?: string;
+	type?: "website" | "article";
+	publishedAt?: string;
 }
 
-const { title, description = "Madusha Sandaruwan - Portfolio" } = Astro.props;
+const { title, description = "Madusha Sandaruwan - Portfolio", image, type, publishedAt } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <SEO title={title} description={description} />
-    <!-- Preconnect to external domains for performance -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <SEO title={title} description={description} image={image} type={type} publishedAt={publishedAt} />
+    <!-- PostHog analytics (cookieless until consent) -->
+    <PostHog />
+    <!-- Preconnect to Sanity CDN (images served from there) -->
+    <link rel="preconnect" href="https://cdn.sanity.io" />
     <link rel="dns-prefetch" href="https://cdn.sanity.io" />
     <script is:inline>
       // Dark mode initialization
@@ -47,6 +54,7 @@ const { title, description = "Madusha Sandaruwan - Portfolio" } = Astro.props;
       import Lenis from "lenis";
 
       const lenis = new Lenis();
+      document.documentElement.classList.add("lenis", "lenis-smooth");
 
       function raf(time: number) {
         lenis.raf(time);
@@ -65,5 +73,6 @@ const { title, description = "Madusha Sandaruwan - Portfolio" } = Astro.props;
     </a>
     <slot />
     <Footer />
+    <CookieConsent />
   </body>
 </html>

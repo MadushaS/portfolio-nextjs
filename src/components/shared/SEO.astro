@@ -4,17 +4,90 @@ interface Props {
 	description?: string;
 	image?: string;
 	url?: string;
+	type?: "website" | "article";
+	publishedAt?: string;
 }
 
 const {
 	title,
 	description = "Madusha Sandaruwan - Software Engineer specializing in resilient systems and cloud architecture.",
-	image = "/og-image.png", // Ensure this exists or use a default
-	url = Astro.url.href,
+	image = "/og-image.png",
+	type = "website",
+	publishedAt,
 } = Astro.props;
 
 const siteName = "Madusha Sandaruwan";
 const twitterHandle = "@_MadushaS";
+const siteUrl = Astro.site ?? new URL("https://madusha.dev");
+
+// Canonical: absolute, trailing slash stripped (except root) to avoid dup URLs.
+const canonical = (() => {
+	const u = new URL(Astro.url.pathname, siteUrl);
+	if (u.pathname.length > 1 && u.pathname.endsWith("/")) {
+		u.pathname = u.pathname.slice(0, -1);
+	}
+	u.search = "";
+	u.hash = "";
+	return u.href;
+})();
+
+const imageUrl = new URL(image, siteUrl).href;
+const isArticle = type === "article";
+
+const personLd = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"@id": `${siteUrl.href}#person`,
+	name: siteName,
+	url: siteUrl.href,
+	image: imageUrl,
+	jobTitle: "Software Engineer",
+	description: description,
+	sameAs: [
+		"https://github.com/madushaS",
+		"https://linkedin.com/in/madushasandaruwan",
+		"https://x.com/_MadushaS",
+	],
+};
+
+const websiteLd = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"@id": `${siteUrl.href}#website`,
+	name: siteName,
+	url: siteUrl.href,
+	description: description,
+	publisher: { "@id": `${siteUrl.href}#person` },
+};
+
+const articleLd = isArticle
+	? {
+			"@context": "https://schema.org",
+			"@type": "BlogPosting",
+			headline: title,
+			description: description,
+			image: imageUrl,
+			url: canonical,
+			mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+			...(publishedAt ? { datePublished: publishedAt } : {}),
+			author: { "@id": `${siteUrl.href}#person` },
+			publisher: { "@id": `${siteUrl.href}#person` },
+			isPartOf: { "@id": `${siteUrl.href}#website` },
+		}
+	: null;
+
+// Breadcrumbs for article pages (helps SERP + LLM crawlers understand structure).
+const breadcrumbLd = isArticle
+	? {
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			itemListElement: [
+				{ "@type": "ListItem", position: 1, name: "Home", item: siteUrl.href },
+				{ "@type": "ListItem", position: 2, name: "Blog", item: new URL("/blog", siteUrl).href },
+				{ "@type": "ListItem", position: 3, name: title, item: canonical },
+			],
+		}
+	: null;
 ---
 
 <!-- Global Metadata -->
@@ -23,56 +96,50 @@ const twitterHandle = "@_MadushaS";
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font Preloading for better performance -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-<link rel="dns-prefetch" href="https://cdn.sanity.io" />
-
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<meta name="author" content="Madusha Sandaruwan" />
-<meta name="keywords" content="Software Engineer, Full-Stack Developer, Cloud Architecture, Systems Design, Madusha Sandaruwan, Web Development, Resilient Systems" />
+<meta name="author" content={siteName} />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={url} />
+<!-- Canonical -->
+<link rel="canonical" href={canonical} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
 <meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_US" />
+{isArticle && publishedAt && (
+	<meta property="article:published_time" content={publishedAt} />
+)}
+{isArticle && <meta property="article:author" content={siteName} />}
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
-<meta property="twitter:creator" content={twitterHandle} />
-
-<!-- Canonical URL -->
-<!-- Canonical URL -->
-<link rel="canonical" href={url} />
+<!-- Twitter (name=, not property=, per Twitter Cards spec) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={twitterHandle} />
+<meta name="twitter:creator" content={twitterHandle} />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={title} />
 
 <!-- Favicons & Theme -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
 
-<!-- Structured Data (JSON-LD) -->
-<script type="application/ld+json" is:inline set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Madusha Sandaruwan",
-  "url": url,
-  "image": new URL(image, Astro.url),
-  "jobTitle": "Software Engineer",
-  "description": description,
-  "sameAs": [
-    "https://github.com/madushas",
-    "https://linkedin.com/in/madushas",
-    "https://twitter.com/_MadushaS"
-  ]
-})} />
+<!-- Structured Data (JSON-LD, linked via @id graph) -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify(personLd)} />
+{!isArticle && <script type="application/ld+json" is:inline set:html={JSON.stringify(websiteLd)} />}
+{articleLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(articleLd)} />}
+{breadcrumbLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbLd)} />}

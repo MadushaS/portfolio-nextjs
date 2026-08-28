@@ -1,9 +1,11 @@
-export const apiVersion = import.meta.env.PUBLIC_SANITY_API_VERSION || "2024-06-17";
+import { PUBLIC_SANITY_DATASET, PUBLIC_SANITY_PROJECT_ID } from "astro:env/client";
 
-// Use fallback values for build-time when env vars are not set
-// In production, ensure these are set via your hosting platform
-export const dataset = import.meta.env.PUBLIC_SANITY_DATASET || "production";
-export const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID || "";
+export const apiVersion = "2024-06-17";
+
+// Fallbacks keep build-time rendering alive when env vars are unset.
+// In production, set these via your hosting platform (Cloudflare dashboard).
+export const dataset = PUBLIC_SANITY_DATASET || "production";
+export const projectId = PUBLIC_SANITY_PROJECT_ID || "";
 
 export const useCdn = false;
 

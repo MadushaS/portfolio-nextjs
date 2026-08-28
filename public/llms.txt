@@ -1,0 +1,21 @@
+# madusha.dev
+
+> Portfolio and engineering blog of Madusha Sandaruwan, a software engineer specializing in resilient systems, cloud architecture, and full-stack web development.
+
+## Site
+
+- [Home](https://madusha.dev): Overview, services, projects, experience, contact.
+- [Blog](https://madusha.dev/blog): Technical articles on systems design, software architecture, and building reliable products.
+
+## Contact
+
+- Email: work@madusha.dev
+- GitHub: https://github.com/madushaS
+- LinkedIn: https://linkedin.com/in/madushasandaruwan
+- X: https://x.com/_MadushaS
+
+## Notes for crawlers
+
+- Sitemap: https://madusha.dev/sitemap-index.xml
+- Blog posts are prerendered static HTML with full text in the initial response; no JavaScript required to read content.
+- Structured data: Person, WebSite, BlogPosting, and BreadcrumbList JSON-LD on all pages.

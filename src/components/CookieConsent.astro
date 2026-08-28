@@ -1,0 +1,64 @@
+---
+// Small consent banner wired to PostHog's native consent API.
+// Stores the decision in localStorage ("cookie-consent": accepted | rejected)
+// and calls posthog.opt_in_capturing() / opt_out_capturing(), which is the
+// pattern PostHog documents for cookieless_mode: "on_reject".
+---
+
+<div
+	id="cookie-consent"
+	class="fixed bottom-4 inset-x-4 sm:inset-x-auto sm:right-6 sm:max-w-sm z-modal hidden"
+	role="dialog"
+	aria-live="polite"
+	aria-label="Cookie consent"
+>
+	<div class="border-2 border-border bg-card p-5 shadow-lg">
+		<p class="text-sm font-bold uppercase tracking-wider mb-2">Cookies</p>
+		<p class="text-sm text-muted-foreground leading-relaxed mb-4">
+			I use privacy-friendly analytics (PostHog) to understand which content is
+			useful. Until you accept, tracking runs cookieless with no persistent
+			identifiers.
+		</p>
+		<div class="flex gap-3">
+			<button
+				id="cookie-accept"
+				type="button"
+				class="flex-1 px-4 py-2.5 text-xs font-bold uppercase tracking-widest bg-foreground text-background border-2 border-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground transition-colors"
+			>
+				Accept
+			</button>
+			<button
+				id="cookie-reject"
+				type="button"
+				class="flex-1 px-4 py-2.5 text-xs font-bold uppercase tracking-widest bg-transparent text-foreground border-2 border-border hover:border-foreground transition-colors"
+			>
+				Reject
+			</button>
+		</div>
+	</div>
+</div>
+
+<script is:inline>
+	(function () {
+		const KEY = "cookie-consent";
+		const banner = document.getElementById("cookie-consent");
+		if (!banner) return;
+
+		function decide(value) {
+			localStorage.setItem(KEY, value);
+			if (window.posthog) {
+				if (value === "accepted") window.posthog.opt_in_capturing();
+				else window.posthog.opt_out_capturing();
+			}
+			banner.classList.add("hidden");
+		}
+
+		document.getElementById("cookie-accept")?.addEventListener("click", () => decide("accepted"));
+		document.getElementById("cookie-reject")?.addEventListener("click", () => decide("rejected"));
+
+		// Only show when no decision stored yet.
+		if (!localStorage.getItem(KEY)) {
+			banner.classList.remove("hidden");
+		}
+	})();
+</script>
