@@ -1,12 +1,26 @@
-// wrangler.jsonc
 {
 	"name": "portfolio-astrojs",
-	"compatibility_date": "2026-06-27",
+	// Match the dashboard value — deploying an older date downgrades the runtime.
+	"compatibility_date": "2026-08-04",
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
 		"directory": "./dist",
 		"binding": "ASSETS"
+	},
+	"routes": [
+		{
+			"pattern": "madusha.dev",
+			"custom_domain": true
+		}
+	],
+	"vars": {
+		"PUBLIC_POSTHOG_KEY": "phc_xHNrjjZggUQbcoT5fBVJJgyLxtmdyzBSuzxCebGoR4KR",
+		"PUBLIC_POSTHOG_HOST": "https://eu.i.posthog.com",
+		"PUBLIC_SANITY_DATASET": "production",
+		"PUBLIC_SANITY_PROJECT_ID": "lgvxgf72",
+		"CONTACT_EMAIL": "hello@madusha.dev",
+		"TELEGRAM_CHAT_ID": "1396792964"
 	},
 	"observability": {
 		"enabled": true
